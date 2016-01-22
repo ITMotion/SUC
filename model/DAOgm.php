@@ -94,10 +94,32 @@
 			return $this->bd->executeSQL($sql);
 		}
 
+		//OBTIENE la última fila insertada en la tabla grupomateria
+		function getLastRowInserted() {
+			$sql = "SELECT id FROM grupomateria ORDER BY id DESC LIMIT 1;";
+			$this->bd->selectSQL($sql);
+			if (!empty($this->bd->rowresult)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		//establece los días que aplican a la materia
 		function setDays($materia, $dias) {
 			for ($i=0; $i < count($dias); $i++) { 
 				$sql = "INSERT INTO diasmaterias VALUES (null, '".$materia."', '".$dias[$i]."');";
 				$this->bd->executeSQL($sql);
+			}
+		}
+
+		function getDays($materia) {
+			$sql = "SELECT * FROM diasmaterias WHERE id = ".$materia.";";
+			$this->bd->selectSQL($sql);
+			if (!empty($this->bd->rowresult)) {
+				return true;
+			} else {
+				return false;
 			}
 		}
 	}
