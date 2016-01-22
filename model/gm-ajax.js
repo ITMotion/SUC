@@ -10,3 +10,7 @@ function getMateria(clave) {
     xhttp.open("GET", "GruposMateriasFrm2.php?codigo="+clave, true);
     xhttp.send();
 }
+
+function getInfoAssignment() {
+    alert("hola");
+}

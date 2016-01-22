@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Asignar materias</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/fonts-gm.css">
 	<?php 
 		include_once("../model/DAOgm.php"); 
 		$db = new DAOgm();
@@ -38,7 +37,7 @@
 							if(!empty($list)) {
 								foreach ($list as $row) { ?>
 						<tr>
-							<th><a href=""><img src="../image/icons/arrow-right2.png" alt=""></a></th>
+							<th><a id="btnSelect" onclick="getInfoAssignment()"><img src="../image/icons/select.png" onmouseover="this.src='../image/icons/select-onclick.png'" onmouseout="this.src='../image/icons/select.png'"></a></th>
 							<th><?php echo $row->grupo; ?></th>
 							<th><?php echo $row->descripcion ?></th>
 							<th><?php echo $row->paterno . " " . $row->materno . " " . $row->nombres; ?></th>
@@ -56,6 +55,7 @@
 			<div class="panel"></div>	
 		</div>
 	</div>
+	<script src="../model/gm-ajax.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
