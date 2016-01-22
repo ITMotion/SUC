@@ -1,0 +1,12 @@
+SELECT DISTINCT c.paterno, c.materno, c.nombres
+FROM `grupo-materia` AS a  INNER JOIN alumnos AS c ON a.idgrupo = c.grupo 
+WHERE a.idgrupo = 'SI52' ORDER BY c.paterno ASC;
+
+
+SELECT DISTINCT B.dia 
+FROM `grupo-materia` A JOIN calendario B ON a.dia1 = b. `dia-semana` OR a.dia2 = b.`dia-semana` OR a.dia3 = b.`dia-semana` OR a.dia4 = b.`dia-semana` 
+WHERE A.idgrupo = 'SI52' AND A.idmateria = 0001 ORDER BY B.id ASC;
+
+SELECT b.paterno, b.materno, b.nombres
+FROM `grupo-materia` A INNER JOIN profesores B ON A.idprofesor = B.matricula 
+WHERE idgrupo = 'SI52' AND idmateria = 0001;
