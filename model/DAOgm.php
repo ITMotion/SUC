@@ -32,6 +32,25 @@
 			}
 		}
 
+		function getGmDetailedInfo($id) {
+			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, PR.paterno, PR.materno, PR.nombres
+				FROM grupomateria GM 
+				INNER JOIN grupos GR 
+					ON GM.idgrupo = GR.grupo 
+				INNER JOIN materias MT 
+					ON GM.idmateria = MT.clave 
+				INNER JOIN profesores PR 
+					ON GM.idprofesor = PR.matricula
+					WHERE GM.id = ".$id.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
 		//obtiene un listado de carreras
 		function getCarreras() {
 			$sql = "SELECT * FROM carreras;";
