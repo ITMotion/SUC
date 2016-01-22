@@ -17,6 +17,11 @@
 					</div>
 				</div>
 			</div>
+			<div id="image1">
+				<div class="col-md-12">
+					<img src="image/ut.png" class="img-responsive" alt="Responsive image" id="ut">
+				</div>
+			</div>
 			<div class="row" id="login">
 				<div class="col-md-8" align="center">
 					<form class="form">
@@ -38,6 +43,11 @@
 			  			<br>
 			  			<br>
 					</form>
+					<div id="image2">
+						<div class="col-md-12">
+							<img src="image/logo2.png" class="img-responsive" alt="Responsive image" id="itm">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

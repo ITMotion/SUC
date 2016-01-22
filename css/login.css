@@ -15,7 +15,16 @@ body{
 }
 
 #titulo small{
-	color:#5B5B5B;
+	color:#000000;
+}
+
+#image1{
+	margin-left: 41%;
+}
+
+#ut{
+	float: left;
+	margin-left: 5%;
 }
 
 #login{
@@ -26,4 +35,13 @@ body{
 	border-bottom-left-radius:15px;
 	padding-left: 11%;
 	padding-top: 5%;
+}
+
+#login strong{
+	color:#000;
+}
+
+#image2{
+	float:right;
+	margin-right: 33%;
 }
