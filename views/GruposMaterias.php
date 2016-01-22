@@ -37,7 +37,13 @@
 							if(!empty($list)) {
 								foreach ($list as $row) { ?>
 						<tr>
-							<th><a id="btnSelect" onclick="getInfoAssignment()"><img src="../image/icons/select.png" onmouseover="this.src='../image/icons/select-onclick.png'" onmouseout="this.src='../image/icons/select.png'"></a></th>
+							<th>
+								<a id="btnSelect" onclick="getInfoAssignment(<?php echo $row->id ?>)">
+									<img src="../image/icons/select.png" 
+										onmouseover="this.src='../image/icons/select-onclick.png'" 
+										onmouseout="this.src='../image/icons/select.png'">
+								</a>
+							</th>
 							<th><?php echo $row->grupo; ?></th>
 							<th><?php echo $row->descripcion ?></th>
 							<th><?php echo $row->paterno . " " . $row->materno . " " . $row->nombres; ?></th>
@@ -52,7 +58,7 @@
 		</div>
 		<br>
 		<div class="col-md-4">
-			<div class="panel"></div>	
+			<div class="panel" id="paneldias"></div>	
 		</div>
 	</div>
 	<script src="../model/gm-ajax.js"></script>
