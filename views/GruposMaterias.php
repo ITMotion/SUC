@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Asignar materias</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/fonts-gm.css">
 	<?php 
 		include_once("../model/DAOgm.php"); 
 		$db = new DAOgm();
@@ -21,64 +22,38 @@
 		<?php } ?>
 		<a href="GruposMateriasFrm.php" class="btn btn-primary pull-right">Agregar</a>
 		<div class="clearfix"></div>
-		<div class="table-responsive">
-			<table class="table table-condensed table-striped table-hover">
-				<thead>
-					<tr>
-						<th>Grupo</th>
-						<th>Materia</th>
-						<th>Profesor</th>
-						<th class="text-right">Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php 
-						if(!empty($list)) {
-							foreach ($list as $row) { ?>
-					<tr>
-						<th><?php echo $row->grupo; ?></th>
-						<th><?php echo $row->descripcion ?></th>
-						<th><?php echo $row->paterno . " " . $row->materno . " " . $row->nombres; ?></th>
-						<th class="text-right">
-							<a class="btn btn-success" data-toggle="modal" href="#ventana" onclick="setValues('<?php echo $row->grupo ?>', '<?php echo $row->descripcion; ?>')">Ver</a>
-							<a class="btn btn-warning">Editar</a>
-						</th>
-					</tr>
-					<?php 
-							}
-						} 
-					?>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	
-	<script>
-	function setValues(group, mat) {
-		document.getElementById("title").innerHTML= group;
-		document.getElementById("materia").innerHTML = mat;
-	}
-	</script>
-
-	<div class="modal fade" id="ventana" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-					<h1 id="title"></h1>
-					<h1 id="materia"></h1>
-				</div>
-				<div class="modal-body">
-					<form action="" class="form-horizontal">
-						<div class="form-group">
-							<label for=""></label>
-							<input type="checkbox">
-					</form>
-				</div>
-				<div class="modal-footer">
-					<a class="btn btn-danger" data-dismiss="modal">Cerrar</a>
-				</div>
+		<div class="col-md-8">
+			<div class="table-responsive">
+				<table class="table table-condensed table-striped table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Grupo</th>
+							<th>Materia</th>
+							<th>Profesor</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+							if(!empty($list)) {
+								foreach ($list as $row) { ?>
+						<tr>
+							<th><a href=""><img src="../image/icons/arrow-right2.png" alt=""></a></th>
+							<th><?php echo $row->grupo; ?></th>
+							<th><?php echo $row->descripcion ?></th>
+							<th><?php echo $row->paterno . " " . $row->materno . " " . $row->nombres; ?></th>
+						</tr>
+						<?php 
+								}
+							} 
+						?>
+					</tbody>
+				</table>
 			</div>
+		</div>
+		<br>
+		<div class="col-md-4">
+			<div class="panel"></div>	
 		</div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>

@@ -8,7 +8,8 @@
 	$db = new DAOgm();
 	if(!$db->compruebaFila($grupo, $materia, $profesor)) {
 		$db->setRow($grupo, $materia, $profesor);
-		$db->setDays($materia, $dias);
+		$asignacion = $db->getLastRowInserted();
+		$db->setDays($asignacion, $dias);
 		header("Location: ../views/GruposMaterias.php?success=1");
 	} else {
 		header("Location: ../views/GruposMateriasFrm.php?success=2");
