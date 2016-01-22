@@ -10,3 +10,16 @@ function getMateria(clave) {
     xhttp.open("GET", "GruposMateriasFrm2.php?codigo="+clave, true);
     xhttp.send();
 }
+
+function getInfoAssignment(id) {  
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divPanel = document.getElementById('paneldias');
+        divPanel.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divPanel.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "GruposMateriasPanel.php?clave="+id, true);
+    xhttp.send();
+}

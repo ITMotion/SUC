@@ -14,7 +14,7 @@
 
 		//Obtiene la tabla grupo-materia
 		function getGmInfo() {
-			$sql = "SELECT GR.grupo, MT.descripcion, PR.paterno, PR.materno, PR.nombres
+			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, PR.paterno, PR.materno, PR.nombres
 				FROM grupomateria GM 
 				INNER JOIN grupos GR 
 					ON GM.idgrupo = GR.grupo 
@@ -23,6 +23,25 @@
 				INNER JOIN profesores PR 
 					ON GM.idprofesor = PR.matricula
 					ORDER BY GM.idgrupo asc;";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
+		function getGmDetailedInfo($id) {
+			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, PR.paterno, PR.materno, PR.nombres
+				FROM grupomateria GM 
+				INNER JOIN grupos GR 
+					ON GM.idgrupo = GR.grupo 
+				INNER JOIN materias MT 
+					ON GM.idmateria = MT.clave 
+				INNER JOIN profesores PR 
+					ON GM.idprofesor = PR.matricula
+					WHERE GM.id = ".$id.";";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
@@ -81,10 +100,11 @@
 		function compruebaFila($grupo, $materia, $profesor) {
 			$sql = "SELECT * FROM grupomateria WHERE idgrupo = '".$grupo."' AND idmateria = '".$materia."' AND idprofesor = '".$profesor."';";
 			$this->bd->selectSQL($sql);
-			if (!empty($this->bd->rowresult)) {
-				return true;
-			} else {
-				return false;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
 			}
 		}
 
@@ -96,31 +116,34 @@
 
 		//OBTIENE la última fila insertada en la tabla grupomateria
 		function getLastRowInserted() {
-			$sql = "SELECT id FROM grupomateria ORDER BY id DESC LIMIT 1;";
+			$sql = "SELECT MAX(id) AS id FROM grupomateria;";
 			$this->bd->selectSQL($sql);
-			if (!empty($this->bd->rowresult)) {
-				return true;
-			} else {
-				return false;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
 			}
 		}
 
 		//establece los días que aplican a la materia
 		function setDays($materia, $dias) {
 			for ($i=0; $i < count($dias); $i++) { 
-				$sql = "INSERT INTO diasmaterias VALUES (null, '".$materia."', '".$dias[$i]."');";
+				$sql = "INSERT INTO diasmaterias VALUES (null, ".$materia.", '".$dias[$i]."');";
 				$this->bd->executeSQL($sql);
 			}
 		}
 
 		function getDays($materia) {
-			$sql = "SELECT * FROM diasmaterias WHERE id = ".$materia.";";
+			$sql = "SELECT * FROM diasmaterias WHERE materia = ".$materia.";";
 			$this->bd->selectSQL($sql);
-			if (!empty($this->bd->rowresult)) {
-				return true;
-			} else {
-				return false;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
 			}
+			else {
+				return null;
+			}
+
 		}
 	}
 ?>
