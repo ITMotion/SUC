@@ -13,12 +13,18 @@
 <body>
 	<?php include_once("menu.html") ?>
 	<div class="container">
+		
+		<!-----------Mensaje de exito en eliminar-------------->
+		<div id="deleteMessage"></div>
+
+		<!-----------Mensaje de exito-------------->
 		<?php if (isset($_GET['success'])) { ?>
 		<div class="alert alert-success col-md-10">
 			<button class="close" data-dismiss="alert"><span>&times;</span></button>
 			Se asignó correctamente la materia
 		</div>
 		<?php } ?>
+
 		<a href="GruposMateriasFrm.php" class="btn btn-primary pull-right">Agregar</a>
 		<div class="clearfix"></div>
 		<div class="col-md-8">
