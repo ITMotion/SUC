@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>UTC - Lista de Asistencia</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
@@ -47,7 +47,7 @@
 		<div id="tblAsistencia">
 		</div>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="ajax.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

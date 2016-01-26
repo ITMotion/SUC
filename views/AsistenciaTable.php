@@ -2,7 +2,7 @@
 	$grupo = $_GET['idGrupo'];
 	$materia = $_GET['idMateria'];
 	$fecha = $_GET['fecha'];
-	include_once("class/class.school.php");
+	include_once("../model/class.school.php");
 	$db = new School();
 	$infogrupo = $db->getGroup($grupo);
 	$students = $db->getStudents($grupo);

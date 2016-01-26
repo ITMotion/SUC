@@ -28,12 +28,12 @@ function consultarAjax(idGrupo, idMateria, fecha){
 			divRes.innerHTML = miAjax.responseText;
 		}
 	};
-	miAjax.open("GET", "datos.php?idGrupo="+idGrupo+"&idMateria="+idMateria+"&fecha="+fecha, true);
+	miAjax.open("GET", "AsistenciaTable.php?idGrupo="+idGrupo+"&idMateria="+idMateria+"&fecha="+fecha, true);
 	miAjax.send();
 }
 function updateAsistencia(asistencia, matricula, fecha, materia) {
 	var ajax = new XMLHttpRequest();
-	ajax.open("GET", "updateAsistencia.php?fecha="+fecha+"&matricula="+matricula+"&asistencia="+asistencia+"&materia="+materia, true);
+	ajax.open("GET", "../model/asistenciaUpdate.php?fecha="+fecha+"&matricula="+matricula+"&asistencia="+asistencia+"&materia="+materia, true);
 	ajax.send();
 	alert("Registro Actualizado");
 }
