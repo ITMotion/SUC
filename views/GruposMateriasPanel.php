@@ -21,9 +21,6 @@
 	} 
 ?>
 <br>
-	<button class="btn btn-warning" style="width: 40%;">Editar</button>
-	<button class="btn btn-danger pull-right" style="width: 40%;">Eliminar</button>
-	
-
-
+	<a class="btn btn-warning" style="width: 40%;" href="GruposMateriasEditFrm.php?id=<?php echo $id ?>">Editar</a>
+	<button class="btn btn-danger pull-right" style="width: 40%;" id="btnDelete" onclick="deleteAssignment(<?php echo $id ?>)">Eliminar</button>
 
