@@ -18,10 +18,10 @@
 	<?php include_once("menu.html"); ?>
 	<div class="container">
 		<h1>Lista de Asistencia</h1>
+	<?php if(!is_null($carreras)) { ?>
 		<div class="form-group">
-			<label for="carrera">Seleccione una carrera:</label>
-			<select name="carrera" id="carrera" class="form-control" onchange="getMateriasByCarrera(value)">
-				<option value="">Seleccione una opción</option>
+			<select name="carrera" id="carrera" class="form-control" onchange="getGruposByCarrera(value)">
+				<option value="">Seleccione una carrera</option>
 				<?php  
 					foreach ($carreras as $carrera) {
 						echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
@@ -29,8 +29,11 @@
 				?>
 			</select>
 		</div>
-		<div id="materias"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getMateriasByCarrera-->
-		<div id="unidades"></div> <!--Se mostrará por medio de ajax, ver asistencia.js-->
+	<?php } ?>
+		<div id="grupos"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getGruposByCarrera-->
+		<div id="materias"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getMateriasByGrupo-->
+		<div id="unidades"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getUnidadesByMateria-->
+		<div id="tableAsistencia"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
