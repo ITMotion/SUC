@@ -56,23 +56,16 @@
 			}
 		}
 
-		function getAssignmentByGrupoAndMateria($grupo, $materia) {
-			$sql = "SELECT * FROM grupomateria GM 
-				INNER JOIN profesores PROF ON GM.idprofesor = PROF.matricula
-				WHERE idgrupo = '".$grupo."' AND idmateria = '".$materia."';";
-			$this->bd->selectSQL($sql);
-			if(!empty($this->bd->rowresult)){
-				return $this->bd->rowresult;
-			}
-			else {
-				return null;
-			}
+		function getProfesorByAsignatura($asignatura) {
+			
 		}
 
-		function getDaysByGrupoAndMateria($grupo, $materia) {
-			$sql = "SELECT DM.dia FROM grupomateria GM 
-				INNER JOIN diasmaterias DM ON GM.id = DM.materia 
-				WHERE GM.idgrupo = '".$grupo."' AND idmateria = '".$materia."';";
+		function getAsignaturaByGrupoAndMateria($grupo, $materia) {
+			$sql = "SELECT CAL.fecha FROM grupomateria GM
+    			INNER JOIN diasmaterias DM ON GM.id = DM.materia
+    			INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
+    			INNER JOIN unidades U ON GM.idmateria = U.materia
+				WHERE GM.idgrupo = '".$grupo."' AND idmateria = '".$materia."' AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin;;";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
