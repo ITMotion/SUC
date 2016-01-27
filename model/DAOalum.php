@@ -24,6 +24,17 @@
 			}
 		}
 
+		function getAlumnoByMatricula($matricula) {
+			$sql="SELECT * FROM ALUMNOS WHERE matricula =$matricula";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
 		//obtiene un listado de carreras
 		function getCarreras() {
 			$sql = "SELECT * FROM carreras;";
@@ -35,6 +46,9 @@
 				return null;
 			}
 		}
+
+		
+
 
 		function getGruposPorCarrera($carrera) {
 			$sql = "SELECT * FROM grupos WHERE carrera = ".$carrera;
