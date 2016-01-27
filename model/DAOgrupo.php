@@ -38,12 +38,10 @@
 			}
 		}
 
-		
-
-
+	
 	
 		function insertGrupo($grupos, $salon, $horario, $carrera) {
-			$sql = "INSERT INTO grupos VALUES (null, '".$grupos."', '".$salon."', '".$horario."', '".$carrera."');";
+			$sql = "INSERT INTO grupos VALUES ('".$grupos."', '".$salon."', '".$horario."', '".$carrera."');";
 			return $this->bd->executeSQL($sql);
 		}
 

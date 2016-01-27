@@ -7,7 +7,7 @@
 
 
 	<div class="form-group">
-		<input name="grupo" id="grupo" class="form-control" placeholder="ingrese nombre de grupo">
+		<input name="grupos" id="grupos" class="form-control" placeholder="ingrese nombre de grupo">
 	</div>
 
 	<div class="form-group">
