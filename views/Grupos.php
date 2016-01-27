@@ -68,7 +68,7 @@
 			<div id="panel"></div>	
 		</div>
 	</div>
-	<script src="../model/alum-ajax.js"></script>
+	<script src="../model/grupo-ajax.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>

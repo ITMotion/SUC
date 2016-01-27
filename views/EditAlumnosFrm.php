@@ -16,8 +16,10 @@
 	<?php include_once("menu.html") ?>
 	<div class="container">
 		<h1>Editar alumno</h1>
-		<form action="" method="POST" class="form-horizontal">
+		<form action="../model/Alumnos-updateAlumno.php" method="POST" class="form-horizontal">
 			<div class="form-group">
+				<input type="hidden" id="matricula" name="matricula" class="form-control" placeholder="<?php echo $row[0]->matricula ?>">
+				<br>
 				<input type="text" id="nombres" name="nombres" class="form-control" placeholder="<?php echo $row[0]->nombres ?>">
 				<br>
 				<input type="text" id="paterno" name="paterno" class="form-control" placeholder="<?php echo $row[0]->paterno ?>">

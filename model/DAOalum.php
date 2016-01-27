@@ -47,8 +47,6 @@
 			}
 		}
 
-		
-
 
 		function getGruposPorCarrera($carrera) {
 			$sql = "SELECT * FROM grupos WHERE carrera = ".$carrera;
@@ -64,6 +62,16 @@
 		function insertAlumno($nombres, $paterno, $materno, $grupo) {
 			$sql = "INSERT INTO alumnos VALUES (null, '".$nombres."', '".$paterno."', '".$materno."', '".$grupo."');";
 			return $this->bd->executeSQL($sql);
+		}
+
+		function updateAlumno($nombres, $paterno, $materno, $grupos, $matricula) {
+			$sql = "UPDATE alumnos SET nombres = '".$nombres."', paterno = '".$paterno."', materno = '".$materno."', grupos = '".$grupos."' WHERE matricula = ".$matricula.";";
+			$this->bd->executeSQL($sql);
+		}
+
+		function deleteAlumno($matricula) {
+			$sql = "DELETE FROM alumnos WHERE matricula = ".$matricula.";";
+			$this->bd->executeSQL($sql);
 		}
 
 		

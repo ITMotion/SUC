@@ -36,3 +36,18 @@ function getGrupo(matricula) {
     xhttp.open("GET", "../views/EditAlumnosFrm2.php?matricula="+matricula, true);
     xhttp.send();
 }
+
+function deleteAlumno(matricula) {
+    if (confirm("¿De verdad deseas eliminar la asignatura?")) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            var divPanel = document.getElementById('deleteMessage');
+            divPanel.innerHTML = "Cargando...";
+            if(xhttp.readyState == 4) {
+                divPanel.innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "AlumnosDelete.php?matricula="+matricula, true);
+        xhttp.send();
+    };
+}

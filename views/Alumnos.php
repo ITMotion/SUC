@@ -13,6 +13,7 @@
 <body>
 	<?php include_once("menu.html") ?>
 	<div class="container">
+		<div id="deleteMessage"></div>
 		<?php if (isset($_GET['success'])) { ?>
 		<div class="alert alert-success col-md-10">
 			<button class="close" data-dismiss="alert"><span>&times;</span></button>
