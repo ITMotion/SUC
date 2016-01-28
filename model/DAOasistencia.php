@@ -119,14 +119,25 @@
 		}*/
 
 		function getAsistencia($alumno, $materia, $fecha) {
-			$sql = "SELECT * FROM asistencia WHERE alumno = ".$alumno." AND materia = '".$materia."' AND fecha = '".$fecha."';";
+			$sql = "SELECT asistencia FROM asistencia WHERE alumno = ".$alumno." AND materia = '".$materia."' AND fecha = '".$fecha."';";
 			$this->bd->selectSQL($sql);
-			if(!empty($this->bd->rowresult)){
-				return true;
+			if(empty($this->bd->rowresult)){
+				$this->createAsistencia($alumno, $materia, $fecha);
+				return 0;
 			}
 			else {
-				return false;
+				return $this->bd->rowresult;
 			}
+		}
+
+		function createAsistencia($alumno, $materia, $fecha) {
+			$sql = "INSERT INTO asistencia VALUES (null, ".$alumno.", '".$materia."', '".$fecha."', 0);";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function updateAsistencia($fecha, $matricula, $asistencia, $materia) {
+			$sql = "UPDATE asistencia SET asistencia = ".$asistencia." WHERE alumno = ".$matricula." AND materia = '".$materia."' AND fecha = '".$fecha."';";
+			return $this->bd->executeSQL($sql);
 		}
 	}
 ?>

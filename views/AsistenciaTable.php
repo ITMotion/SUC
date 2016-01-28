@@ -28,14 +28,23 @@
 				<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
 				<?php 
 					foreach ($assignment as $column): 
-						if($db->getAsistencia($alumno->matricula, $materia, $column->fecha)){
+						$asistencia = $db->getAsistencia($alumno->matricula, $materia, $column->fecha);
+						if ($asistencia != 0) {
+							if($asistencia[0]->asistencia == 1){
 				?>
-					<th><input type="checkbox" checked="true"></th>
+					<th><input type="checkbox" checked 
+					onclick="updateAsistencia(0, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $materia ?>')"></th>
 				<?php
-						}
-						else {
+							}
+							else {
 				?>
-					<th><input type="checkbox"></th>
+					<th><input type="checkbox"
+					onclick="updateAsistencia(1, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $materia ?>')"></th>
+				<?php 		} 
+						} else {
+				?>
+					<th><input type="checkbox"
+					onclick="updateAsistencia(1, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $materia ?>')"></th>	
 				<?php } endforeach ?>
 			</tr>		
 			<?php endforeach ?>
