@@ -4,10 +4,12 @@
 	$unidad = $_GET['unidad'];
 	include_once("../model/DAOasistencia.php");
 	$db = new DAOasistencia();
-	$assignment = $db->getAssignmentByGrupoAndMateria($grupo, $materia);
-	
+	$assignment = $db->getAsignaturaByGrupoAndMateriaAndUnidad($grupo, $materia, $unidad);
+	$profesor = $db->getProfesorByGrupoAndMateria($grupo, $materia);
+	$alumnos = $db->getAlumnosByGrupo($grupo);
+	//$asistencia = $db->obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad);
 ?>
-<h3>Profesor: <?php echo $assignment[0]->paterno . " " . $assignment[0]->materno . " " . $assignment[0]->nombres;?></h3>
+<h3><b>Profesor:</b> <?php echo $profesor[0]->paterno . " " . $profesor[0]->materno . " " . $profesor[0]->nombres;?></h3>
 <div class="table-responsive">
 	<table class="table table-condensed table-striped table-hover">
 		<thead>
@@ -19,6 +21,25 @@
 				} ?>
 			</tr>
 		</thead>
+		<tbody>
+			<?php foreach ($alumnos as $alumno): ?>
+			<tr>
+				<th><?php echo $alumno->matricula; ?></th>
+				<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
+				<?php 
+					foreach ($assignment as $column): 
+						if($db->getAsistencia($alumno->matricula, $materia, $column->fecha)){
+				?>
+					<th><input type="checkbox" checked="true"></th>
+				<?php
+						}
+						else {
+				?>
+					<th><input type="checkbox"></th>
+				<?php } endforeach ?>
+			</tr>		
+			<?php endforeach ?>
+		</tbody>
 	</table>
 </div>
 
