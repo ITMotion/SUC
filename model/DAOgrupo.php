@@ -45,6 +45,11 @@
 			return $this->bd->executeSQL($sql);
 		}
 
+		function deleteGrupo($grupo) {
+			$sql = "DELETE FROM grupos WHERE grupo = ".$grupo.";";
+			$this->bd->executeSQL($sql);
+		}
+
 		
 
 	}
