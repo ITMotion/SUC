@@ -64,8 +64,8 @@
 			return $this->bd->executeSQL($sql);
 		}
 
-		function updateAlumno($nombres, $paterno, $materno, $grupos, $matricula) {
-			$sql = "UPDATE alumnos SET nombres = '".$nombres."', paterno = '".$paterno."', materno = '".$materno."', grupos = '".$grupos."' WHERE matricula = ".$matricula.";";
+		function updateAlumno($nombres, $paterno, $materno, $grupo, $matricula) {
+			$sql = "UPDATE alumnos SET nombres = '".$nombres."', paterno = '".$paterno."', materno = '".$materno."', grupo = '".$grupo."' WHERE matricula = ".$matricula.";";
 			$this->bd->executeSQL($sql);
 		}
 

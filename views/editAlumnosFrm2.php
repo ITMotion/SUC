@@ -13,7 +13,7 @@
 <?php } else { ?>
 <br>
 <div class="form-group">
-		<select name="grupos" id="grupos" class="form-control">
+		<select name="grupo" id="grupo" class="form-control">
 			<?php 
 				foreach ($grupos as $grupo) {
 					echo "<option>$grupo->grupo</option>";

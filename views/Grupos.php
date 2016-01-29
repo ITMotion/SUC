@@ -41,7 +41,7 @@
 						<tr>
 							<th>
 								
-								<a id="btnSelect" onclick="">
+								<a id="btnSelect" onclick="EditGrupos(<?php echo $row->clave ?>)">
 									<img src="../image/icons/select.png" 
 										onmouseover="this.src='../image/icons/select-onclick.png'" 
 										onmouseout="this.src='../image/icons/select.png'">
@@ -62,7 +62,6 @@
 				</table>
 			</div>
 		</div>
-
 		<br>
 		<div class="col-md-4">
 			<div id="panel"></div>	
