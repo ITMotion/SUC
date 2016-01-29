@@ -11,7 +11,7 @@
     xhttp.send();
 }
 
-function EditGrupos(clave) {  
+function EditGrupo(grupo) {  
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divPanel = document.getElementById('panel');
@@ -20,11 +20,11 @@ function EditGrupos(clave) {
             divPanel.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/grupoPanel.php?clave="+clave, true);
+    xhttp.open("GET", "../views/AlumnosPanel.php?matricula="+matricula, true);
     xhttp.send();
 }
 
-function deleteGrupo(clave) {
+function deleteGrupo(grupo) {
     if (confirm("¿De verdad deseas eliminar el grupo?")) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {

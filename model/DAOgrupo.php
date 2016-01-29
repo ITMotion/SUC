@@ -13,7 +13,7 @@
 
 		//obtener la tabla de los grupos
 		function GetInfogrupos(){
-			$sql ="SELECT * FROM GRUPOS";
+			$sql ="SELECT * FROM grupos";
 
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){

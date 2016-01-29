@@ -26,11 +26,13 @@
 				<table class="table table-condensed table-striped table-hover">
 					<thead>
 						<tr>
-							<th></th>
+							
 							<th>grupo</th>
 							<th>salon</th>
 							<th>horario</th>
 							<th>carrera</th>
+							<th></th>
+							<th></th>
 							
 						</tr>
 					</thead>
@@ -39,19 +41,13 @@
 							if(!empty($list)) {
 								foreach ($list as $row) { ?>
 						<tr>
-							<th>
-								
-								<a id="btnSelect" onclick="EditGrupos(<?php echo $row->clave ?>)">
-									<img src="../image/icons/select.png" 
-										onmouseover="this.src='../image/icons/select-onclick.png'" 
-										onmouseout="this.src='../image/icons/select.png'">
-								</a>
 						
-							</th>
 							<th><?php echo $row->grupo; ?></th>
 							<th><?php echo $row->salon ?></th>
 							<th><?php echo $row->horario ?></th>
 							<th><?php echo $row->carrera ?></th>
+							<th></th>
+							<th></th>
 							
 						</tr>
 						<?php 
@@ -63,9 +59,7 @@
 			</div>
 		</div>
 		<br>
-		<div class="col-md-4">
-			<div id="panel"></div>	
-		</div>
+		
 	</div>
 	<script src="../model/grupo-ajax.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
