@@ -18,7 +18,14 @@
 	<!--Se llama al menú-->
 	<?php include_once("Menu.html"); ?>
 	<div class="container">
-		<h1>Carreras</h1>
+		<h1 class="">Carreras</h1>
+		<?php if (isset($_GET["success"])) {?>
+			<div class="alert alert-success col-md-10">
+				<button class="close" data-dismiss="alert"><span>&times;</span></button>
+				Se agregó la carrera correctamente
+			</div>	
+		<?php } ?>
+		
 		<a href="CarrerasFrm.php"><button class="btn btn-primary pull-right">Agregar</button></a>
 		<div class="clearfix"></div>
 			<div class="table-responsive">
@@ -35,10 +42,17 @@
 						<?php foreach ($carreras as $carrera): ?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
-								<th></th>
-								<th></th>
+								<th><a href="">
+									<img src="../image/icons/edit.png" 
+									onmouseover="this.src='../image/icons/editcolor.png'" 
+									onmouseout="this.src='../image/icons/edit.png'">
+								</a></th>
+								<th><a href="">
+									<img src="../image/icons/delete.png" 
+									onmouseover="this.src='../image/icons/deletecolor.png'" 
+									onmouseout="this.src='../image/icons/delete.png'">
+								</a></th>
 							</tr>
-							
 						<?php endforeach ?>
 					</tbody>
 				</table>

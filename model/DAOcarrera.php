@@ -25,5 +25,10 @@
 			$this->bd->selectSQL($sql);
 			return $this->bd->rowresult;
 		}
+
+		function setCarrera($descripcion){
+			$sql="INSERT INTO carreras VALUES (null,'".$descripcion."');";
+			$this->bd->executeSQL($sql);
+		}
 	}
 ?>
