@@ -1,47 +1,45 @@
 body{
-	background: url("../image/playa.jpg") no-repeat;
+	background: url("../image/playa3.jpg") no-repeat;
 	background-attachment: fixed;
 }
 
+#content{
+	margin-top: 5%;
+}
+
 #titulo{
-	width: 50%;
+	width: 40%;
 	background-color:rgba(255,255,255,0.8);
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
 	padding-top: 1%;
-	margin-left: 26%;
+	margin-left: 47%;
 	margin-top: 5%;
 
+}
+
+#titulo h1{
+	margin-left: 1%;
 }
 
 #titulo small{
 	color:#000000;
 }
 
-#image1{
-	margin-left: 41%;
-}
-
-#ut{
-	float: left;
-	margin-left: 5%;
-}
-
 #login{
-	width: 50%;
-	margin-left: 26%;
+	width: 40%;
+	margin-left: 47%;
 	background-color:rgba(255,255,255,0.8);
 	border-bottom-right-radius:15px;
 	border-bottom-left-radius:15px;
-	padding-left: 11%;
-	padding-top: 5%;
 }
 
-#login strong{
-	color:#000;
+#inputPassword, #inputUser{
+	margin-left: 11%;
 }
 
-#image2{
-	float:right;
-	margin-right: 33%;
+#btnEntrar{
+	float: left;
+	margin-left: 50%;
+	margin-bottom: 5%;
 }

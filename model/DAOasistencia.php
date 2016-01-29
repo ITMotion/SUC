@@ -56,23 +56,27 @@
 			}
 		}
 
-		function getAssignmentByGrupoAndMateria($grupo, $materia) {
-			$sql = "SELECT * FROM grupomateria GM 
-				INNER JOIN profesores PROF ON GM.idprofesor = PROF.matricula
-				WHERE idgrupo = '".$grupo."' AND idmateria = '".$materia."';";
-			$this->bd->selectSQL($sql);
-			if(!empty($this->bd->rowresult)){
-				return $this->bd->rowresult;
-			}
-			else {
-				return null;
-			}
+		function getProfesorByGrupoAndMateria($grupo, $materia) {
+			$sql = "SELECT PROF.nombres, PROF.paterno, PROF.materno 
+				FROM grupomateria GM INNER JOIN profesores PROF
+				ON GM.idprofesor = PROF.matricula 
+				WHERE GM.idmateria = '".$materia."' AND GM.idgrupo = '".$grupo."';";
+				$this->bd->selectSQL($sql);
+				if(!empty($this->bd->rowresult)){
+					return $this->bd->rowresult;
+				}
+				else {
+					return null;
+				}	
 		}
 
-		function getDaysByGrupoAndMateria($grupo, $materia) {
-			$sql = "SELECT DM.dia FROM grupomateria GM 
-				INNER JOIN diasmaterias DM ON GM.id = DM.materia 
-				WHERE GM.idgrupo = '".$grupo."' AND idmateria = '".$materia."';";
+		function getAsignaturaByGrupoAndMateriaAndUnidad($grupo, $materia, $unidad) {
+			$sql = "SELECT CAL.fecha FROM grupomateria GM
+    			INNER JOIN diasmaterias DM ON GM.id = DM.materia
+    			INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
+    			INNER JOIN unidades U ON GM.idmateria = U.materia
+				WHERE GM.idgrupo = '".$grupo."' AND idmateria = '".$materia."' AND U.descripcion = ".$unidad." 
+					AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin;";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
@@ -80,6 +84,60 @@
 			else {
 				return null;
 			}	
+		}
+
+		function getAlumnosByGrupo($grupo) {
+			$sql = "SELECT * FROM alumnos WHERE grupo = '".$grupo."';";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}	
+		}
+
+		/*function obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad, $alumno) {
+			$sql = "SELECT ASIST.fecha
+				FROM grupomateria GM INNER JOIN diasmaterias DM
+				ON GM.id = DM.materia
+				INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
+    			INNER JOIN unidades U ON GM.idmateria = U.materia
+    			INNER JOIN asistencia ASIST ON CAL.fecha = ASIST.fecha
+    			WHERE GM.idgrupo = '".$grupo."' 
+    			AND idmateria = '".$materia."' 
+    			AND U.descripcion = ".$unidad."
+    			AND ASIST.alumno = ".$alumno."
+    			AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin ORDER BY ASIST.fecha ASC;";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}*/
+
+		function getAsistencia($alumno, $materia, $fecha) {
+			$sql = "SELECT asistencia FROM asistencia WHERE alumno = ".$alumno." AND materia = '".$materia."' AND fecha = '".$fecha."';";
+			$this->bd->selectSQL($sql);
+			if(empty($this->bd->rowresult)){
+				$this->createAsistencia($alumno, $materia, $fecha);
+				return 0;
+			}
+			else {
+				return $this->bd->rowresult;
+			}
+		}
+
+		function createAsistencia($alumno, $materia, $fecha) {
+			$sql = "INSERT INTO asistencia VALUES (null, ".$alumno.", '".$materia."', '".$fecha."', 0);";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function updateAsistencia($fecha, $matricula, $asistencia, $materia) {
+			$sql = "UPDATE asistencia SET asistencia = ".$asistencia." WHERE alumno = ".$matricula." AND materia = '".$materia."' AND fecha = '".$fecha."';";
+			return $this->bd->executeSQL($sql);
 		}
 	}
 ?>

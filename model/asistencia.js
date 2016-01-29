@@ -57,3 +57,9 @@ function getCalendar(){
     xhttp.open("GET", "AsistenciaTable.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
     xhttp.send();
 }
+
+function updateAsistencia(bit, alumno, fecha, materia) {
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "../model/asistenciaUpdate.php?fecha="+fecha+"&matricula="+alumno+"&asistencia="+bit+"&materia="+materia, true);
+    ajax.send();
+}

@@ -17,13 +17,8 @@
 					</div>
 				</div>
 			</div>
-			<div id="image1">
-				<div class="col-md-12">
-					<img src="image/ut.png" class="img-responsive" alt="Responsive image" id="ut">
-				</div>
-			</div>
 			<div class="row" id="login">
-				<div class="col-md-8" align="center">
+				<div class="col-md-10">
 					<form class="form">
 				  		<div class="form-group">
 				    		<label class="sr-only" for="inputUser">Usuario</label><br>
@@ -33,21 +28,11 @@
 				   		 	<label class="sr-only" for="inputPassword">Contraseña</label>
 				    		<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
 				  		</div>
-				  		<div class="checkbox">
-				   		 	<label>
-				      			<input type="checkbox"> <strong>Recordar Usuario</strong>
-				    	 	</label>
-				  		</div>
 				  		<br>
-			  			<button type="submit" class="btn btn-default">Entrar</button>
+			  			<button type="submit" class="btn btn-default" id="btnEntrar">Entrar</button>
 			  			<br>
 			  			<br>
 					</form>
-					<div id="image2">
-						<div class="col-md-12">
-							<img src="image/logo2.png" class="img-responsive" alt="Responsive image" id="itm">
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
