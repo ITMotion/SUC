@@ -30,5 +30,9 @@
 			$sql="INSERT INTO carreras VALUES (null,'".$descripcion."');";
 			$this->bd->executeSQL($sql);
 		}
+
+		function upCarrera($descripcion){
+			$sql="UPDATE carreras SET descripcion = '".$descripcion."' WHERE codigo = ".$codigo.";";
+		}
 	}
 ?>

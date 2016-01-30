@@ -7,7 +7,6 @@
 	<?php 
 		//Se llama al archivo DAOcarrera
 		include_once("../model/DAOcarrera.php");
-
 		//Se asigna la función del archivo DAOcarrera a la variable $carreras
 		$db = new DAOcarrera();
 		$carreras = $db->getCarreras();
@@ -42,7 +41,7 @@
 						<?php foreach ($carreras as $carrera): ?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
-								<th><a href="">
+								<th><a href="EditCarrerasFrm.php">
 									<img src="../image/icons/edit.png" 
 									onmouseover="this.src='../image/icons/editcolor.png'" 
 									onmouseout="this.src='../image/icons/edit.png'">
