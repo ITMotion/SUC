@@ -5,11 +5,10 @@
 	<title>Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<?php 
-		$descripcion = $_GET['descripcion'];
+		$codigo = $_GET['descripcion']; 
 		include_once("../model/DAOcarrera.php"); 
 		$db = new DAOcarrera();
-		$row = $db->upCarrera($descripcion);
-		$carreras = $db->getCarreras();		
+		$row = $db->upCarrera($codigo);	
 	?>
 </head>
 <body>

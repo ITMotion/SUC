@@ -3,6 +3,12 @@
 	include_once("config.ini.php"); 
 	include_once("class.bd.php");
 	
+	/**
+	* @author: Sergio Meza
+	* @date: 29/01/2016
+	* @email: wayne6@hotmail.com
+	*/
+	
 	//Se crea una clase con las funciones
 	class DAOcarrera
 	{
