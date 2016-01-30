@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="../css/jquery-ui.css">
+	
 	<?php 
 		include_once("../model/DAOmaterias.php");
 		$db = new DAOmaterias();
@@ -27,15 +31,6 @@
 					<?php } ?>
 				</select>
 			</div>
-			
-			<div class="form-group">
-				<label for="unidades">Número de Unidades:</label>
-				<select name="unidades" id="unidades" class="form-control">
-					<?php for($i=1; $i<11; $i++) { ?>
-						<option><?php echo $i; ?></option>
-					<?php } ?>
-				</select>
-			</div>
 
 			<div class="form-group">
 				<label for="carrera">Carrera:</label>
@@ -45,11 +40,21 @@
 					<?php endforeach ?>
 				</select>
 			</div>
-			<button class="btn btn-primary pull-right col-md-2">Guardar</button>
-			<button class="btn btn-warning col-md-2">Cancelar</button>
+			
+			<div class="form-group">
+				<label for="unidades">Número de Unidades:</label>
+				<select name="unidades" id="unidades" class="form-control" onchange="calUnidades(value)">
+					<?php for($i=1; $i<11; $i++) { ?>
+						<option><?php echo $i; ?></option>
+					<?php } ?>
+				</select>
+			</div>
+
+			<div class="form-group" id="calUnidades"></div>
 		</form>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	
+	<script src="../model/mat-ajax.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
 </body>
