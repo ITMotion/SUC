@@ -5,9 +5,6 @@
 	<title>SUC: Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/jquery-ui.js"></script>
-	<link rel="stylesheet" href="../css/jquery-ui.css">
-	
 	<?php 
 		include_once("../model/DAOmaterias.php");
 		$db = new DAOmaterias();
@@ -17,7 +14,7 @@
 <body>
 	<?php include_once("Menu.html") ?>
 	<div class="container">
-		<form action="../model/mat-crear.php" method="POST" class="form-horizontal">
+		<form action="MateriasFrm2.php" method="POST" class="form-horizontal">
 			<div class="form-group">
 				<label for="descripcion">Materia</label>
 				<input type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripción de la materia" class="form-control">
@@ -49,12 +46,12 @@
 					<?php } ?>
 				</select>
 			</div>
-
-			<div class="form-group" id="calUnidades"></div>
+			
+			<button class="btn btn-primary pull-right col-md-2">Siguiente</button>
+			<button class="btn btn-warning col-md-2">Cancelar</button>
 		</form>
 	</div>
 	
-	<script src="../model/mat-ajax.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
 </body>

@@ -29,10 +29,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($materias as $materia): ?>
+					<?php foreach ($materias as $materia): 
+						$unidades = $db->getNumUnidades($materia->clave);
+					?>
 						<tr>
 							<th><?php echo $materia->descripcion; ?></th>
-							<th><?php echo $materia->unidades ?></th>
+							<th><?php echo $unidades[0]->total ?></th>
 							<th><?php echo $materia->grado; ?></th>
 							<th><?php echo $materia->carrera; ?></th>
 							<th><a href="">
