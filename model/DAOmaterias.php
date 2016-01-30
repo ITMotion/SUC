@@ -25,19 +25,34 @@
 						FROM materias M
 						INNER JOIN carreras C ON M.carrera = C.codigo";
 			$this->bd->selectSQL($sql);
-			return $this->bd->rowresult;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 
 		function getNumUnidades($materia) {
 			$sql = "SELECT COUNT(descripcion) AS total FROM unidades WHERE materia = ".$materia.";";
 			$this->bd->selectSQL($sql);
-			return $this->bd->rowresult;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 
 		function getCarreras() {
 			$sql = "SELECT * FROM carreras;";
 			$this->bd->selectSQL($sql);
-			return $this->bd->rowresult;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 
 		function crearMateria($descripcion, $grado, $carrera) {
@@ -48,12 +63,22 @@
 		function getLastMateria() {
 			$sql = "SELECT MAX(clave) AS clave FROM materias;";
 			$this->bd->selectSQL($sql);
-			return $this->bd->rowresult;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 
 		function crearUnidad($inicio, $final, $unidad, $materia) {
 			$sql = "INSERT INTO unidades VALUES (null, ".$unidad.", '".$inicio."', '".$final."', ".$materia.");";
 			return $this->bd->executeSQL($sql);		
+		}
+
+		function deleteMateria($clave) {
+			$sql = "DELETE FROM materias WHERE clave = ".$clave.";";
+			return $this->bd->executeSQL($sql);	
 		}
 	}
 ?>

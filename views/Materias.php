@@ -13,6 +13,10 @@
 <body>
 	<?php include_once("Menu.html") ?>
 	<div class="container">
+
+		<!--Mensaje de exito en eliminar-->
+		<div id="deleteMessage"></div>
+		
 		<h1 class="col-md-6"><b>Materias</b></h1>
 		<a href="MateriasFrm.php"><button class="btn btn-primary pull-right col-md-2">Nueva</button></a>
 		<div class="clearfix"></div>
@@ -29,30 +33,37 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($materias as $materia): 
-						$unidades = $db->getNumUnidades($materia->clave);
+
+					<?php 
+						if (!is_null($materias)) {
+							foreach ($materias as $materia): 
+								$unidades = $db->getNumUnidades($materia->clave);
 					?>
-						<tr>
-							<th><?php echo $materia->descripcion; ?></th>
-							<th><?php echo $unidades[0]->total ?></th>
-							<th><?php echo $materia->grado; ?></th>
-							<th><?php echo $materia->carrera; ?></th>
-							<th><a href="">
-								<img src="../image/icons/edit.png" 
-								onmouseover="this.src='../image/icons/editcolor.png'" 
-								onmouseout="this.src='../image/icons/edit.png'">
-							</a></th>
-							<th><a href="">
-								<img src="../image/icons/delete.png" 
-								onmouseover="this.src='../image/icons/deletecolor.png'" 
-								onmouseout="this.src='../image/icons/delete.png'">
-							</a></th>
-						</tr>
-					<?php endforeach ?>
+								<tr>
+									<th><?php echo $materia->descripcion; ?></th>
+									<th><?php echo $unidades[0]->total ?></th>
+									<th><?php echo $materia->grado; ?></th>
+									<th><?php echo $materia->carrera; ?></th>
+									<th><a href="">
+										<img src="../image/icons/edit.png" 
+										onmouseover="this.src='../image/icons/editcolor.png'" 
+										onmouseout="this.src='../image/icons/edit.png'">
+									</a></th>
+									<th><a onclick="deleteMateria(<?php echo $materia->clave ?>)">
+										<img src="../image/icons/delete.png" 
+										onmouseover="this.src='../image/icons/deletecolor.png'" 
+										onmouseout="this.src='../image/icons/delete.png'">
+									</a></th>
+								</tr>
+					<?php 
+							endforeach;
+						}
+					?>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	<script src="../model/mat-ajax.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
