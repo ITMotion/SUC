@@ -48,7 +48,7 @@
 			</div>
 			
 			<button class="btn btn-primary pull-right col-md-2">Siguiente</button>
-			<button class="btn btn-warning col-md-2">Cancelar</button>
+			<a class="btn btn-warning col-md-2" href="Materias.php">Cancelar</a>
 		</form>
 	</div>
 	
