@@ -33,6 +33,19 @@
 			}
 		}
 
+		function getMateriaInfo($clave) {
+			$sql = "SELECT M.descripcion, U.descripcion AS unidad, U.fechainicio AS inicio, U.fechafin AS final 
+				FROM materias M INNER JOIN unidades U ON M.clave = U.materia
+				WHERE M.clave = ".$clave.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
 		function getNumUnidades($materia) {
 			$sql = "SELECT COUNT(descripcion) AS total FROM unidades WHERE materia = ".$materia.";";
 			$this->bd->selectSQL($sql);

@@ -12,3 +12,23 @@ function deleteMateria(id) {
         xhttp.send();
     };
 }
+
+function verMateria(id) {
+    $.ajax({
+        url : 'MateriaConsultar.php',
+        data : { 'materia' : id },
+        type : 'GET',
+        dataType : 'html',
+ 
+        // código a ejecutar si la petición es satisfactoria;
+        success : function(respuesta) {
+            $('#verMateria').html(respuesta);
+        },
+ 
+        // código a ejecutar si la petición falla;
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+        },
+    });
+
+}
