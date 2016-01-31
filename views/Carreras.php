@@ -18,6 +18,9 @@
 	<?php include_once("Menu.html"); ?>
 	<div class="container">
 		<h1 class="">Carreras</h1>
+		<div id="deleteMessage">
+			
+		</div>
 		<?php if (isset($_GET["success"])) {?>
 			<div class="alert alert-success col-md-10">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
@@ -41,12 +44,12 @@
 						<?php foreach ($carreras as $carrera): ?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
-								<th><a href="EditCarrerasFrm.php">
+								<th><a href="" >
 									<img src="../image/icons/edit.png" 
 									onmouseover="this.src='../image/icons/editcolor.png'" 
 									onmouseout="this.src='../image/icons/edit.png'">
 								</a></th>
-								<th><a href="">
+								<th><a href="" onclick="deleteCarreras(<?php echo $carrera->codigo ?>)">
 									<img src="../image/icons/delete.png" 
 									onmouseover="this.src='../image/icons/deletecolor.png'" 
 									onmouseout="this.src='../image/icons/delete.png'">
@@ -59,6 +62,6 @@
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/script.js"></script>
+	<script src="../model/carreras.js"></script>
 </body>
 </html>
