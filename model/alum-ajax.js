@@ -38,7 +38,7 @@ function getGrupo(matricula) {
 }
 
 function deleteAlumno(matricula) {
-    if (confirm("¿De verdad deseas eliminar la asignatura?")) {
+    if (confirm("¿De verdad deseas eliminar este registro?")) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             var divPanel = document.getElementById('deleteMessage');
