@@ -1,9 +1,12 @@
-<!DOCTYPE  html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>grupos</title>
+	<title>SUC: Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
 	<?php
 		include_once("../model/DAOgrupo.php"); 
 		$db = new DAOgrupo();
@@ -11,7 +14,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		<div id="deleteMessage"></div>
 		<?php if (isset($_GET['success'])) { ?>
@@ -72,8 +75,5 @@
 		
 	</div>
 	<script src="../model/grupo-ajax.js"></script>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
 </body>
 </html>
