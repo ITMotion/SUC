@@ -5,24 +5,30 @@
 	<title>SUC: Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<?php 
+		$grupo = $_GET['grupo'];
 		include_once("../model/DAOgrupo.php"); 
 		$db = new DAOgrupo();
 		$carreras = $db->getCarreras();
-		if (isset($_GET['success'])) {
-			if ($_GET['success']==2) {
-				echo "<script> alert('¡Este grupo ya existe!')</script>";
-			}
-		}
-		
+		$list = $db->getGrupos($grupo);
 	?>
 </head>
 <body>
 	<?php include_once("menu.html") ?>
 	<div class="container">
-		<h1>Agregar nuevo grupo</h1>
-		<form action="../model/Grupo-asignarGrupo.php" method="POST" class="form-horizontal">
-		<div class="form-group">
-			<select name="carrera" id="carrera" class="form-control" onchange="getGrupo(value)">
+		<h1>Editar grupo</h1>
+		<form action="../model/Grupo-updateGrupo.php" method="POST" class="form-horizontal">
+			<div class="form-group">
+				
+				<input type="hidden" id="grupo" name="grupo" class="form-control" placeholder="<?php echo $list[0]->grupo ?>" value="<?php echo $list[0]->grupo ?>">
+				<br>
+				<input type="text" id="salon" name="salon" class="form-control" placeholder="ingrese el nuevo salon">
+				<br>
+				<select name="horario" id="horario" class="form-control">
+					<option>matutino</option>
+					<option>vespertino</option>
+				</select>
+				<br>
+				<select name="carrera" id="carrera" class="form-control">
 				<option value="0">Seleccione una carrera</option>
 					<?php 
 					if(!empty($carreras)){	
@@ -31,9 +37,10 @@
 						}
 					}
 					?>
-			</select>		
-		</div>
-		<div id="Part2"></div>
+			</select>
+			<br>
+				<button class="btn btn-primary pull-right">Enviar</button>
+			</div>	
 		</form>
 	</div>
 <script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
