@@ -19,14 +19,14 @@
 			</div>
 			<div class="row" id="login">
 				<div class="col-md-10">
-					<form class="form">
+					<form class="form" action="model/login.php" method="POST">
 				  		<div class="form-group">
 				    		<label class="sr-only" for="inputUser">Usuario</label><br>
-				    		<input type="text" class="form-control" id="inputUser" placeholder="Usuario">
+				    		<input type="text" class="form-control" id="inputUser" name="user"placeholder="Usuario">
 				  		</div>
 				  		<div class="form-group">
 				   		 	<label class="sr-only" for="inputPassword">Contraseña</label>
-				    		<input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+				    		<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
 				  		</div>
 				  		<br>
 			  			<button type="submit" class="btn btn-default" id="btnEntrar">Entrar</button>

@@ -55,6 +55,9 @@
 				if (!empty($this->rowresult)) {
 					return $this->rowresult;
 				}
+				else {
+					return null;
+				}
 			}
 		}
 			
