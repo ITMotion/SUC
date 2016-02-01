@@ -18,13 +18,16 @@
 	<?php include_once("Menu.html"); ?>
 	<div class="container">
 		<h1 class="">Carreras</h1>
-		<div id="deleteMessage">
-			
-		</div>
 		<?php if (isset($_GET["success"])) {?>
 			<div class="alert alert-success col-md-10">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				Se agregó la carrera correctamente
+			</div>	
+		<?php } ?>
+		<?php if (isset($_GET["upsuccess"])) {?>
+			<div class="alert alert-success col-md-10">
+				<button class="close" data-dismiss="alert"><span>&times;</span></button>
+				Se editó la carrera correctamente
 			</div>	
 		<?php } ?>
 		
@@ -44,7 +47,7 @@
 						<?php foreach ($carreras as $carrera): ?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
-								<th><a href="" >
+								<th><a href="EditCarrerasFrm.php?codigo=<? $carrera->codigo?>&descripcion=<?php $carrera->descripcion?>" >
 									<img src="../image/icons/edit.png" 
 									onmouseover="this.src='../image/icons/editcolor.png'" 
 									onmouseout="this.src='../image/icons/edit.png'">

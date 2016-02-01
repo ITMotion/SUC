@@ -37,7 +37,7 @@
 			$this->bd->executeSQL($sql);
 		}
 
-		function upCarrera($codigo){
+		function upCarrera($codigo, $descripcion){
 			$sql="UPDATE carreras SET descripcion = '".$descripcion."' WHERE codigo = ".$codigo.";";
 			$this->bd->executeSQL($sql);
 		}

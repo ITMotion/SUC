@@ -4,12 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<?php 
-		$codigo = $_GET['descripcion']; 
-		include_once("../model/DAOcarrera.php"); 
-		$db = new DAOcarrera();
-		$row = $db->upCarrera($codigo);	
-	?>
 </head>
 <body>
 	<?php include_once("menu.html") ?>
@@ -19,6 +13,7 @@
 			<div class="form-group">
 				<label for="carrera">Carrera</label>
 				<input type="text" placeholder="Ingresa la carrera" name="descripcion" id="descripcion" class="form-control"> 
+				<input type="hidden" name="codigo" class="form-control" id="codigo" placeholder="<?php echo $carrera->codigo ?>" value="<?php echo $carrera->codigo ?>">
 			</div>
 			<button class="btn btn-primary pull-right">Guardar</button>
 		</form>

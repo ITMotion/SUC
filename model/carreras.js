@@ -1,4 +1,4 @@
-function deleteCarreras(clave) {
+function deleteCarreras(codigo) {
     if (confirm("¿Seguro que deseas eliminar la carrera?")) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -8,7 +8,7 @@ function deleteCarreras(clave) {
                 divPanel.innerHTML = xhttp.responseText;
             }
         };
-        xhttp.open("GET", "CarrerasDelete.php?codigo="+clave, true);
+        xhttp.open("GET", "CarrerasDelete.php?codigo="+codigo, true);
         xhttp.send();
     };
 }
