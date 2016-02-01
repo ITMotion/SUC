@@ -7,25 +7,38 @@ function getMateria(clave) {
     		divGrupos.innerHTML = xhttp.responseText;
     	}
     };
-    xhttp.open("GET", "GruposMateriasFrm2.php?codigo="+clave, true);
+    xhttp.open("GET", "AlumnosFrm2.php?codigo="+clave, true);
     xhttp.send();
 }
 
-function getInfoAssignment(id) {  
+function EditAlumnos(matricula) {  
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        var divPanel = document.getElementById('paneldias');
+        var divPanel = document.getElementById('panel');
         divPanel.innerHTML = "Cargando...";
         if(xhttp.readyState == 4) {
             divPanel.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "GruposMateriasPanel.php?clave="+id, true);
+    xhttp.open("GET", "../views/AlumnosPanel.php?matricula="+matricula, true);
     xhttp.send();
 }
 
-function deleteAssignment(id) {
-    if (confirm("¿De verdad deseas eliminar la asignatura?")) {
+function getGrupo(matricula) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divGrupos = document.getElementById('Part2');
+        divGrupos.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divGrupos.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "../views/EditAlumnosFrm2.php?matricula="+matricula, true);
+    xhttp.send();
+}
+
+function deleteAlumno(matricula) {
+    if (confirm("¿De verdad deseas eliminar este registro?")) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             var divPanel = document.getElementById('deleteMessage');
@@ -34,7 +47,7 @@ function deleteAssignment(id) {
                 divPanel.innerHTML = xhttp.responseText;
             }
         };
-        xhttp.open("GET", "GruposMateriasDelete.php?clave="+id, true);
+        xhttp.open("GET", "AlumnosDelete.php?matricula="+matricula, true);
         xhttp.send();
     };
 }

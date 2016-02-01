@@ -9,8 +9,8 @@
 	if(!$db->compruebaFila($grupo, $materia, $profesor)) {
 		$db->setRow($grupo, $materia, $profesor);
 		$asignacion = $db->getLastRowInserted();
-		$db->setDays($asignacion, $dias);
-		header("Location: ../views/GruposMaterias.php?success=1");
+		$db->setDays($asignacion[0]->id, $dias);
+		header("Location: ../views/GruposMaterias.php?success");
 	} else {
 		header("Location: ../views/GruposMateriasFrm.php?success=2");
 	}
