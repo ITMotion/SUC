@@ -7,6 +7,12 @@
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/scripts.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
+
+	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
+	<script src="../js/dataTableMat.js"></script>
+	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 	<?php 
 		include_once("../model/DAOmaterias.php");
 		$db = new DAOmaterias();
@@ -24,7 +30,7 @@
 		<a href="MateriasFrm.php"><button class="btn btn-primary pull-right col-md-2">Nueva</button></a>
 		<div class="clearfix"></div>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped table-hover">
+			<table id="tbl" class="table table-condensed table-striped table-hover">
 				<thead>
 					<tr>
 						<th>Materia</th>
