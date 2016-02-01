@@ -11,16 +11,16 @@
     xhttp.send();
 }
 
-function EditGrupo(grupo) {  
+function getGrupo2(grupo) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        var divPanel = document.getElementById('panel');
-        divPanel.innerHTML = "Cargando...";
+        var divGrupos = document.getElementById('Part2');
+        divGrupos.innerHTML = "Cargando...";
         if(xhttp.readyState == 4) {
-            divPanel.innerHTML = xhttp.responseText;
+            divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/AlumnosPanel.php?matricula="+matricula, true);
+    xhttp.open("GET", "../views/EditGrupoFrm2.php?grupo="+grupo, true);
     xhttp.send();
 }
 
@@ -34,7 +34,7 @@ function deleteGrupo(grupo) {
                 divPanel.innerHTML = xhttp.responseText;
             }
         };
-        xhttp.open("GET", "gruposDelete.php?clave="+clave, true);
+        xhttp.open("GET", "gruposDelete.php?grupo="+grupo, true);
         xhttp.send();
     };
 }
