@@ -60,7 +60,7 @@
 			$sql = "SELECT PROF.nombres, PROF.paterno, PROF.materno 
 				FROM grupomateria GM INNER JOIN profesores PROF
 				ON GM.idprofesor = PROF.matricula 
-				WHERE GM.idmateria = '".$materia."' AND GM.idgrupo = '".$grupo."';";
+				WHERE GM.idmateria = ".$materia." AND GM.idgrupo = '".$grupo."';";
 				$this->bd->selectSQL($sql);
 				if(!empty($this->bd->rowresult)){
 					return $this->bd->rowresult;
@@ -75,7 +75,7 @@
     			INNER JOIN diasmaterias DM ON GM.id = DM.materia
     			INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
     			INNER JOIN unidades U ON GM.idmateria = U.materia
-				WHERE GM.idgrupo = '".$grupo."' AND idmateria = '".$materia."' AND U.descripcion = ".$unidad." 
+				WHERE GM.idgrupo = '".$grupo."' AND idmateria = ".$materia." AND U.descripcion = ".$unidad." 
 					AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin;";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
