@@ -8,9 +8,9 @@
 		<link rel="stylesheet" href="../css/fonts-gm.css">
 
 		<?php
-			include_once("../model/DAOprofesor.php");
-			$db = new DAOprofesor();
-			$list = $db -> GETInfoprofesor();
+			include_once("../model/DAOprof.php");
+			$db = new DAOprof();
+			$list = $db -> getProfesores();
 		?>
 	</head>
 	<body>
@@ -18,7 +18,6 @@
 
 		<div class="alert alert-success col-md-10">
 			<button class="close" data-dismiss="alert"><span>&times;</span></button>
-			Profesor agregado correctamente.
 		</div>
 		<a href="Profesorfrm.php" class="btn btn-primary pull-right">Agregar</a>
 		<div class="clearfix"></div>
@@ -27,6 +26,7 @@
 				<table class="table table-condensed table-striped table-hover">
 				<thead>
 					<tr>
+						<th></th>
 						<th>Matricula</th>
 						<th>Nombres</th>
 						<th>Apellido Paterno</th>
@@ -39,21 +39,22 @@
 					<?php
 						if(!empty($list))
 						{
-							foreach ($list as $row)
-						}
+							foreach ($list as $row) {
+						
 					?>
 					<tr>
 						<th><a href=""><img src="../image/icons/arrow-right2.png" alt=""></a></th>
-						<th><?php echo $row->$Matricula; ?></th>
-						<th><?php echo $row->$Nombres; ?></th>
-						<th><?php echo $row->$Paterno; ?></th>
-						<th><?php echo $row->$Materno; ?></th>
-						<th><?php echo $row->$tipo; ?></th>
-						<th><?php echo $row->$carrera; ?></th>
+						<th><?php echo $row->matricula; ?></th>
+						<th><?php echo $row->nombres; ?></th>
+						<th><?php echo $row->paterno; ?></th>
+						<th><?php echo $row->materno; ?></th>
+						<th><?php echo $row->tipo; ?></th>
+						<th><?php echo $row->carrera; ?></th>
 					</tr>
 					<?php
+							}
 						}
-					}
+						
 					?>
 				</tbody>
 				</table>
