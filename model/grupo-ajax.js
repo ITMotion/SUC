@@ -25,16 +25,7 @@ function getGrupo2(grupo) {
 }
 
 function deleteGrupo(grupo) {
-    if (confirm("¿De verdad deseas eliminar el grupo?")) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            var divPanel = document.getElementById('deleteMessage');
-            divPanel.innerHTML = "Cargando...";
-            if(xhttp.readyState == 4) {
-                divPanel.innerHTML = xhttp.responseText;
-            }
-        };
-        xhttp.open("GET", "gruposDelete.php?grupo="+grupo, true);
-        xhttp.send();
+    if (confirm("¿De verdad deseas eliminar el grupo? Se eliminaran permanentemente los registros de alumnos y de asistencia correspondientes a este grupo. ¡Sobre aviso no hay engaño!")) {
+        window.location = "gruposDelete.php?grupo="+grupo;
     };
 }

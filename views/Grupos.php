@@ -7,6 +7,11 @@
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
+	<script src="../js/dataTableGrup.js"></script>
+	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 	<?php
 		include_once("../model/DAOgrupo.php"); 
 		$db = new DAOgrupo();
@@ -23,12 +28,20 @@
 			Se agregó correctamente el grupo.
 		</div>
 		<?php } ?>
+		<?php if (isset($_GET['deleteSuccess'])) { ?>
+			<div class="alert alert-success col-md-10">
+			<button class="close" data-dismiss="alert"><span>&times;</span></button>
+			Se eliminó correctamente el grupo.
+			</div>
+		<?php } ?>
+
+
 		<h1 class="col-md-6">Grupos</h1>
 		<a href="GrupoFrm.php" class="btn btn-primary pull-right">Agregar</a>
 	<div class="clearfix"></div>	
 	
 			<div class="table-responsive">
-				<table class="table table-condensed table-striped table-hover">
+				<table class="table table-condensed table-striped table-hover" id="tblGrupos">
 					<thead>
 						<tr>
 							
@@ -51,17 +64,16 @@
 							<th><?php echo $row->salon; ?></th>
 							<th><?php echo $row->horario; ?></th>
 							<th><?php echo $row->carrera; ?></th>
-							<th><a href="../views/EditGrupoFrm.php?grupo=<?php echo $row->grupo?>">
+							<th style="width:2%;"><a href="../views/EditGrupoFrm.php?grupo=<?php echo $row->grupo?>">
 								<img src="../image/icons/edit.png" 
 								onmouseover="this.src='../image/icons/editcolor.png'" 
 								onmouseout="this.src='../image/icons/edit.png'">
 							</a></th>
-							<th><a id="btnDelete" onclick="deleteGrupo('<?php echo $row->grupo?>')">
+							<th style="width: 2%;"><a id="btnDelete" onclick="deleteGrupo('<?php echo $row->grupo?>')">
 								<img src="../image/icons/delete.png" 
 								onmouseover="this.src='../image/icons/deletecolor.png'" 
 								onmouseout="this.src='../image/icons/delete.png'">
 							</a></th>
-							
 						</tr>
 						<?php 
 								}
