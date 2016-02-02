@@ -9,7 +9,7 @@
 	<select name="unidad" id="unidad" class="form-control">
 		<?php  
 			foreach ($unidades as $unidad) {
-				echo "<option value='$unidad->id'>Unidad: $unidad->descripcion</option>";
+				echo "<option value='$unidad->descripcion'>Unidad: $unidad->descripcion</option>";
 			}
 		?>
 	</select>
