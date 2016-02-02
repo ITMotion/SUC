@@ -24,7 +24,7 @@
 				Se agregó la carrera correctamente
 			</div>	
 		<?php } ?>
-		<?php if (isset($_GET["upsuccess"])) {?>
+		<?php if (isset($_GET["updsuccess"])) {?>
 			<div class="alert alert-success col-md-10">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				Se editó la carrera correctamente
@@ -47,7 +47,7 @@
 						<?php foreach ($carreras as $carrera): ?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
-								<th><a href="EditCarrerasFrm.php?codigo=<? $carrera->codigo?>&descripcion=<?php $carrera->descripcion?>" >
+								<th><a href="EditCarrerasFrm.php?codigo=<?php echo $carrera->codigo?>&descripcion=<?php echo $carrera->descripcion?>" >
 									<img src="../image/icons/edit.png" 
 									onmouseover="this.src='../image/icons/editcolor.png'" 
 									onmouseout="this.src='../image/icons/edit.png'">
