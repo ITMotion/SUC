@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<?php
+		$descripcion = $_GET["descripcion"];
+		$codigo = $_GET["codigo"];
+	?>
 </head>
 <body>
 	<?php include_once("menu.html") ?>
@@ -12,8 +16,8 @@
 		<form action="../model/Carreras-updateCarrera.php" method="POST" class="form-horizontal">
 			<div class="form-group">
 				<label for="carrera">Carrera</label>
-				<input type="text" placeholder="Ingresa la carrera" name="descripcion" id="descripcion" class="form-control"> 
-				<input type="hidden" name="codigo" class="form-control" id="codigo" placeholder="<?php echo $carrera->codigo ?>" value="<?php echo $carrera->codigo ?>">
+				<input type="text" placeholder="<?php echo $descripcion ?>" name="descripcion" id="descripcion" class="form-control"> 
+				<input type="hidden" name="codigo" class="form-control" id="codigo" value="<?php echo $codigo ?>" >
 			</div>
 			<button class="btn btn-primary pull-right">Guardar</button>
 		</form>
