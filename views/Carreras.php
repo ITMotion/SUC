@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 	<?php 
 		//Se llama al archivo DAOcarrera
 		include_once("../model/DAOcarrera.php");
@@ -63,8 +65,6 @@
 				</table>
 			</div>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 	<script src="../model/carreras.js"></script>
 </body>
 </html>
