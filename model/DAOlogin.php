@@ -4,7 +4,7 @@
 	require_once('class.no_injections.php');
 
 	class DAOlogin {
-		function DAOlogin(){
+		function __construct(){
 			$this->activa_conexion();
 		}
 		function activa_conexion(){
