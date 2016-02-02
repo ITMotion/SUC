@@ -23,3 +23,18 @@ function getInfoAssignment(id) {
     xhttp.open("GET", "GruposMateriasPanel.php?clave="+id, true);
     xhttp.send();
 }
+
+function deleteAssignment(id) {
+    if (confirm("¿De verdad deseas eliminar la asignatura?")) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            var divPanel = document.getElementById('deleteMessage');
+            divPanel.innerHTML = "Cargando...";
+            if(xhttp.readyState == 4) {
+                divPanel.innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "GruposMateriasDelete.php?clave="+id, true);
+        xhttp.send();
+    };
+}

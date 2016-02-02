@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>alumnos</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/fonts-gm.css">
 	<?php 
 		include_once("../model/DAOalum.php"); 
 		$db = new DAOalum();
@@ -14,6 +13,7 @@
 <body>
 	<?php include_once("menu.html") ?>
 	<div class="container">
+		<div id="deleteMessage"></div>
 		<?php if (isset($_GET['success'])) { ?>
 		<div class="alert alert-success col-md-10">
 			<button class="close" data-dismiss="alert"><span>&times;</span></button>
@@ -40,7 +40,15 @@
 							if(!empty($list)) {
 								foreach ($list as $row) { ?>
 						<tr>
-							<th><a href=""><img src="../image/icons/arrow-right2.png" alt=""></a></th>
+							<th>
+								
+								<a id="btnSelect" onclick="EditAlumnos(<?php echo $row->matricula ?>)">
+									<img src="../image/icons/select.png" 
+										onmouseover="this.src='../image/icons/select-onclick.png'" 
+										onmouseout="this.src='../image/icons/select.png'">
+								</a>
+						
+							</th>
 							<th><?php echo $row->matricula; ?></th>
 							<th><?php echo $row->nombres ?></th>
 							<th><?php echo $row->paterno ?></th>
@@ -58,12 +66,12 @@
 
 		<br>
 		<div class="col-md-4">
-			<div class="panel"></div>	
+			<div id="panel"></div>	
 		</div>
 	</div>
+	<script src="../model/alum-ajax.js"></script>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
-
 </body>
 </html>

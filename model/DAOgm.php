@@ -33,7 +33,7 @@
 		}
 
 		function getGmDetailedInfo($id) {
-			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, PR.paterno, PR.materno, PR.nombres
+			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, MT.clave, MT.carrera, PR.paterno, PR.materno, PR.nombres
 				FROM grupomateria GM 
 				INNER JOIN grupos GR 
 					ON GM.idgrupo = GR.grupo 
@@ -143,7 +143,34 @@
 			else {
 				return null;
 			}
+		}
 
+		function getAsignatura($id) {
+			$sql = "SELECT * FROM grupomateria GM INNER JOIN diasmaterias DM ON GM.id = DM.id WHERE GM.id = ".$id.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
+		function updateGM($id, $profesor) {
+			$sql = "UPDATE grupomateria SET idprofesor = '".$profesor."' WHERE id = ".$id.";";
+			$this->bd->executeSQL($sql);
+		}
+
+		//elimina de la tabla diasmaterias los dias correspondientes a la materia
+		function deleteDays($id) {
+			$sql = "DELETE FROM diasmaterias WHERE materia = ".$id.";";
+			$this->bd->executeSQL($sql);
+		}
+
+		//elimina un registro de la tabla grupomateria
+		function deleteGM($id) {
+			$sql = "DELETE FROM grupomateria WHERE id = ".$id.";";
+			$this->bd->executeSQL($sql);
 		}
 	}
 ?>
