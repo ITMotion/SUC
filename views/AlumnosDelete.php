@@ -5,7 +5,3 @@
 	$db->deleteAlumno($matricula);
 	
 ?>
-<div class="alert alert-warning col-md-10">
-	<button class="close" data-dismiss="alert"><span>&times;</span></button>
-	Se eliminó correctamente el alumno.
-</div>
