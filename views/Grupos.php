@@ -7,6 +7,11 @@
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
+	<script src="../js/dataTableGrupo.js"></script>
+	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 	<?php
 		include_once("../model/DAOgrupo.php"); 
 		$db = new DAOgrupo();
@@ -28,7 +33,7 @@
 	<div class="clearfix"></div>	
 	
 			<div class="table-responsive">
-				<table class="table table-condensed table-striped table-hover">
+				<table id="tblGrupos" class="table table-condensed table-striped table-hover">
 					<thead>
 						<tr>
 							
