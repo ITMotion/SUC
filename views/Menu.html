@@ -1,4 +1,17 @@
-<nav class="navbar navbar-default">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SUC: Sistema Único de Calificaciones</title>
+	<?php 
+		session_start();
+		if(!isset($_SESSION["permisos"])) {
+			header("Location: ../index.php?error");
+		}
+	?>
+</head>
+<body>
+	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
@@ -30,3 +43,5 @@
 		</div>
 	</div>
 </nav>
+</body>
+</html>
