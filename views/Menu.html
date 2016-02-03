@@ -3,12 +3,17 @@
 		header("Location: ../index.php?error");
 	}
 	require_once("../model/DAOlogin.php");
-	$db = new DAOlogin();
+	$dblogin = new DAOlogin();
 	if ($_SESSION["permisos"] == 2) { //en caso de que sea profesor
-		$user = $db->getInfoProfesor($_SESSION["user"]);	
+		$user = $dblogin->getInfoProfesor($_SESSION["user"]);
+		$username = $user[0]->nombres;
 	}
 	elseif ($_SESSION["permisos"] == 3) { //en caso de que sea alumno
-		$user = $db->getInfoAlumno($_SESSION["user"]);
+		$user = $dblogin->getInfoAlumno($_SESSION["user"]);
+		$username = $user[0]->nombres;
+	}
+	else {
+		$username = "Admin";
 	}
 ?>
 	<nav class="navbar navbar-default">
@@ -39,7 +44,7 @@
 				</li>
 				<li><a href="">EVA</a></li>
 				<li class="dropdown">
-					<a href="" data-toggle="dropdown"><?php echo $user[0]->nombres ?><span class="caret"></span></a>
+					<a href="" data-toggle="dropdown"><?php echo $username ?><span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="../model/logout.php">Cerrar Sesión</a></li>	
 					</ul>

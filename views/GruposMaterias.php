@@ -4,7 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Asignar materias</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<?php 
+	<?php
+		session_start();
+		if($_SESSION["permisos"] != 3) {
+			header("Location: ../index.php?errorPermisos");
+		}
 		include_once("../model/DAOgm.php"); 
 		$db = new DAOgm();
 		$list = $db -> getGmInfo();

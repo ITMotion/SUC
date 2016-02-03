@@ -13,7 +13,8 @@
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<script src="../js/dataTableMat.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
-	<?php 
+	<?php
+		session_start();
 		include_once("../model/DAOmaterias.php");
 		$db = new DAOmaterias();
 		$materias = $db->getMaterias();

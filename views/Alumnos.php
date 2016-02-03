@@ -12,7 +12,11 @@
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<script src="../js/dataTableAlumn.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
-	<?php 
+	<?php
+		session_start();
+		if($_SESSION["permisos"] != 1) {
+			header("Location: ../index.php?errorPermisos");
+		}
 		include_once("../model/DAOalum.php"); 
 		$db = new DAOalum();
 		$list = $db -> GetInfoAlumnos();

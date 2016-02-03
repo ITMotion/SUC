@@ -11,7 +11,7 @@
 	<?php
 		session_start();
 		if($_SESSION["permisos"] != 2) {
-			header("Location: ../index.php?error");
+			header("Location: ../javascript://history.go(-1)");
 		}
 		include_once("../model/DAOasistencia.php");
 		$db = new DAOasistencia();
