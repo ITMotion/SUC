@@ -22,6 +22,18 @@
 			$sql = "CALL login (".$this->user.",".$this->password.");";
 			$this->bd->selectSQL($sql);
 			return $this->bd->rowresult;
-		}	
+		}
+
+		function getInfoAlumno($user) {
+			$sql = "SELECT * FROM alumnos WHERE matricula = $user;";
+			$this->bd->selectSQL($sql);
+			return $this->bd->rowresult;
+		}
+
+		function getInfoProfesor($user) {
+			$sql = "SELECT * FROM profesores WHERE matricula = ".$user;
+			$this->bd->selectSQL($sql);
+			return $this->bd->rowresult;
+		}
 	}
 ?>

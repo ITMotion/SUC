@@ -14,7 +14,7 @@
 			header("Location: ../views/Materias.php");
 		}
 		elseif ($sesion[0]->tipo == 2) {
-			$_SESSION['permisos']=1;
+			$_SESSION['permisos']=2;
 			header("Location: ../views/Asistencia.php");
 		}
 	}
