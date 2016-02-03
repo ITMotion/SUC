@@ -97,6 +97,13 @@
 			}	
 		}
 
+		function getAsignaturasByProfesor($profesor) {
+			$sql = "SELECT M.descripcion AS matDescripcion, GM.idmateria, GM.id AS idasignatura, GM.idgrupo AS grupo 
+			FROM grupomateria GM INNER JOIN materias M on GM.idmateria = M.clave WHERE idprofesor = $profesor;";
+			$this->bd->selectSQL($sql);
+			return $this->bd->rowresult;
+		}
+
 		/*function obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad, $alumno) {
 			$sql = "SELECT ASIST.fecha
 				FROM grupomateria GM INNER JOIN diasmaterias DM

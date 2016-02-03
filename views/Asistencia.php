@@ -8,32 +8,64 @@
 	<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<?php  
+	<?php
+		session_start();
+		if($_SESSION["permisos"] != 2) {
+			header("Location: ../index.php?error");
+		}
 		include_once("../model/DAOasistencia.php");
 		$db = new DAOasistencia();
-		$carreras = $db->getCarreras();
+		$asignaturas = $db->getAsignaturasByProfesor($_SESSION["user"]);
 	?>
 </head>
 <body>
 	<?php include_once("menu.html"); ?>
 	<div class="container">
-		<h1>Lista de Asistencia</h1>
-	<?php if(!is_null($carreras)) { ?>
-		<div class="form-group">
-			<select name="carrera" id="carrera" class="form-control" onchange="getGruposByCarrera(value)">
-				<option value="">Seleccione una carrera</option>
-				<?php  
-					foreach ($carreras as $carrera) {
-						echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
-					}
-				?>
-			</select>
+		
+		<div class="col-md-8">
+			<!--Estas variables están definidas y se obtienen en el menú-->
+			<h1>Bienvenido, <?php echo $user[0]->nombres . " " . $user[0]->paterno . " " .$user[0]->materno ?></h1>
+			<h4><?php echo $user[0]->descCarrera; ?></h4>
+			<h4>
+				<?php if ($user[0]->tipo == "PA") { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
+			</h4>
 		</div>
-	<?php } ?>
-		<div id="grupos"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getGruposByCarrera-->
-		<div id="materias"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getMateriasByGrupo-->
+		<br>
+		<div class="col-md-4">
+			<h4>Asignaturas:</h4>
+			<div class="table-responsive">
+				<table class="table table-condensed table-striped table-hover">
+					<thead>
+						<tr>
+							<th></th>	
+							<th>Grupo</th>
+							<th>Materia</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($asignaturas as $asignatura): ?>
+							<th>
+								<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>')">
+									<img src="../image/icons/select.png" 
+										onmouseover="this.src='../image/icons/select-onclick.png'" 
+										onmouseout="this.src='../image/icons/select.png'">
+								</a>
+							</th>
+							<th><?php echo $asignatura->grupo; ?></th>
+							<th><?php echo $asignatura->matDescripcion; ?></th>
+						<?php endforeach ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<br>
+		<br>
 		<div id="unidades"></div> <!--Se mostrará por medio de ajax, ver asistencia.js función getUnidadesByMateria-->
-		<div id="tableAsistencia"></div>
+		<div class="clearfix"></div>
+		<br>
+		<br>
+		<div id="tableAsistencia" class="col-md-12"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
