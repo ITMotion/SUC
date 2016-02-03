@@ -22,6 +22,19 @@
 			$sql = "CALL login (".$this->user.",".$this->password.");";
 			$this->bd->selectSQL($sql);
 			return $this->bd->rowresult;
-		}	
+		}
+
+		function getInfoAlumno($user) {
+			$sql = "SELECT * FROM alumnos WHERE matricula = $user;";
+			$this->bd->selectSQL($sql);
+			return $this->bd->rowresult;
+		}
+
+		function getInfoProfesor($user) {
+			$sql = "SELECT P.nombres, P.paterno, P.materno, P.tipo, C.codigo AS idCarrera, C.descripcion AS descCarrera
+			FROM profesores P INNER JOIN carreras C ON P.carrera = C.codigo WHERE matricula = ".$user;
+			$this->bd->selectSQL($sql);
+			return $this->bd->rowresult;
+		}
 	}
 ?>

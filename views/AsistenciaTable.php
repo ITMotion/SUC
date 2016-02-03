@@ -5,11 +5,8 @@
 	include_once("../model/DAOasistencia.php");
 	$db = new DAOasistencia();
 	$assignment = $db->getAsignaturaByGrupoAndMateriaAndUnidad($grupo, $materia, $unidad);
-	$profesor = $db->getProfesorByGrupoAndMateria($grupo, $materia);
 	$alumnos = $db->getAlumnosByGrupo($grupo);
-	//$asistencia = $db->obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad);
 ?>
-<h3><b>Profesor:</b> <?php echo $profesor[0]->paterno . " " . $profesor[0]->materno . " " . $profesor[0]->nombres;?></h3>
 <div class="table-responsive">
 	<table class="table table-condensed table-striped table-hover">
 		<thead>
