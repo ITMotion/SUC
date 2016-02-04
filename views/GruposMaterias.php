@@ -6,8 +6,9 @@
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<?php
 		session_start();
-		if($_SESSION["permisos"] != 3) {
-			header("Location: ../index.php?errorPermisos");
+		if($_SESSION['permisos'] != 1) {
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			exit;
 		}
 		include_once("../model/DAOgm.php"); 
 		$db = new DAOgm();

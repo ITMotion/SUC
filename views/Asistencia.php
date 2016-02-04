@@ -11,7 +11,7 @@
 	<?php
 		session_start();
 		if($_SESSION["permisos"] != 2) {
-			header("Location: ../javascript://history.go(-1)");
+			
 		}
 		include_once("../model/DAOasistencia.php");
 		$db = new DAOasistencia();
@@ -25,7 +25,6 @@
 		<div class="col-md-8">
 			<!--Estas variables están definidas y se obtienen en el menú-->
 			<h1>Bienvenido, <?php echo $user[0]->nombres . " " . $user[0]->paterno . " " .$user[0]->materno ?></h1>
-			<h4><?php echo $user[0]->descCarrera; ?></h4>
 			<h4>
 				<?php if ($user[0]->tipo == "PA") { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
 			</h4>

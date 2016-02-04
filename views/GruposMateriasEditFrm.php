@@ -5,7 +5,11 @@
 	<title>Editar materia</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<?php  
+	<?php 
+		session_start();
+		if($_SESSION['permisos'] != 1) {
+			header("Location: ". $_SERVER['HTTP_REFERER']);
+		}
 		include_once("../model/DAOgm.php");
 		$db = new DAOgm();
 		$id = $_GET["id"];

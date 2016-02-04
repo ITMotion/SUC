@@ -13,6 +13,7 @@
 	<script src="../js/dataTableGrup.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 	<?php
+		session_start();
 		include_once("../model/DAOgrupo.php"); 
 		$db = new DAOgrupo();
 		$list = $db -> GetInfogrupos();

@@ -4,7 +4,11 @@
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<?php 
+	<?php
+		session_start();
+		if($_SESSION['permisos'] != 1) {
+			header("Location: ". $_SERVER['HTTP_REFERER']);
+		}
 		include_once("../model/DAOgm.php");
 		$db = new DAOgm();
 		$carreras = $db->getCarreras();
@@ -18,13 +22,13 @@
 <body>
 	<?php include_once("menu.html") ?>
 	<div class="container">
-		<h1>Asignar materias</h1>
+		<h1>Asignaturas</h1>
 		<form action="../model/gm-asignarMateria.php" method="POST" class="form-horizontal">
 			<div class="form-group">
 				<select name="carrera" id="carrera" class="form-control" onchange="getMateria(value)">
 					<option value="0">Seleccione una carrera</option>
 					<?php 
-					if(!empty($carreras)){	
+					if(!empty($carreras)) {	
 						foreach ($carreras as $carrera) {
 							echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
 						}
