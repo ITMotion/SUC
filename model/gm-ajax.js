@@ -30,6 +30,7 @@ function deleteAssignment(id) {
         xhttp.onreadystatechange = function() {
             var divPanel = document.getElementById('deleteMessage');
             divPanel.innerHTML = "Cargando...";
+            location.reload();
             if(xhttp.readyState == 4) {
                 divPanel.innerHTML = xhttp.responseText;
             }

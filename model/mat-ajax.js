@@ -5,6 +5,7 @@ function deleteMateria(id) {
             var divPanel = document.getElementById('deleteMessage');
             divPanel.innerHTML = "Cargando...";
             if(xhttp.readyState == 4) {
+                location.reload();
                 divPanel.innerHTML = xhttp.responseText;
             }
         };
