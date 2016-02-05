@@ -25,6 +25,7 @@
 	<!--Se llama al menú-->
 	<?php include_once("Menu.html"); ?>
 	<div class="container">
+		<div id="deleteMessage"></div>
 		<h1 class="">Carreras</h1>
 		<?php if (isset($_GET["success"])) {?>
 			<div class="alert alert-success col-md-10">

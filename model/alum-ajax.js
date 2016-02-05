@@ -39,6 +39,16 @@ function getGrupo(matricula) {
 
 function deleteAlumno(matricula) {
     if (confirm("¿De verdad deseas eliminar el alumno? Se eliminaran permanentemente los registros de alumnos y de asistencia correspondientes a este grupo. ¡Sobre aviso no hay engaño!")) {
-        window.location = "gruposDelete.php?grupo="+grupo;
+         var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            var divPanel = document.getElementById('deleteMessage');
+            divPanel.innerHTML = "Cargando...";
+            if(xhttp.readyState == 4) {
+                location.reload();
+                divPanel.innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "AlumnosDelete.php?matricula="+matricula, true);
+        xhttp.send();
     };
 }
