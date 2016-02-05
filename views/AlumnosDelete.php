@@ -3,5 +3,4 @@
 	include_once("../model/DAOalum.php");
 	$db = new DAOalum();
 	$db->deleteAlumno($matricula);
-	
 ?>

@@ -3,7 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sistema Único de Calificaciones</title>
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+	
 	<?php
 		$descripcion = $_GET["descripcion"];
 		$codigo = $_GET["codigo"];
@@ -22,8 +30,5 @@
 			<button class="btn btn-primary pull-right">Guardar</button>
 		</form>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
 </body>
 </html>

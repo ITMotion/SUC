@@ -3,7 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+	<!-----------------------Recursos de Bootstrap-------------------------->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
+	<?php require_once("../model/SesionAdministrador.php"); // control de sesiones ?>
 </head>
 <body>
 	<?php include_once("Menu.html"); ?>
@@ -16,8 +24,5 @@
 			<button class="btn btn-primary pull-right">Guardar</button>
 		</form>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/script.js"></script>
 </body>
 </html>

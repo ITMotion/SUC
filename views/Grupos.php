@@ -3,17 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+	
 	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<script src="../js/dataTableGrup.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 	<?php
-		session_start();
 		include_once("../model/DAOgrupo.php"); 
 		$db = new DAOgrupo();
 		$list = $db -> GetInfogrupos();

@@ -3,8 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
 	<?php 
 		include_once("../model/DAOmaterias.php");
 		$db = new DAOmaterias();
@@ -51,9 +58,6 @@
 			<a class="btn btn-warning col-md-2" href="Materias.php">Cancelar</a>
 		</form>
 	</div>
-	
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
 </body>
 </body>
 </html>

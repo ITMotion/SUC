@@ -3,14 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
 	<?php
-		session_start();
-		if($_SESSION['permisos'] != 1) {
-			if($_SESSION['permisos'] == 2) {
-				header('Location: Asistencia.php?unauthorized');
-			}
-		} 
 		include_once("../model/DAOgm.php");
 		$db = new DAOgm();
 		$carreras = $db->getCarreras();
