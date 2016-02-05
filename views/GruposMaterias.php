@@ -3,20 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Asignar materias</title>
+	
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
 	<?php
-		session_start();
-		if($_SESSION['permisos'] != 1) {
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
-			exit;
-		}
-		include_once("../model/DAOgm.php"); 
+		require_once("../model/SesionAdministrador.php"); //Control de sesiones
+		require_once("../model/DAOgm.php"); //DAO de acceso a bd
 		$db = new DAOgm();
-		$list = $db -> getGmInfo();
+		$list = $db -> getGmInfo(); //obtener toda la información sobre la asignatura
 	?>
+	
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php require_once("menu.html") ?>
 	<div class="container">
 		
 		<!-----------Mensaje de exito en eliminar-------------->
@@ -73,8 +77,5 @@
 		</div>
 	</div>
 	<script src="../model/gm-ajax.js"></script>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
 </body>
 </html>

@@ -7,8 +7,10 @@
 	<?php
 		session_start();
 		if($_SESSION['permisos'] != 1) {
-			header("Location: ". $_SERVER['HTTP_REFERER']);
-		}
+			if($_SESSION['permisos'] == 2) {
+				header('Location: Asistencia.php?unauthorized');
+			}
+		} 
 		include_once("../model/DAOgm.php");
 		$db = new DAOgm();
 		$carreras = $db->getCarreras();
