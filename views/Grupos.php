@@ -50,10 +50,10 @@
 					<thead>
 						<tr>
 							
-							<th>grupo</th>
-							<th>salon</th>
-							<th>horario</th>
-							<th>carrera</th>
+							<th>Grupo</th>
+							<th>Salon</th>
+							<th>Horario</th>
+							<th>Carrera</th>
 							<th></th>
 							<th></th>
 							
