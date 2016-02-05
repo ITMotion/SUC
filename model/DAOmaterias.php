@@ -90,7 +90,7 @@
 		}
 
 		function deleteMateria($clave) {
-			$sql = "DELETE FROM materias WHERE clave = ".$clave.";";
+			$sql = "DELETE FROM materias WHERE clave = '".$clave."';";
 			return $this->bd->executeSQL($sql);	
 		}
 	}
