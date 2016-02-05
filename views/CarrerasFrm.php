@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>SUC: Sistema Único de Calificaciones</title>
+	<title>SUC: Sistema Único de Calificaciones - Carreras</title>
 
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">

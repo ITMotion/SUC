@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Asignar materias</title>
+	<title>SUC: Sistema Único de Calificaciones - Materias</title>
 	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
 
 	<!-----------------------Recursos de Bootstrap-------------------------->

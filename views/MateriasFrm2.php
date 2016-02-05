@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>SUC: Sistema Único de Calificaciones</title>
+	<title>SUC: Sistema Único de Calificaciones - Materias</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/jquery-ui.js"></script>

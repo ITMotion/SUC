@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="en">
-	<title>SUC: Sistema Único de Calificaciones</title>
+	<title>SUC: Sistema Único de Calificaciones - Grupo</title>
 	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
 
 	<!-----------------------Recursos de Bootstrap-------------------------->
