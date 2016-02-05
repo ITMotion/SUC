@@ -85,8 +85,8 @@
 			}
 		}
 
-		function getProfesoresPorCarrera($carrera) {
-			$sql = "SELECT * FROM profesores WHERE carrera = ".$carrera;
+		function getProfesores() {
+			$sql = "SELECT * FROM profesores; ";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;

@@ -4,7 +4,7 @@
 	$db = new DAOgm();
 	$grupos = $db->getGruposPorCarrera($carrera);
 	$materias = $db->getMateriasPorCarrera($carrera);
-	$profesores = $db->getProfesoresPorCarrera($carrera);
+	$profesores = $db->getProfesores();
 	if (empty($grupos)) {
 ?>  
 	<div class="alert alert-warning">

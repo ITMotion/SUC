@@ -3,15 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>UTC - Lista de Asistencia</title>
+	
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+	
 	<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<?php
 		session_start();
 		if($_SESSION["permisos"] != 2) {
-			header("Location: ../javascript://history.go(-1)");
+			if($_SESSION['permisos'] == 1) {
+				header('Location: Administrator.php?unauthorized');
+			}
 		}
 		include_once("../model/DAOasistencia.php");
 		$db = new DAOasistencia();
@@ -25,7 +33,6 @@
 		<div class="col-md-8">
 			<!--Estas variables están definidas y se obtienen en el menú-->
 			<h1>Bienvenido, <?php echo $user[0]->nombres . " " . $user[0]->paterno . " " .$user[0]->materno ?></h1>
-			<h4><?php echo $user[0]->descCarrera; ?></h4>
 			<h4>
 				<?php if ($user[0]->tipo == "PA") { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
 			</h4>
@@ -68,6 +75,5 @@
 		<div id="tableAsistencia" class="col-md-12"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -14,8 +14,10 @@
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 	<?php
 		session_start();
-		if($_SESSION["permisos"] != 1) {
-			header("Location: ../index.php?errorPermisos");
+		if($_SESSION['permisos'] != 1) {
+			if($_SESSION['permisos'] == 2) {
+				header('Location: Asistencia.php?unauthorized');
+			}
 		}
 		include_once("../model/DAOalum.php"); 
 		$db = new DAOalum();

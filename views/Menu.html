@@ -1,22 +1,16 @@
 <?php 
-	if(!isset($_SESSION["permisos"])) {
+	//validación de la sesión
+	if(!isset($_SESSION["permisos"])) { //si no existen permisos regirige al login
 		header("Location: ../index.php?error");
+	}
+	if (isset($_GET["unauthorized"])) { //si no tiene los permisos correctos para ingresar al módulo
+		echo "<script> $(document).ready(function() {
+			alert('¡No estás autorizado a este módulo!') }) </script>";
 	}
 	require_once("../model/DAOlogin.php");
 	$dblogin = new DAOlogin();
-	if ($_SESSION["permisos"] == 2) { //en caso de que sea profesor
-		$user = $dblogin->getInfoProfesor($_SESSION["user"]);
-		$username = $user[0]->nombres;
-	}
-	elseif ($_SESSION["permisos"] == 3) { //en caso de que sea alumno
-		$user = $dblogin->getInfoAlumno($_SESSION["user"]);
-		$username = $user[0]->nombres;
-	}
-	else {
-		$username = "Admin";
-	}
 ?>
-	<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
@@ -29,20 +23,38 @@
 		</div>
 		<div class="collapse navbar-collapse" id="menu">
 			<ul class="nav navbar-nav navbar-right">
+<?php
+	if ($_SESSION["permisos"] == 2) { //en caso de que sea profesor
+		$user = $dblogin->getInfoProfesor($_SESSION["user"]);
+		$username = $user[0]->nombres;
+
+?>
 				<li><a href="Asistencia.php">Asistencia</a></li>
-				<li class="dropdown">
-					<a href="" class="dropdown-toggle" data-toggle="dropdown">Catálogos<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="Alumnos.php">Alumnos</a></li>
-						<li><a href="Grupos.php">Grupos</a></li>
-						<li><a href="Profesores.php">Profesores</a></li>
-						<li><a href="Materias.php">Materias</a></li>
-						<li><a href="GruposMaterias.php">Asignaturas</a></li>
-						<li><a href="Usuarios.php">Usuarios</a></li>
-						<li><a href="Carreras.php">Carreras	</a></li>
-					</ul>
-				</li>
 				<li><a href="">EVA</a></li>
+						
+<?php
+	}
+	elseif ($_SESSION["permisos"] == 3) { //en caso de que sea alumno
+		$user = $dblogin->getInfoAlumno($_SESSION["user"]);
+		$username = $user[0]->nombres;
+?>
+				
+<?php
+	}
+	else {
+		$username = "Admin";
+	
+?>
+				<li><a href="Alumnos.php">Alumnos</a></li>
+				<li><a href="Grupos.php">Grupos</a></li>
+				<li><a href="Profesores.php">Profesores</a></li>
+				<li><a href="Materias.php">Materias</a></li>
+				<li><a href="GruposMaterias.php">Asignaturas</a></li>
+				<li><a href="Usuarios.php">Usuarios</a></li>
+				<li><a href="Carreras.php">Carreras	</a></li>
+<?php 
+	}
+?>
 				<li class="dropdown">
 					<a href="" data-toggle="dropdown"><?php echo $username ?><span class="caret"></span></a>
 					<ul class="dropdown-menu">

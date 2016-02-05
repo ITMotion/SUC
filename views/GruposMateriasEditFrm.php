@@ -3,14 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Editar materia</title>
+	
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<?php  
+	<?php 
+		require_once("../model/SesionAdministrador.php"); //control de sesiones
 		include_once("../model/DAOgm.php");
 		$db = new DAOgm();
 		$id = $_GET["id"];
 		$lista = $db->getGmDetailedInfo($id);
-		$profesores = $db->getProfesoresPorCarrera($lista[0]->carrera);
+		$profesores = $db->getProfesores();
 		$grupos = $db->getGruposPorCarrera($lista[0]->carrera);
 	?>
 </head>
@@ -83,9 +91,6 @@
 			<a class="btn btn-danger" href="GruposMaterias.php" style="width: 30%;">Cancelar</a>
 		</form>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
 	<script src="../model/gm-ajax.js"></script>
 </body>
 </html>
