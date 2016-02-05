@@ -44,7 +44,7 @@
 		}
 
 		function delCarrera($codigo) {
-			$sql = "DELETE FROM carreras WHERE codigo = ".$codigo.";";
+			$sql = "DELETE FROM carreras WHERE codigo = '".$codigo."';";
 			$this->bd->executeSQL($sql);
 		}
 	}

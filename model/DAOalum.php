@@ -70,7 +70,7 @@
 		}
 
 		function deleteAlumno($matricula) {
-			$sql = "DELETE FROM alumnos WHERE matricula = ".$matricula.";";
+			$sql = "DELETE FROM alumnos WHERE matricula = '".$matricula."';";
 			$this->bd->executeSQL($sql);
 		}
 
