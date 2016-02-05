@@ -13,8 +13,8 @@
 
 		//obtener la tabla de los grupos
 		function GetInfogrupos(){
-			$sql ="SELECT * FROM grupos";
-
+			$sql ="SELECT G.grupo, G.salon, G.horario, C.descripcion AS carrera 
+				FROM grupos G INNER JOIN carreras C ON G.carrera = C.codigo;";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
@@ -77,8 +77,5 @@
 			$sql = "DELETE FROM grupos WHERE grupo = '".$grupo."';";
 			$this->bd->executeSQL($sql);
 		}
-
-		
-
 	}
 ?>
