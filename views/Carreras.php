@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>SUC: Sistema Único de Calificaciones - Carreras</title>
+	<title>SUC: Sistema Único de Calificaciones</title>
 	
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -25,7 +25,6 @@
 	<!--Se llama al menú-->
 	<?php include_once("Menu.html"); ?>
 	<div class="container">
-		<div id="deleteMessage"></div>
 		<h1 class="">Carreras</h1>
 		<?php if (isset($_GET["success"])) {?>
 			<div class="alert alert-success col-md-10">
@@ -58,7 +57,10 @@
 					</thead>
 					<tbody>
 						<!--Se sacan los valores de la base de datos y se imprimen-->
-						<?php foreach ($carreras as $carrera): ?>
+						<?php
+							if (!is_null($carreras)) { 
+								foreach ($carreras as $carrera): 
+						?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
 								<th><a href="EditCarrerasFrm.php?codigo=<?php echo $carrera->codigo?>&descripcion=<?php echo $carrera->descripcion?>" >
@@ -72,7 +74,7 @@
 									onmouseout="this.src='../image/icons/delete.png'">
 								</a></th>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach; } ?>
 					</tbody>
 				</table>
 			</div>
