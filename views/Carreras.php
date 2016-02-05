@@ -38,7 +38,12 @@
 				Se editó la carrera correctamente
 			</div>	
 		<?php } ?>
-		
+		<?php if (isset($_GET["delSuccess"])) {?>
+			<div class="alert alert-success col-md-10">
+				<button class="close" data-dismiss="alert"><span>&times;</span></button>
+				Se eliminó la carrera correctamente
+			</div>	
+		<?php } ?>
 		<a href="CarrerasFrm.php"><button class="btn btn-primary pull-right">Agregar</button></a>
 		<div class="clearfix"></div>
 			<div class="table-responsive">
