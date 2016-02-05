@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Editar materia</title>
-	
+	<title>SUC: Sistema Único de Calificaciones</title>
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
@@ -13,7 +14,6 @@
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<?php 
-		require_once("../model/SesionAdministrador.php"); //control de sesiones
 		include_once("../model/DAOgm.php");
 		$db = new DAOgm();
 		$id = $_GET["id"];

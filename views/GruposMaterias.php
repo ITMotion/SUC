@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Asignar materias</title>
-	
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
@@ -12,7 +13,6 @@
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
 	<?php
-		require_once("../model/SesionAdministrador.php"); //Control de sesiones
 		require_once("../model/DAOgm.php"); //DAO de acceso a bd
 		$db = new DAOgm();
 		$list = $db -> getGmInfo(); //obtener toda la información sobre la asignatura

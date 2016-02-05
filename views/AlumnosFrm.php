@@ -3,8 +3,16 @@
 <head>
 	<meta charset="en">
 	<title>SUC: Sistema Único de Calificaciones</title>
+	
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
 	<?php 
+		require_once("../model/SesionAdministrador.php"); // control de sesiones
 		include_once("../model/DAOalum.php"); 
 		$db = new DAOalum();
 		$carreras = $db->getCarreras();
@@ -36,9 +44,6 @@
 		<div id="Part2"></div>
 		</form>
 	</div>
-<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/scripts.js"></script>
 <script src="../model/alum-ajax.js"></script>
 </body>
 </html>

@@ -3,10 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones</title>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	
+	<!-----------------------Recursos de Bootstrap-------------------------->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<?php 
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
+	<?php
+		require_once("../model/SesionAdministrador.php"); // control de sesiones
 		//Se llama al archivo DAOcarrera
 		include_once("../model/DAOcarrera.php");
 		//Se asigna la función del archivo DAOcarrera a la variable $carreras
