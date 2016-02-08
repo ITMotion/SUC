@@ -51,15 +51,17 @@
 					</thead>
 					<tbody>
 						<?php foreach ($asignaturas as $asignatura): ?>
-							<th>
-								<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>')">
-									<img src="../image/icons/select.png" 
-										onmouseover="this.src='../image/icons/select-onclick.png'" 
-										onmouseout="this.src='../image/icons/select.png'">
-								</a>
-							</th>
-							<th><?php echo $asignatura->grupo; ?></th>
-							<th><?php echo $asignatura->matDescripcion; ?></th>
+							<tr>
+								<th>
+									<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>')">
+										<img src="../image/icons/select.png" 
+											onmouseover="this.src='../image/icons/select-onclick.png'" 
+											onmouseout="this.src='../image/icons/select.png'">
+									</a>
+								</th>
+								<th><?php echo $asignatura->grupo; ?></th>
+								<th><?php echo $asignatura->matDescripcion; ?></th>
+							</tr>
 						<?php endforeach ?>
 					</tbody>
 				</table>
@@ -72,7 +74,7 @@
 		<div class="clearfix"></div>
 		<br>
 		<br>
-		<div id="tableAsistencia" class="col-md-12"></div>
+		<div id="divResponse" class="col-md-12"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
 </body>
