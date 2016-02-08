@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>UTC - Lista de Asistencia</title>
+	<title>SUC: Sistema Único de Calificaciones - Asistencia</title>
 	
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">

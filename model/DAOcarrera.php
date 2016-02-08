@@ -29,7 +29,13 @@
 		function getCarreras(){
 			$sql="SELECT * FROM carreras;";
 			$this->bd->selectSQL($sql);
-			return $this->bd->rowresult;
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 
 		//
@@ -44,7 +50,7 @@
 		}
 
 		function delCarrera($codigo) {
-			$sql = "DELETE FROM carreras WHERE codigo = '".$codigo."';";
+			$sql = "DELETE FROM carreras WHERE codigo = ".$codigo.";";
 			$this->bd->executeSQL($sql);
 		}
 	}

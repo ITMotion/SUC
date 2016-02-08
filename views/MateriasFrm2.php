@@ -2,11 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>SUC: Sistema Único de Calificaciones</title>
+	<title>SUC: Sistema Único de Calificaciones - Materias</title>
+	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
+	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
+	<!----------------------------Recursos para el input de fecha------------------------------------------>
 	<script src="../js/jquery-ui.js"></script>
 	<link rel="stylesheet" href="../css/jquery-ui.css">
+	<!----------------------------Fin Recursos para el input de fecha------------------------------------------>
 	<?php  
 		$carrera = $_POST["carrera"];
 		$grado = $_POST["grado"];
@@ -76,7 +85,5 @@
 
 		</form>
 	</div>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
 </body>
 </html>
