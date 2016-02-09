@@ -46,3 +46,12 @@ function getEva(materia, grupo) {
     xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
     xhttp.send();
 }
+
+$(document).ready(function() {
+    $('#divResponse').on('change', '.cal_saber', function(e) {
+        var name = $(this).attr('name');
+        var saber = $(this).val();
+        console.log(name);
+        $(this).siblings('.cal_total').val("123");
+    });
+});

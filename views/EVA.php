@@ -29,38 +29,13 @@
 				<tr>
 					<th><?php echo $alumno->matricula ?></th>
 					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-					<th><input type="number" max="100" id="saber<?php echo $i ?>"></th>
-					<th><input type="number" max="100" id="hacer<?php echo $i ?>"></th>
-					<th><input type="number" max="100" id="ser<?php echo $i ?>"></th>
+					<th><input type="number" max="100" name="saber<?php echo $i ?>" class="cal_saber"></th>
+					<th><input type="number" max="100" name="hacer<?php echo $i ?>" class="cal_hacer"></th>
+					<th><input type="number" max="100" name="ser<?php echo $i ?>"   class="cal_set"></th>
 					<th><?php echo $porcentajeAsist . "%" ?></th>
-					<th><p id="total<?php echo $i ?>"></p></th>
+					<th><input type="number" class="cal_total" name="total" value="0"></th>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
 	</table>
 </div>
-<?php $i=0; foreach ($alumnos as $alumno): $i++;?>
-	<script>
-		$(function() {
-			console.log(1);
-			$("#saber<?php echo $i ?>").keyup(function(){
-				var saber = parseFloat($(this).val());
-				var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
-				var ser = parseFloat($("#ser<?php echo $i ?>").val());
-				$("#total<?php echo $i ?>").text(saber + hacer + ser);
-			});
-			$("#hacer<?php echo $i ?>").keyup(function(){
-				var saber = parseFloat($("#saber<?php echo $i ?>").val());
-				var hacer = parseFloat($(this).val());
-				var ser = parseFloat($("#ser<?php echo $i ?>").val());
-				$("#total<?php echo $i ?>").text(saber + hacer + ser);
-			});
-			$("#ser<?php echo $i ?>").keyup(function(){
-				var saber = parseFloat($("#saber<?php echo $i ?>").val());
-				var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
-				var ser = parseFloat($(this).val());
-				$("#total<?php echo $i ?>").text(saber + hacer + ser);
-			});
-		});
-	</script>
-<?php endforeach ?>
