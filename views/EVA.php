@@ -35,29 +35,32 @@
 					<th><?php echo $porcentajeAsist . "%" ?></th>
 					<th><p id="total<?php echo $i ?>"></p></th>
 				</tr>
-					<script>
-						$(function(){
-							$("#saber<?php echo $i ?>").keyup(function(){
-								var saber = parseFloat($(this).val());
-								var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
-								var ser = parseFloat($("#ser<?php echo $i ?>").val());
-								$("#total<?php echo $i ?>").text(saber + hacer + ser);
-							});
-							$("#hacer<?php echo $i ?>").keyup(function(){
-								var saber = parseFloat($("#saber<?php echo $i ?>").val());
-								var hacer = parseFloat($(this).val());
-								var ser = parseFloat($("#ser<?php echo $i ?>").val());
-								$("#total<?php echo $i ?>").text(saber + hacer + ser);
-							});
-							$("#ser<?php echo $i ?>").keyup(function(){
-								var saber = parseFloat($("#saber<?php echo $i ?>").val());
-								var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
-								var ser = parseFloat($(this).val());
-								$("#total<?php echo $i ?>").text(saber + hacer + ser);
-							});
-						});
-					</script>
 			<?php endforeach ?>
 		</tbody>
 	</table>
 </div>
+<?php $i=0; foreach ($alumnos as $alumno): $i++;?>
+	<script>
+		$(function() {
+			console.log(1);
+			$("#saber<?php echo $i ?>").keyup(function(){
+				var saber = parseFloat($(this).val());
+				var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
+				var ser = parseFloat($("#ser<?php echo $i ?>").val());
+				$("#total<?php echo $i ?>").text(saber + hacer + ser);
+			});
+			$("#hacer<?php echo $i ?>").keyup(function(){
+				var saber = parseFloat($("#saber<?php echo $i ?>").val());
+				var hacer = parseFloat($(this).val());
+				var ser = parseFloat($("#ser<?php echo $i ?>").val());
+				$("#total<?php echo $i ?>").text(saber + hacer + ser);
+			});
+			$("#ser<?php echo $i ?>").keyup(function(){
+				var saber = parseFloat($("#saber<?php echo $i ?>").val());
+				var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
+				var ser = parseFloat($(this).val());
+				$("#total<?php echo $i ?>").text(saber + hacer + ser);
+			});
+		});
+	</script>
+<?php endforeach ?>
