@@ -10,6 +10,15 @@
 	<table class="table table-condensed table-striped table-hover">
 		<thead>
 			<tr>
+				<th></th>
+				<th></th>
+				<th><input type="number" value="70" id="confSaber"></th>
+				<th><input type="number" value="20" id="confHacer"></th>
+				<th><input type="number" value="10" id="confSer"></th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr>
 				<th>Matrícula</th>
 				<th>Nombre</th>
 				<th>Saber</th>
@@ -29,11 +38,11 @@
 				<tr>
 					<th><?php echo $alumno->matricula ?></th>
 					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-					<th><input type="number" max="100" name="saber<?php echo $i ?>" class="cal_saber"></th>
-					<th><input type="number" max="100" name="hacer<?php echo $i ?>" class="cal_hacer"></th>
-					<th><input type="number" max="100" name="ser<?php echo $i ?>"   class="cal_set"></th>
+					<th><input type="number" max="100" name="saber<?php echo $i ?>" class="cal_saber" value="0"></th>
+					<th><input type="number" max="100" name="hacer<?php echo $i ?>" class="cal_hacer" value="0"></th>
+					<th><input type="number" max="100" name="ser<?php echo $i ?>"   class="cal_ser" value="0"></th>
 					<th><?php echo $porcentajeAsist . "%" ?></th>
-					<th><input type="number" class="cal_total" name="total" value="0"></th>
+					<th class="cal_total">0</th>
 				</tr>
 			<?php endforeach ?>
 		</tbody>

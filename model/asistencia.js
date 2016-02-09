@@ -49,9 +49,56 @@ function getEva(materia, grupo) {
 
 $(document).ready(function() {
     $('#divResponse').on('change', '.cal_saber', function(e) {
-        var name = $(this).attr('name');
-        var saber = $(this).val();
-        console.log(name);
-        $(this).siblings('.cal_total').val("123");
+        var saber = parseFloat($(this).val());
+        var confSaber = parseFloat($("#confSaber").val()) / 100;
+        var totalSaber = saber * confSaber;
+
+        var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val());
+        var confHacer = parseFloat($("#confHacer").val()) / 100;
+        var totalHacer = hacer * confHacer;
+
+        var ser = parseFloat($(this).parent().parent().find(".cal_ser").val());
+        var confSer = parseFloat($("#confSer").val()) / 100;
+        var totalSer = ser * confSer;
+
+        $(this).parent().nextAll(".cal_total").text(totalSaber + totalHacer + totalSer);
+    });
+    $("#divResponse").on("change", ".cal_hacer", function(e) {
+        var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
+        var confSaber = parseFloat($("#confSaber").val()) / 100;
+        var totalSaber = saber * confSaber;
+
+        var hacer = parseFloat($(this).val());
+        var confHacer = parseFloat($("#confHacer").val()) / 100;
+        var totalHacer = hacer * confHacer;
+
+        var ser = parseFloat($(this).parent().parent().find(".cal_ser").val());
+        var confSer = parseFloat($("#confSer").val()) / 100;
+        var totalSer = ser * confSer;
+        
+        console.log(totalSaber);
+        console.log(totalHacer);
+        console.log(totalSer);
+
+        $(this).parent().nextAll(".cal_total").text(totalSaber + totalHacer + totalSer);
+    });
+    $("#divResponse").on("change", ".cal_ser", function(e) {
+        var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
+        var confSaber = parseFloat($("#confSaber").val()) / 100;
+        var totalSaber = saber * confSaber;
+
+        var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val());
+        var confHacer = parseFloat($("#confHacer").val()) / 100;
+        var totalHacer = hacer * confHacer;
+
+        var ser = parseFloat($(this).val());
+        var confSer = parseFloat($("#confSer").val()) / 100;
+        var totalSer = ser * confSer;
+        
+        console.log(totalSaber);
+        console.log(totalHacer);
+        console.log(totalSer);
+        
+        $(this).parent().nextAll(".cal_total").text(totalSaber + totalHacer + totalSer);
     });
 });
