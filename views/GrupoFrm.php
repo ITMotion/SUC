@@ -28,7 +28,15 @@
 	<?php include_once("menu.html") ?>
 	<div class="container">
 		<h1>Agregar nuevo grupo</h1>
+		<?php if (empty($carreras)) { ?>
+		<div class="alert alert-warning">
+		<button class="close" data-dismiss="alert"><span>&times;</span></button>
+		No existen carreras creadas. Crea una <a href="#" onclick="EnlaceCarrera()">aquí</a>.
+	</div>
+	<?php
+	} else { ?>
 		<form action="../model/Grupo-asignarGrupo.php" method="POST" class="form-horizontal">
+
 		<div class="form-group">
 			<select name="carrera" id="carrera" class="form-control" onchange="getGrupo(value)">
 				<option value="0">Seleccione una carrera</option>
@@ -39,10 +47,12 @@
 						}
 					}
 					?>
+					<?php } ?>
 			</select>		
 		</div>
 		<div id="Part2"></div>
 		</form>
+		<div id="grupoenlace"></div>
 	</div>
 <script src="../model/grupo-ajax.js"></script>
 </body>

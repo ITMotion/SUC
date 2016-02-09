@@ -3,5 +3,5 @@
 	$db = new DAOcarrera();
 	$descripcion = $_POST["carrera"];
 	$db->setCarrera($descripcion);
-	header("Location:../views/alumnosFrm.php?success");
+	header("Location:../views/GrupoFrm.php?success");
  ?>
