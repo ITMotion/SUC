@@ -9,7 +9,7 @@
 ?>  
 	<div class="alert alert-warning">
 		<button class="close" data-dismiss="alert"><span>&times;</span></button>
-		No existen grupos asignados a esta carrera. Asigna uno <a href="Grupos.php">aquí</a>.
+		No existen grupos asignados a esta carrera. Asigna uno <a href="#" onclick="enlace(<?php echo $carrera ?>)">aquí</a>.
 	</div>
 <?php
 	} elseif(empty($materias)) { ?>
@@ -24,6 +24,8 @@
 		No existen profesores asignados a esta carrera.
 	</div>
 <?php } else { ?>
+
+	<div id="Part2"></div>
 	<div class="form-group">
 		<select name="grupos" id="grupos" class="form-control">
 			<?php 
@@ -89,4 +91,5 @@
 	<div class="group">
 		<button class="btn btn-primary pull-right">Enviar</button>
 	</div>
+	<script src="../model/gm-ajax.js"></script>
 <?php } ?>

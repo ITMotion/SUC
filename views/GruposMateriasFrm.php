@@ -42,6 +42,7 @@
 			</div>
 			<div id="Part2"></div>
 		</form>
+		<div id="grupoenlace"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
