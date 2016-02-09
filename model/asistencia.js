@@ -17,10 +17,10 @@ function getCalendar(materia, grupo){
     var unidad = document.getElementById("unidad").value;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        var tableAsistencia = document.getElementById('tableAsistencia');
-        tableAsistencia.innerHTML = "Cargando...";
+        var divResponse = document.getElementById('divResponse');
+        divResponse.innerHTML = "Cargando...";
         if(xhttp.readyState == 4) {
-            tableAsistencia.innerHTML = xhttp.responseText;
+            divResponse.innerHTML = xhttp.responseText;
         }
     };
     xhttp.open("GET", "AsistenciaTable.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
@@ -31,4 +31,18 @@ function updateAsistencia(bit, alumno, fecha, materia) {
     var ajax = new XMLHttpRequest();
     ajax.open("GET", "../model/asistenciaUpdate.php?fecha="+fecha+"&matricula="+alumno+"&asistencia="+bit+"&materia="+materia, true);
     ajax.send();
+}
+
+function getEva(materia, grupo) {
+    var unidad = document.getElementById("unidad").value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divResponse = document.getElementById('divResponse');
+        divResponse.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divResponse.innerHTML = xhttp.responseText;
+        }
+    }
+    xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
+    xhttp.send();
 }
