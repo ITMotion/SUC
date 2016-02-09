@@ -52,3 +52,30 @@ function deleteAlumno(matricula) {
         xhttp.send();
     };
 }
+
+function EnlaceAlumnos(carrera) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divGrupos = document.getElementById('grupoenlace');
+        divGrupos.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divGrupos.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "../views/AlumnosEnlace.php?carrera="+carrera, true);
+    xhttp.send();
+}
+
+function EnlaceGrupos(carrera) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divGrupos = document.getElementById('grupoenlace');
+        divGrupos.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divGrupos.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "../views/GruposEnlace.php?carrera="+carrera, true);
+    xhttp.send();
+}
+

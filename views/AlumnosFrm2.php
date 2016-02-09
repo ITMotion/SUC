@@ -8,7 +8,7 @@
 
 	<div class="alert alert-warning">
 		<button class="close" data-dismiss="alert"><span>&times;</span></button>
-		No existen grupos asignados a esta carrera. Asigna uno <a href="Grupos.php">aquí</a>.
+		No existen grupos asignados a esta carrera. Asigna uno <a href="#" onclick="EnlaceGrupos(<?php echo $carrera ?>)">aquí</a>.
 	</div>
 <?php } else { ?>
 	<div class="form-group">
@@ -37,3 +37,4 @@
 		<button class="btn btn-primary pull-right">Enviar</button>
 	</div>
 <?php } ?>
+<script src="../model/alum-ajax.js"></script>
