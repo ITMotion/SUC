@@ -101,7 +101,12 @@
 			$sql = "SELECT M.descripcion AS matDescripcion, GM.idmateria, GM.id AS idasignatura, GM.idgrupo AS grupo 
 			FROM grupomateria GM INNER JOIN materias M on GM.idmateria = M.clave WHERE idprofesor = $profesor;";
 			$this->bd->selectSQL($sql);
-			return $this->bd->rowresult;
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 
 		/*function obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad, $alumno) {

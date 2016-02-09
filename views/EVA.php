@@ -20,7 +20,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($alumnos as $alumno): 
+			<?php $i=0; foreach ($alumnos as $alumno):
+				$i++;
 				$asistencia = $db->getAsistencia($alumno->matricula, $unidad, $materia);
 				$asistenciaTotal = $db->getAsistenciaTotal($alumno->matricula, $unidad, $materia);
 				$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);
@@ -28,20 +29,34 @@
 				<tr>
 					<th><?php echo $alumno->matricula ?></th>
 					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-					<th><input type="number" max="100" id="saber"></th>
-					<th><input type="number" max="100"></th>
-					<th><input type="number" max="100"></th>
+					<th><input type="number" max="100" id="saber<?php echo $i ?>"></th>
+					<th><input type="number" max="100" id="hacer<?php echo $i ?>"></th>
+					<th><input type="number" max="100" id="ser<?php echo $i ?>"></th>
 					<th><?php echo $porcentajeAsist . "%" ?></th>
-					<th><p></p></th>
-			<script>
-				$( "input" )
-					.keyup(function() {
-    				var value = $( this ).val();
-    				$( "p" ).text( value );
-  				})
-				.keyup();
-			</script>
+					<th><p id="total<?php echo $i ?>"></p></th>
 				</tr>
+					<script>
+						$(function(){
+							$("#saber<?php echo $i ?>").keyup(function(){
+								var saber = parseFloat($(this).val());
+								var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
+								var ser = parseFloat($("#ser<?php echo $i ?>").val());
+								$("#total<?php echo $i ?>").text(saber + hacer + ser);
+							});
+							$("#hacer<?php echo $i ?>").keyup(function(){
+								var saber = parseFloat($("#saber<?php echo $i ?>").val());
+								var hacer = parseFloat($(this).val());
+								var ser = parseFloat($("#ser<?php echo $i ?>").val());
+								$("#total<?php echo $i ?>").text(saber + hacer + ser);
+							});
+							$("#ser<?php echo $i ?>").keyup(function(){
+								var saber = parseFloat($("#saber<?php echo $i ?>").val());
+								var hacer = parseFloat($("#hacer<?php echo $i ?>").val());
+								var ser = parseFloat($(this).val());
+								$("#total<?php echo $i ?>").text(saber + hacer + ser);
+							});
+						});
+					</script>
 			<?php endforeach ?>
 		</tbody>
 	</table>
