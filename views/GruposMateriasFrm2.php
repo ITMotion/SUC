@@ -9,13 +9,13 @@
 ?>  
 	<div class="alert alert-warning">
 		<button class="close" data-dismiss="alert"><span>&times;</span></button>
-		No existen grupos asignados a esta carrera. Asigna uno <a href="#" onclick="enlace(<?php echo $carrera ?>)">aquí</a>.
+		No existen grupos asignados a esta carrera. Asigna uno <a href="#" onclick="EnlaceGrupos(<?php echo $carrera ?>)">aquí</a>.
 	</div>
 <?php
 	} elseif(empty($materias)) { ?>
 	<div class="alert alert-warning">
 		<button class="close" data-dismiss="alert"><span>&times;</span></button>
-		No existen materias asignadas a esta carrera.
+		No existen materias asignadas a esta carrera. Asigna uno <a href="#" onclick="EnlaceMaterias(<?php echo $carrera ?>)">aquí</a>.
 	</div>
 
 <?php } elseif (empty($profesores)) { ?>
