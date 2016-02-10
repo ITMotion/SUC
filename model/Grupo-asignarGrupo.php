@@ -7,5 +7,10 @@
 	include_once("DAOgrupo.php");
 	$db = new DAOgrupo();
 	$db->insertGrupo($grupos, $salon, $horario, $carrera);
-	header("Location: ../views/Grupos.php?success");
+	if(!isset($_POST["enlace"])){
+		header("Location: ../views/GrupoFrm.php?success");
+	}
+	elseif ($_POST["enlace"] == "asignaturas") {
+		header("Location: ../views/grupos.php");
+	}
 ?>

@@ -26,5 +26,10 @@
 		$unidad++;	
 	}
 	
-	header("Location: ../views/Materias.php?success");
+	if(!isset($_POST["enlace"])){
+		header("Location: ../views/materias.php?success");
+	}
+	elseif ($_POST["enlace"] == "asignaturas") {
+		header("Location: ../views/GruposMateriasFrm.php");
+	}
 ?>

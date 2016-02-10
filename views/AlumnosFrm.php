@@ -21,13 +21,19 @@
 				echo "<script> alert('¡Este alumno ya existe!')</script>";
 			}
 		}
-		
 	?>
 </head>
 <body>
 	<?php include_once("menu.html") ?>
 	<div class="container">
 		<h1>Agregar alumno nuevo</h1>
+	<?php if (empty($carreras)) { ?>
+		<div class="alert alert-warning">
+		<button class="close" data-dismiss="alert"><span>&times;</span></button>
+		No existen carreras creadas. Crea una <a href="#" onclick="EnlaceAlumnos()">aquí</a>.
+	</div>
+	<?php
+	} else { ?>
 		<form action="../model/Alumnos-asignarAlumno.php" method="POST" class="form-horizontal">
 		<div class="form-group">
 			<select name="carrera" id="carrera" class="form-control" onchange="getMateria(value)">
@@ -39,10 +45,12 @@
 						}
 					}
 					?>
+					<?php } ?>
 			</select>		
 		</div>
 		<div id="Part2"></div>
 		</form>
+		<div id="grupoenlace"></div>
 	</div>
 <script src="../model/alum-ajax.js"></script>
 </body>
