@@ -59,5 +59,25 @@
 				return null;
 			}
 		}
+
+		function getPorcentajeCalif($asignatura) {
+			$sql = "SELECT CC.saber, CC.saberHacer, CC.ser
+			FROM grupomateria GM INNER JOIN configcalificaciones CC ON GM.id = CC.asignatura WHERE GM.id = ".$asignatura.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
+		}
+
+		function updateConfig($asignatura, $ser, $hacer, $saber) {
+			$sql = "UPDATE configcalificaciones SET saber = ".$saber." 
+			, saberHacer = ".$hacer." , ser = ".$ser." WHERE asignatura = ".$asignatura.";";
+			return $this->bd->executeSQL($sql);
+		}
 	}
 ?>

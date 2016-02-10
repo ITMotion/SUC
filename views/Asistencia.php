@@ -53,7 +53,7 @@
 						<?php foreach ($asignaturas as $asignatura): ?>
 							<tr>
 								<th>
-									<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>')">
+									<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>', '<?php echo $asignatura->idasignatura ?>')">
 										<img src="../image/icons/select.png" 
 											onmouseover="this.src='../image/icons/select-onclick.png'" 
 											onmouseout="this.src='../image/icons/select.png'">

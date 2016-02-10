@@ -1,5 +1,5 @@
 //obtiene las unidades de cada materia y las muestra en el div "unidades" de la página Asistencia.php
-function getUnidadesByMateria(materia, grupo) {
+function getUnidadesByMateria(materia, grupo, asignatura) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divUnidades = document.getElementById('unidades');
@@ -8,7 +8,7 @@ function getUnidadesByMateria(materia, grupo) {
             divUnidades.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "AsistenciaUnid.php?materia="+materia+"&grupo="+grupo, true);
+    xhttp.open("GET", "AsistenciaUnid.php?materia="+materia+"&grupo="+grupo+"&asignatura="+asignatura, true);
     xhttp.send();
 }
 
@@ -33,7 +33,7 @@ function updateAsistencia(bit, alumno, fecha, materia) {
     ajax.send();
 }
 
-function getEva(materia, grupo) {
+function getEva(materia, grupo, asignatura) {
     var unidad = document.getElementById("unidad").value;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -43,7 +43,7 @@ function getEva(materia, grupo) {
             divResponse.innerHTML = xhttp.responseText;
         }
     }
-    xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
+    xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad+"&asignatura="+asignatura, true);
     xhttp.send();
 }
 
@@ -105,3 +105,22 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         }
     });
 });
+function saveConfig(){
+    //implementando ajax
+    $.ajax({
+        url: "../model/EVAsaveConfig.php", //url a donde se envian los datos
+        type: "POST", //el método de envío
+        dataType: "HTML",
+        data: $("#frmConfig").serialize() //envía la información del formulario, todos los campos
+    })
+                    //cuando la función finaliza, recuperamos la respuesta
+    .done(function(data) { //data es la respuesta que regresa el ajax
+        $("#configuracion").modal("toggle"); //se oculta el modal
+        $("#tableConfigSection").empty(); // se vacia el contenido anterior
+        $("#tableConfigSection").html(data);
+    })
+}
+
+function saveCalificacion() {
+    alert("Se guardó la calificación");
+}

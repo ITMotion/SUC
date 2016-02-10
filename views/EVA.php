@@ -2,9 +2,11 @@
 	$grupo = $_GET['grupo'];
 	$materia = $_GET['materia'];
 	$unidad = $_GET['unidad'];
+	$asignatura = $_GET["asignatura"];
 	require_once("../model/DAOeva.php");
 	$db = new DAOeva();
 	$alumnos = $db->getAlumnosPorGrupo($grupo);
+	$porcentajesCalif = $db->getPorcentajeCalif($asignatura);
 ?>
 <a href="" class="btn btn-warning pull-right" data-toggle="modal" data-target="#configuracion">Configuración</a>
 <div class="clearfix"></div>
@@ -12,15 +14,15 @@
 <div class="table-responsive">
 	<table class="table table-condensed table-striped table-hover">
 		<thead>
-			<tr>
-				<th></th>
-				<th>Porcentajes:</th>
-				<th id="confSaber">70</th>
-				<th id="confHacer">20</th>
-				<th id="confSer">10</th>
-				<th></th>
-				<th></th>
-			</tr>
+				<tr id="tableConfigSection">
+					<th></th>
+					<th>Porcentajes:</th>
+					<th id="confSaber"><?php echo $porcentajesCalif[0]->saber; ?></th>
+					<th id="confHacer"><?php echo $porcentajesCalif[0]->saberHacer; ?></th>
+					<th id="confSer"><?php echo $porcentajesCalif[0]->ser; ?></th>
+					<th></th>
+					<th></th>
+				</tr>
 			<tr>
 				<th>Matrícula</th>
 				<th>Nombre</th>
@@ -47,7 +49,7 @@
 					<th><input type="number" min="0" max="100" name="ser<?php echo $i ?>"   class="cal_ser" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
 					<th><?php echo $porcentajeAsist . "%" ?></th>
 					<th class="cal_total"><?php if($porcentajeAsist < 85){ echo "NA";} ?></th>
-					<th><a href=""><img src="../image/icons/save2.png"></a></th>
+					<th><a onclick="saveCalificacion()"><img src="../image/icons/save2.png"></a></th>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
@@ -64,21 +66,23 @@
 				<form action="../model/saveConfig.php" method="POST" id="frmConfig">
 					<div class="form-group">
 						<label for="saberC">Saber</label>
-						<input type="number" value="saberC" name="saberC" class="form-control configuraciones" id="saberC">
+						<input type="number" value="saberC" name="saberC" class="form-control configuraciones" name="saberC" id="saberC" placeholder="<?php echo $porcentajesCalif[0]->saber ?>">
 					</div>
 					
 					<div class="form-group">
 						<label for="hacerC">Hacer</label>
-						<input type="number" value="hacerC" class="form-control configuraciones" id="hacerC">
+						<input type="number" value="hacerC" class="form-control configuraciones" name="hacerC" id="hacerC" placeholder="<?php echo $porcentajesCalif[0]->saberHacer ?>">
 					</div>
 
 					<div class="form-group">
 						<label for="serC">Ser</label>
-						<input type="number" value="serC" class="form-control configuraciones" id="serC">
+						<input type="number" value="serC" class="form-control configuraciones" name="serC" id="serC" placeholder="<?php echo $porcentajesCalif[0]->ser ?>">
 					</div>
+
+					<input type="hidden" name="asignatura" value="<?php echo $asignatura ?>"> <!--Pasamos el valor de la asignatura--> 
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</button>
+				<a onclick="saveConfig()" class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</a>
 				</form>
 				<button class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
 			</div>
