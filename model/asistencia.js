@@ -47,58 +47,61 @@ function getEva(materia, grupo) {
     xhttp.send();
 }
 
-$(document).ready(function() {
+$(document).ready(function() { //funciones para el calculo de la calificación final
     $('#divResponse').on('change', '.cal_saber', function(e) {
-        var saber = parseFloat($(this).val());
-        var confSaber = parseFloat($("#confSaber").val()) / 100;
-        var totalSaber = saber * confSaber;
+        var saber = parseFloat($(this).val()); //tomamos la calificación del saber
+        var confSaber = parseFloat($("#confSaber").html()) / 100; //porcentaje que representa el saber en la unidad
+        var totalSaber = saber * confSaber; 
 
         var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val());
-        var confHacer = parseFloat($("#confHacer").val()) / 100;
+        var confHacer = parseFloat($("#confHacer").html()) / 100;
         var totalHacer = hacer * confHacer;
 
         var ser = parseFloat($(this).parent().parent().find(".cal_ser").val());
-        var confSer = parseFloat($("#confSer").val()) / 100;
+        var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
 
-        $(this).parent().nextAll(".cal_total").text(totalSaber + totalHacer + totalSer);
+        $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
     });
     $("#divResponse").on("change", ".cal_hacer", function(e) {
         var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
-        var confSaber = parseFloat($("#confSaber").val()) / 100;
+        var confSaber = parseFloat($("#confSaber").html()) / 100;
         var totalSaber = saber * confSaber;
 
         var hacer = parseFloat($(this).val());
-        var confHacer = parseFloat($("#confHacer").val()) / 100;
+        var confHacer = parseFloat($("#confHacer").html()) / 100;
         var totalHacer = hacer * confHacer;
 
         var ser = parseFloat($(this).parent().parent().find(".cal_ser").val());
-        var confSer = parseFloat($("#confSer").val()) / 100;
+        var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
-        
-        console.log(totalSaber);
-        console.log(totalHacer);
-        console.log(totalSer);
 
-        $(this).parent().nextAll(".cal_total").text(totalSaber + totalHacer + totalSer);
+        $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
     });
     $("#divResponse").on("change", ".cal_ser", function(e) {
         var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
-        var confSaber = parseFloat($("#confSaber").val()) / 100;
+        var confSaber = parseFloat($("#confSaber").html()) / 100;
         var totalSaber = saber * confSaber;
 
         var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val());
-        var confHacer = parseFloat($("#confHacer").val()) / 100;
+        var confHacer = parseFloat($("#confHacer").html()) / 100;
         var totalHacer = hacer * confHacer;
 
         var ser = parseFloat($(this).val());
-        var confSer = parseFloat($("#confSer").val()) / 100;
+        var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
-        
-        console.log(totalSaber);
-        console.log(totalHacer);
-        console.log(totalSer);
-        
-        $(this).parent().nextAll(".cal_total").text(totalSaber + totalHacer + totalSer);
+
+        $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
+    });
+    $("#divResponse").on("change", ".configuraciones", function(e) {
+        var saber = parseFloat($("#saberC").val());
+        var ser = parseFloat($("#serC").val());
+        var hacer = parseFloat($("#hacerC").val());
+        total = saber + ser + hacer;
+        if(total == 100) {
+            $("#btnConfig").removeAttr("disabled");
+        } else {
+             $("#btnConfig").attr("disabled", true);
+        }
     });
 });
