@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<title>Profesores</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../css/fonts-gm.css">
-
 		<?php
 			include_once("../model/DAOprof.php");
 			$db = new DAOprof();
@@ -15,7 +13,6 @@
 	</head>
 	<body>
 		<?php include_once("menu.html") ?>
-
 		<div class="alert alert-success col-md-10">
 			<button class="close" data-dismiss="alert"><span>&times;</span></button>
 		</div>
@@ -39,8 +36,8 @@
 					<?php
 						if(!empty($list))
 						{
-							foreach ($list as $row) {
-						
+							foreach ($list as $row) 
+							{
 					?>
 					<tr>
 						<th><a href=""><img src="../image/icons/arrow-right2.png" alt=""></a></th>
@@ -54,7 +51,6 @@
 					<?php
 							}
 						}
-						
 					?>
 				</tbody>
 				</table>
@@ -64,6 +60,15 @@
 		<div class="col-md-4">
 			<div class="panel"></div>
 		</div>
+	</div>
+	<div class="form-group">
+		<button id="Editar" name="Editar" type="button" class="btn btn-primary pull-right">Editar</button>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+	<div class="form-group">
+		<button id="Eliminar" name="Eliminar" type="button" class="btn btn-primary pull-right">Eliminar</button>
 	</div>
 		<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
