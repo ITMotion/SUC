@@ -121,6 +121,15 @@ function saveConfig(){
     })
 }
 
-function saveCalificacion() {
-    alert("Se guardó la calificación");
+function saveCalificacion(numFrm) {
+    $.ajax({
+        url: "..model/EVAsaveCalif.php",
+        type: "POST",
+        dataType: "HTML",
+        data: $("#frmCalificacion"+numFrm).serialize()
+    })
+
+    .done(function(data) {
+        alert("Se guardaron las calificaciones");
+    })
 }

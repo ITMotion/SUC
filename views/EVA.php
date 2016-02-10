@@ -42,14 +42,16 @@
 				$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);
 			?>
 				<tr>
-					<th><?php echo $alumno->matricula ?></th>
+					<form id="frmCalificacion<?php echo $i; ?>">
+					<th><?php echo $alumno->matricula ?> <input type="hidden" name="alumno" value="<?php echo $alumno->matricula ?>"></th>
 					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-					<th><input type="number" min="0" max="100" name="saber<?php echo $i ?>" class="cal_saber" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th><input type="number" min="0" max="100" name="hacer<?php echo $i ?>" class="cal_hacer" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th><input type="number" min="0" max="100" name="ser<?php echo $i ?>"   class="cal_ser" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th><?php echo $porcentajeAsist . "%" ?></th>
+					<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
+					<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
+					<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
+					<th><?php echo $porcentajeAsist . "%" ?> <input type="hidden" name="asistencia" value="<?php echo $porcentajeAsist ?>"></th>
 					<th class="cal_total"><?php if($porcentajeAsist < 85){ echo "NA";} ?></th>
-					<th><a onclick="saveCalificacion()"><img src="../image/icons/save2.png"></a></th>
+					<th><a onclick="saveCalificacion(<?php echo $i ?>)"><img src="../image/icons/save2.png"></a></th>
+					</form>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
@@ -63,7 +65,7 @@
 				<h2>Configuración de Porcentajes de Calificación</h2>
 			</div>
 			<div class="modal-body">
-				<form action="../model/saveConfig.php" method="POST" id="frmConfig">
+				<form id="frmConfig">
 					<div class="form-group">
 						<label for="saberC">Saber</label>
 						<input type="number" value="saberC" name="saberC" class="form-control configuraciones" name="saberC" id="saberC" placeholder="<?php echo $porcentajesCalif[0]->saber ?>">
