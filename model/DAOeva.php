@@ -79,5 +79,11 @@
 			, saberHacer = ".$hacer." , ser = ".$ser." WHERE asignatura = ".$asignatura.";";
 			return $this->bd->executeSQL($sql);
 		}
+
+		function insertCalif($materia, $unidad, $alumno, $saber, $hacer, $ser, $asistencia, $total){
+			$sql = "INSERT INTO calificaciones VALUES (null, ".$alumno.", ".$materia.", 
+				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", '".$asistencia."', '".$total."');";
+			return $this->bd->executeSQL($sql);
+		}
 	}
 ?>

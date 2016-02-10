@@ -93,16 +93,33 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 
         $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
     });
-    $("#divResponse").on("change", ".configuraciones", function(e) {
-        var saber = parseFloat($("#saberC").val());
-        var ser = parseFloat($("#serC").val());
-        var hacer = parseFloat($("#hacerC").val());
-        total = saber + ser + hacer;
-        if(total == 100) {
-            $("#btnConfig").removeAttr("disabled");
-        } else {
-             $("#btnConfig").attr("disabled", true);
-        }
+    $("#divResponse").on("click", ".btnSaveCalificacion", function(e) {
+        var materiaC = $("#materiaC").html();
+        var unidadC = $("#unidadC").html();
+        var saberC = $(this).parent().parent().find(".cal_saber").val();
+        var hacerC = $(this).parent().parent().find(".cal_hacer").val();
+        var serC = $(this).parent().parent().find(".cal_ser").val();
+        var asistenciaC = $(this).parent().parent().find(".asistencia").html();
+        var alumnoC = $(this).parent().parent().find(".alumno").html();
+        var totalC =  $(this).parent().parent().find(".cal_total").html();
+        $.ajax({
+            url: "../model/EVAsaveCalif.php",
+            type: "POST",
+            dataType: "HTML",
+            data :{
+                materia: materiaC,
+                unidad: unidadC,
+                saber: saberC,
+                hacer: hacerC,
+                ser: serC,
+                asistencia: asistenciaC,
+                alumno: alumnoC,
+                total: totalC
+            }
+        })
+        .done(function(data) {
+            $("#msjSuccess").html(data);
+        })
     });
 });
 function saveConfig(){
@@ -118,18 +135,5 @@ function saveConfig(){
         $("#configuracion").modal("toggle"); //se oculta el modal
         $("#tableConfigSection").empty(); // se vacia el contenido anterior
         $("#tableConfigSection").html(data);
-    })
-}
-
-function saveCalificacion(numFrm) {
-    $.ajax({
-        url: "..model/EVAsaveCalif.php",
-        type: "POST",
-        dataType: "HTML",
-        data: $("#frmCalificacion"+numFrm).serialize()
-    })
-
-    .done(function(data) {
-        alert("Se guardaron las calificaciones");
     })
 }

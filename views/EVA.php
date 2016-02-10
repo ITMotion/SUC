@@ -11,8 +11,12 @@
 <a href="" class="btn btn-warning pull-right" data-toggle="modal" data-target="#configuracion">Configuración</a>
 <div class="clearfix"></div>
 <br>
+<h2 id="unidadC" style="display: none"><?php echo $unidad; ?></h2> <!--Para guardar las calificaciones-->
+<h2 id="materiaC" style="display: none"><?php echo $materia; ?></h2> <!--Para guardar las calificaciones-->
+<div id="msjSuccess"></div>
+<!------------------------------------------------Comienza tabla-------------------------------------------------------------->
 <div class="table-responsive">
-	<table class="table table-condensed table-striped table-hover">
+	<table class="table t1able-condensed table-striped table-hover">
 		<thead>
 				<tr id="tableConfigSection">
 					<th></th>
@@ -42,21 +46,22 @@
 				$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);
 			?>
 				<tr>
-					<form id="frmCalificacion<?php echo $i; ?>">
-					<th><?php echo $alumno->matricula ?> <input type="hidden" name="alumno" value="<?php echo $alumno->matricula ?>"></th>
+					<th class="alumno"><?php echo $alumno->matricula ?></th>
 					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
 					<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
 					<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
 					<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th><?php echo $porcentajeAsist . "%" ?> <input type="hidden" name="asistencia" value="<?php echo $porcentajeAsist ?>"></th>
+					<th class="asistencia"><?php echo $porcentajeAsist . "%" ?></th>
 					<th class="cal_total"><?php if($porcentajeAsist < 85){ echo "NA";} ?></th>
-					<th><a onclick="saveCalificacion(<?php echo $i ?>)"><img src="../image/icons/save2.png"></a></th>
+					<th><a class="btnSaveCalificacion"><img src="../image/icons/save2.png"></a></th>
 					</form>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
 	</table>
 </div>
+<!------------------------------------------------Termina tabla-------------------------------------------------------------->
+<!--------------------------------------------Comienza modal de configuraciones---------------------------------------------->
 <div id="configuracion" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
