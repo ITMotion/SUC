@@ -51,7 +51,11 @@
 			
 			<input type="hidden" value="<?php echo $unidades ?>" name="numUnidades" id="numUnidades">
 
-			<?php  
+			<?php if(isset($_POST["enlace"])){ ?>
+			<input type="hidden" value="asignaturas" name="enlace">
+
+			<?php
+				}
 				for ($i=0; $i < $unidades; $i++) { 
 			?>
 				<div class="form-group">

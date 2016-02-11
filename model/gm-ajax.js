@@ -39,3 +39,29 @@ function deleteAssignment(id) {
         xhttp.send();
     };
 }
+
+function EnlaceGrupos(clave) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divGrupos = document.getElementById('grupoenlace');
+        divGrupos.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divGrupos.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "../views/GruposMateriasEnlace.php?clave="+clave, true);
+    xhttp.send();
+}
+
+function EnlaceMaterias(clave) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        var divGrupos = document.getElementById('grupoenlace');
+        divGrupos.innerHTML = "Cargando...";
+        if(xhttp.readyState == 4) {
+            divGrupos.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", "../views/materiasEnlace.php?clave="+clave, true);
+    xhttp.send();
+}
