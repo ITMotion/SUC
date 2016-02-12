@@ -19,12 +19,12 @@
 		include_once("../model/DAOalum.php");
 		$db = new DAOalum();
 		$registros = 0;
-		while (($openfile= fgetcsv($handle,1000,",")) !== FALSE) {
+		while (($openfile = fgetcsv($handle,1000,",")) !== FALSE) {
 			if (sizeof($openfile) == 5) {
 				$matricula = $openfile[0];
-				$nombres = $openfile[1];
-				$paterno = $openfile[2];
-				$materno= $openfile[3];
+				$nombres = utf8_encode($openfile[1]);
+				$paterno = utf8_encode($openfile[2]);
+				$materno= utf8_encode($openfile[3]);
 				$grupo = $openfile[4];
 				if (!$db->validarMatricula($matricula)) {
 					if ($db->validarGrupo($grupo)) {

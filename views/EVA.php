@@ -58,7 +58,6 @@
 					<th class="cal_total_letras"></th>
 					<th><input type="checkbox" class="AM"></th>
 					<th><a class="btnSaveCalificacion"><img src="../image/icons/save2.png"></a></th>
-					</form>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
