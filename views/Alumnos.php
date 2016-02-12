@@ -87,6 +87,11 @@
 						?>
 					</tbody>
 				</table>
+				<form action="AlumnosImportacionMasiva.php"  method="post" enctype="multipart/form-data">
+					<input type="file" name="csv" id="csv" accept=".csv" />
+					<br>
+					<input  type ="submit" name="submit" value="Importar"/>
+				</form>
 			</div>
 	</div>
 	<script src="../model/alum-ajax.js"></script>
