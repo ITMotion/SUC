@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<input type="number" id="saber" value="0">
+	<input type="number" id="hacer" value="0">
+	<input type="number" id="ser" value="0">
+	<p id="total">0</p>
+	<script>
+		$(function(){
+			$("#saber").keyup(function(){
+				var saber = parseFloat($(this).val());
+				var hacer = parseFloat($("#hacer").val());
+				var ser = parseFloat($("#ser").val());
+				$("#total").text(saber + hacer + ser);
+			});
+			$("#hacer").keyup(function(){
+				var saber = parseFloat($("#saber").val());
+				var hacer = parseFloat($(this).val());
+				var ser = parseFloat($("#ser").val());
+				$("#total").text(saber + hacer + ser);
+			});
+			$("#ser").keyup(function(){
+				var saber = parseFloat($("#saber").val());
+				var hacer = parseFloat($("#hacer").val());
+				var ser = parseFloat($(this).val());
+				$("#total").text(saber + hacer + ser);
+			});
+		});
+	</script>
+</body>
+</html>
