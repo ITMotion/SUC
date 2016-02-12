@@ -35,6 +35,8 @@
 				<th>Ser</th>
 				<th>Asistencia</th>
 				<th>Final</th>
+				<th>Desempeño</th>
+				<th>AM</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -48,11 +50,13 @@
 				<tr>
 					<th class="alumno"><?php echo $alumno->matricula ?></th>
 					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-					<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0" <?php if($porcentajeAsist < 85){ echo "disabled='true'";} ?>></th>
-					<th class="asistencia"><?php echo $porcentajeAsist . "%" ?></th>
-					<th class="cal_total"><?php if($porcentajeAsist < 85){ echo "NA";} ?></th>
+					<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0"></th>
+					<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0"></th>
+					<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0"></th>
+					<th class="asistencia"><?php echo $porcentajeAsist; ?></th>
+					<th class="cal_total"></th>
+					<th class="cal_total_letras"></th>
+					<th><input type="checkbox" class="AM"></th>
 					<th><a class="btnSaveCalificacion"><img src="../image/icons/save2.png"></a></th>
 					</form>
 				</tr>
@@ -89,7 +93,7 @@
 					<input type="hidden" name="asignatura" value="<?php echo $asignatura ?>"> <!--Pasamos el valor de la asignatura--> 
 			</div>
 			<div class="modal-footer">
-				<a onclick="saveConfig()" class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</a>
+				<button onclick="saveConfig()" class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</button>
 				</form>
 				<button class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
 			</div>

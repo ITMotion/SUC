@@ -53,15 +53,19 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var confSaber = parseFloat($("#confSaber").html()) / 100; //porcentaje que representa el saber en la unidad
         var totalSaber = saber * confSaber; 
 
-        var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val());
+        var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val()); //porcentaje que representa el hacer
         var confHacer = parseFloat($("#confHacer").html()) / 100;
         var totalHacer = hacer * confHacer;
 
-        var ser = parseFloat($(this).parent().parent().find(".cal_ser").val());
+        var ser = parseFloat($(this).parent().parent().find(".cal_ser").val()); //porcentaje que representa el ser
         var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
 
-        $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
+        var cal_total = (totalSaber + totalHacer + totalSer).toFixed(2); 
+        $(this).parent().nextAll(".cal_total").text(cal_total);
+
+        var cal_total_letras = calificacion_letras(cal_total);
+        $(this).parent().nextAll(".cal_total_letras").text(cal_total_letras);
     });
     $("#divResponse").on("change", ".cal_hacer", function(e) {
         var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
@@ -76,7 +80,11 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
 
-        $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
+        var cal_total = (totalSaber + totalHacer + totalSer).toFixed(2);
+        $(this).parent().nextAll(".cal_total").text(cal_total);
+
+        var cal_total_letras = calificacion_letras(cal_total);
+        $(this).parent().nextAll(".cal_total_letras").text(cal_total_letras);
     });
     $("#divResponse").on("change", ".cal_ser", function(e) {
         var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
@@ -91,8 +99,19 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
 
-        $(this).parent().nextAll(".cal_total").text((totalSaber + totalHacer + totalSer).toFixed(2));
+        var cal_total = (totalSaber + totalHacer + totalSer).toFixed(2);
+        $(this).parent().nextAll(".cal_total").text(cal_total);
+
+        var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
+        if(asistencia < 85 ) {
+            $(this).parent().nextAll(".cal_total_letras").text("NA");
+        } else {
+            var cal_total_letras = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_total_letras").text(cal_total_letras);    
+        }
+        
     });
+
     $("#divResponse").on("click", ".btnSaveCalificacion", function(e) {
         var materiaC = $("#materiaC").html();
         var unidadC = $("#unidadC").html();
@@ -121,6 +140,16 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             $("#msjSuccess").html(data);
         })
     });
+    $("#divResponse").on("change", ".configuraciones", function(e){
+        var saber = parseFloat($("#saberC").val());
+        var hacer = parseFloat($("#hacerC").val());
+        var ser = parseFloat($("#serC").val());
+        if (saber + hacer + ser == 100) {
+            $("#btnConfig").removeAttr("disabled");
+        } else {
+            $("#btnConfig").attr("disabled", true);
+        }
+    });
 });
 function saveConfig(){
     //implementando ajax
@@ -136,4 +165,20 @@ function saveConfig(){
         $("#tableConfigSection").empty(); // se vacia el contenido anterior
         $("#tableConfigSection").html(data);
     })
+}
+function calificacion_letras(cal_total) {
+    if (cal_total >= 95) {
+        var cal_total_letras = "AU";
+    }
+    if(cal_total >= 85 && cal_total < 95) {
+        var cal_total_letras = "DE";
+    }
+    if(cal_total < 85 && cal_total >= 80) {
+        var cal_total_letras = "SA";
+    }
+    if(cal_total < 80) {
+        var cal_total_letras = "NA";
+    }
+    console.log(cal_total_letras);
+    return cal_total_letras;
 }
