@@ -80,10 +80,23 @@
 			return $this->bd->executeSQL($sql);
 		}
 
-		function insertCalif($materia, $unidad, $alumno, $saber, $hacer, $ser, $asistencia, $total){
+		function insertCalif($alumno, $materia, $unidad, $saber, $hacer, $ser, $total){
 			$sql = "INSERT INTO calificaciones VALUES (null, ".$alumno.", ".$materia.", 
-				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", '".$asistencia."', '".$total."');";
+				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", ".$total.", 0);";
 			return $this->bd->executeSQL($sql);
+		}
+
+		function getCalificacionAlumno($matricula, $materia, $unidad) {
+			$sql = "SELECT * FROM calificaciones WHERE alumno = ".$matricula." AND materia = ".$materia." AND unidad = ".$unidad.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
 		}
 	}
 ?>

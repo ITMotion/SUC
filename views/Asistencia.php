@@ -77,5 +77,6 @@
 		<div id="divResponse" class="col-md-12"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../model/EVA.js"></script>
 </body>
 </html>

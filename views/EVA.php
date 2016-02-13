@@ -14,6 +14,7 @@
 <h2 id="unidadC" style="display: none"><?php echo $unidad; ?></h2> <!--Para guardar las calificaciones-->
 <h2 id="materiaC" style="display: none"><?php echo $materia; ?></h2> <!--Para guardar las calificaciones-->
 <div id="msjSuccess"></div>
+<div class="clearfix"></div>
 <!------------------------------------------------Comienza tabla-------------------------------------------------------------->
 <div class="table-responsive">
 	<table class="table t1able-condensed table-striped table-hover">
@@ -41,25 +42,67 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php $i=0; foreach ($alumnos as $alumno):
+			<?php 
+			$i=0; 
+			foreach ($alumnos as $alumno):
 				$i++;
 				$asistencia = $db->getAsistencia($alumno->matricula, $unidad, $materia);
 				$asistenciaTotal = $db->getAsistenciaTotal($alumno->matricula, $unidad, $materia);
 				$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);
+				$calificacion = $db->getCalificacionAlumno($alumno->matricula, $materia, $unidad);
+				if (is_null($calificacion)) { //si no tiene calificacion
 			?>
-				<tr>
-					<th class="alumno"><?php echo $alumno->matricula ?></th>
-					<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-					<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0"></th>
-					<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0"></th>
-					<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0"></th>
-					<th class="asistencia"><?php echo $porcentajeAsist; ?></th>
-					<th class="cal_total"></th>
-					<th class="cal_total_letras"></th>
-					<th><input type="checkbox" class="AM"></th>
-					<th><a class="btnSaveCalificacion"><img src="../image/icons/save2.png"></a></th>
-				</tr>
-			<?php endforeach ?>
+					<tr>
+						<th class="alumno"><?php echo $alumno->matricula ?></th>
+						<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
+						<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0"></th>
+						<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0"></th>
+						<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0"></th>
+						<th class="asistencia"><?php echo $porcentajeAsist; ?></th>
+						<th class="cal_total"></th>
+						<th class="cal_total_letras"></th>
+						<th></th>
+						<th><a class="btnSaveCalificacion">
+							<img src="../image/icons/save.png" 
+								onmouseover="this.src='../image/icons/savecolor.png'" 
+								onmouseout="this.src='../image/icons/save.png'">
+						</a></th>
+					</tr>
+			<?php 
+				} 
+				else { //si tiene calificación
+					if($porcentajeAsist > 85) {
+						if($calificacion[0]->final >= 95){
+							$desempeño = "AU";
+						}
+						elseif($calificacion[0]->final < 95 && $calificacion[0]->final >= 85) {
+							$desempeño = "DE";
+						} elseif($calificacion[0]->final < 85 && $calificacion[0]->final >= 80) {
+							$desempeño = "SA";
+						} else {
+							$desempeño = "NA";
+						}
+					} else {
+						$desempeño = "NA";
+					}
+			?>
+					<tr> 
+						<th class="alumno"><?php echo $alumno->matricula; ?></th>
+						<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres); ?></th>
+						<th class="th_saber"><?php echo $calificacion[0]->saber; ?></th>
+						<th class="th_hacer"><?php echo $calificacion[0]->hacer; ?></th>
+						<th class="th_ser"><?php echo $calificacion[0]->ser; ?></th>
+						<th class="asistencia"><?php echo $porcentajeAsist; ?></th>
+						<th class="cal_total"><?php echo $calificacion[0]->final; ?></th>
+						<th class="cal_desempeño"><?php echo $desempeño; ?></th>
+						<th class="tr_am"><?php if($calificacion[0]->accionMejora == 1){ echo "SA"; } ?></th>
+						<th class="th_btnEditar"><a class="btnEditarCampos">
+							<img src="../image/icons/edit.png" 
+								onmouseover="this.src='../image/icons/editcolor.png'" 
+								onmouseout="this.src='../image/icons/edit.png'">
+						</a></th>
+					</tr>
+			<?php } endforeach ?>
 		</tbody>
 	</table>
 </div>
@@ -92,7 +135,7 @@
 					<input type="hidden" name="asignatura" value="<?php echo $asignatura ?>"> <!--Pasamos el valor de la asignatura--> 
 			</div>
 			<div class="modal-footer">
-				<button onclick="saveConfig()" class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</button>
+				<button class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</button>
 				</form>
 				<button class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
 			</div>
