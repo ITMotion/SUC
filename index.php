@@ -20,13 +20,19 @@
 </head>
 <body>
 	<div class="container" id="content">
-		<div id="login" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+		<div id="login" class="modal" role="dialog" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h1>Bienvenido<br><small>Sistema Único de Calificaciones</small></h1>
 					</div>
 					<div class="modal-body">
+						<?php if(isset($_GET['errorCredenciales'])){ ?>
+						<div class="alert alert-danger col-md-12">
+							<button class="close" data-dismiss="alert"><span>&times;</span></button>
+							¡Verifique sus credenciales!
+						</div>
+						<?php } ?>
 						<form class="form" action="model/login.php" method="POST">
 					  		<div class="form-group">
 					    		<label class="sr-only" for="inputUser">Usuario</label><br>
