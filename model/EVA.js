@@ -116,6 +116,8 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 
         var thAm = $(this).parent().parent().find(".tr_am");
 
+        var finalC = parseFloat($(this).parent().parent().find(".cal_total").html());
+
         saberTh.empty();
         saberTh.append('<input type="number" min="0" max="100" class="cal_saber" value='+saberC+'>');
 
@@ -127,8 +129,10 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 
         thBtn.empty();
         thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
-
-        thAm.append('<input type="checkbox" value="1" class="cb_am">');
+        console.log(finalC);
+        if (finalC < 80) {
+            thAm.append('<input type="checkbox" value="1" class="cb_am">');
+        }
     });
 
     //botón para aplicar la acción de mejora
