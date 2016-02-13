@@ -4,7 +4,13 @@
 	<meta charset="UTF-8">
 	<title>SUC</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-----------------------Recursos de Bootstrap-------------------------->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--------------------------Fin recursos de bootstrap-------------------------->
+
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<?php 
 		if (isset($_GET['error'])) {
@@ -14,33 +20,39 @@
 </head>
 <body>
 	<div class="container" id="content">
-		<div id="contenedor">
-			<div id="titulo">
-				<div class="row">
-					<div class="col-md-12" align="center">
-						<h1>Bienvenido<br><small>Sistema Único de Calificaciones</small></h1>	
+		<div id="login" class="modal" role="dialog" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1>Bienvenido<br><small>Sistema Único de Calificaciones</small></h1>
 					</div>
-				</div>
-			</div>
-			<div class="row" id="login">
-				<div class="col-md-10">
-					<form class="form" action="model/login.php" method="POST">
-				  		<div class="form-group">
-				    		<label class="sr-only" for="inputUser">Usuario</label><br>
-				    		<input type="text" class="form-control" id="inputUser" name="user"placeholder="Usuario">
-				  		</div>
-				  		<div class="form-group">
-				   		 	<label class="sr-only" for="inputPassword">Contraseña</label>
-				    		<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
-				  		</div>
-				  		<br>
-			  			<button type="submit" class="btn btn-default" id="btnEntrar">Entrar</button>
-			  			<br>
-			  			<br>
-					</form>
+					<div class="modal-body">
+						<?php if(isset($_GET['errorCredenciales'])){ ?>
+						<div class="alert alert-danger col-md-12">
+							<button class="close" data-dismiss="alert"><span>&times;</span></button>
+							¡Verifique sus credenciales!
+						</div>
+						<?php } ?>
+						<form class="form" action="model/login.php" method="POST">
+					  		<div class="form-group">
+					    		<label class="sr-only" for="inputUser">Usuario</label><br>
+					    		<input type="number" class="form-control" id="inputUser" name="user"placeholder="Usuario">
+					  		</div>
+					  		<div class="form-group">
+					   		 	<label class="sr-only" for="inputPassword">Contraseña</label>
+					    		<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
+					  		</div>
+					  		<br/>
+				  			
+					</div>
+					<div class="modal-footer">
+							<button type="submit" class="btn btn-primary pull-right" id="btnEntrar">Entrar</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="js/login.js"></script>
 </body>
 </html>
