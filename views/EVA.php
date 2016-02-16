@@ -60,8 +60,8 @@
 						<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0"></th>
 						<th class="asistencia"><?php echo $porcentajeAsist; ?></th>
 						<th class="cal_total"></th>
-						<th class="cal_total_letras"></th>
-						<th></th>
+						<th class="cal_desempeño"></th>
+						<th class="tr_am"></th>
 						<th><a class="btnSaveCalificacion">
 							<img src="../image/icons/save.png" 
 								onmouseover="this.src='../image/icons/savecolor.png'" 

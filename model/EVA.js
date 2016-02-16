@@ -16,11 +16,18 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
+
         if(asistencia < 85 ) {
-            $(this).parent().nextAll(".cal_total_letras").text("NA");
+            $(this).parent().nextAll(".cal_desempeño").text("NA");
         } else {
-            var cal_total_letras = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_total_letras").text(cal_total_letras);    
+            var cal_desempeño = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
+        }
+
+        var tram = $(this).parent().parent().find(".tr_am");
+        tram.empty();
+        if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
+            tram.append('<input type="checkbox" value="1" class="cb_am"');
         }
     });
     $("#divResponse").on("change", ".cal_hacer", function(e) {
@@ -40,11 +47,18 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
+
         if(asistencia < 85 ) {
-            $(this).parent().nextAll(".cal_total_letras").text("NA");
+            $(this).parent().nextAll(".cal_desempeño").text("NA");
         } else {
-            var cal_total_letras = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_total_letras").text(cal_total_letras);    
+            var cal_desempeño = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
+        }
+
+        var tram = $(this).parent().parent().find(".tr_am");
+        tram.empty();
+        if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
+            tram.append('<input type="checkbox" value="1" class="cb_am">');
         }
     });
     $("#divResponse").on("change", ".cal_ser", function(e) {
@@ -64,13 +78,20 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
-        if(asistencia < 85 ) {
-            $(this).parent().nextAll(".cal_total_letras").text("NA");
-        } else {
-            var cal_total_letras = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_total_letras").text(cal_total_letras);    
-        }
         
+        
+        if(asistencia < 85 ) {
+            $(this).parent().nextAll(".cal_desempeño").text("NA");
+        } else {
+            var cal_desempeño = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
+        }
+
+        var tram = $(this).parent().parent().find(".tr_am");
+        tram.empty();
+        if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
+            tram.append('<input type="checkbox" value="1" class="cb_am">');
+        }
     });
 
     //botón para guardar la calificación
@@ -129,10 +150,14 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         thBtn.empty();
         
         if (finalC < 80) { //si está reprobado
-            thAm.append('<input type="checkbox" value="1" class="cb_am">'); //botón para la acción de mejora
-        } else {  //si no está reprobado, podrá editar la calificación normalmente
-            thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
-        }
+            if (thAm.html()=="SA") {
+                thAm.empty();
+                thAm.append('<input type="checkbox" value="1" class="cb_am" checked="true">')
+            } else {
+                thAm.append('<input type="checkbox" value="0" class="cb_am">'); //botón para la acción de mejora    
+            }
+        } 
+        thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
     });
 
     //botón para aplicar la acción de mejora
@@ -179,16 +204,16 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 });
 function calificacion_letras(cal_total) {
     if (cal_total >= 95) {
-        var cal_total_letras = "AU";
+        var cal_desempeño = "AU";
     }
     if(cal_total >= 85 && cal_total < 95) {
-        var cal_total_letras = "DE";
+        var cal_desempeño = "DE";
     }
     if(cal_total < 85 && cal_total >= 80) {
-        var cal_total_letras = "SA";
+        var cal_desempeño = "SA";
     }
     if(cal_total < 80) {
-        var cal_total_letras = "NA";
+        var cal_desempeño = "NA";
     }
-    return cal_total_letras;
+    return cal_desempeño;
 }
