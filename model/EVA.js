@@ -3,7 +3,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var saber = parseFloat($(this).val()); //tomamos la calificación del saber
         var confSaber = parseFloat($("#confSaber").html()) / 100; //porcentaje que representa el saber en la unidad
         var totalSaber = saber * confSaber; 
-        console.log(saber);
+
         var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val()); //porcentaje que representa el hacer
         var confHacer = parseFloat($("#confHacer").html()) / 100;
         var totalHacer = hacer * confHacer;
@@ -126,19 +126,22 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 
         serTh.empty();
         serTh.append('<input type="number" min="0" max="100" class="cal_ser" value='+serC+'>');
-
         thBtn.empty();
-        thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
-        console.log(finalC);
-        if (finalC < 80) {
-            thAm.append('<input type="checkbox" value="1" class="cb_am">');
+        
+        if (finalC < 80) { //si está reprobado
+            thAm.append('<input type="checkbox" value="1" class="cb_am">'); //botón para la acción de mejora
+        } else {  //si no está reprobado, podrá editar la calificación normalmente
+            thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
         }
     });
 
     //botón para aplicar la acción de mejora
     $("#divResponse").on("change", ".cb_am", function(e) {
+        var TRdesempeño = $(this).parent().parent().find(".cal_desempeño");
         if($(this).is(":checked")) {
-            $(this).parent().parent().find(".cal_desempeño").text("SA");
+            TRdesempeño.text("SA");
+        } else {
+            TRdesempeño.text("NA");
         }
     });
 
