@@ -16,18 +16,18 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
-
-        if(asistencia < 85 ) {
-            $(this).parent().nextAll(".cal_desempeño").text("NA");
-        } else {
-            var cal_desempeño = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
-        }
-
         var tram = $(this).parent().parent().find(".tr_am");
         tram.empty();
-        if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
-            tram.append('<input type="checkbox" value="1" class="cb_am"');
+
+        if(asistencia < 85 ) { //Si no tiene el porcentaje de asistencia requerido para derecho a calificación
+            $(this).parent().nextAll(".cal_desempeño").text("NA");
+            $(this).parent().nextAll(".cal_total").addClass(".warning");
+        } else {
+            if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
+                tram.append('<input type="checkbox" class="cb_am">');
+            }
+            var cal_desempeño = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
         }
     });
     $("#divResponse").on("change", ".cal_hacer", function(e) {
@@ -47,19 +47,19 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
-
-        if(asistencia < 85 ) {
-            $(this).parent().nextAll(".cal_desempeño").text("NA");
-        } else {
-            var cal_desempeño = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
-        }
-
         var tram = $(this).parent().parent().find(".tr_am");
         tram.empty();
-        if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
-            tram.append('<input type="checkbox" value="1" class="cb_am">');
-        }
+
+        if(asistencia < 85 ) { //Si no tiene el porcentaje de asistencia requerido para derecho a calificación
+            $(this).parent().nextAll(".cal_desempeño").text("NA");
+            
+        } else {
+            if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
+               tram.append('<input type="checkbox" class="cb_am">');
+            }
+            var cal_desempeño = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
+        }       
     });
     $("#divResponse").on("change", ".cal_ser", function(e) {
         var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
@@ -79,18 +79,16 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
         
-        
-        if(asistencia < 85 ) {
-            $(this).parent().nextAll(".cal_desempeño").text("NA");
-        } else {
-            var cal_desempeño = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
-        }
-
         var tram = $(this).parent().parent().find(".tr_am");
         tram.empty();
-        if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
-            tram.append('<input type="checkbox" value="1" class="cb_am">');
+        if(asistencia < 85 ) { //si no tiene el porcentaje de asistencia requerido para calificación
+            $(this).parent().nextAll(".cal_desempeño").text("NA");
+        } else {
+            if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
+                tram.append('<input type="checkbox" value="1" class="cb_am">');
+            }
+            var cal_desempeño = calificacion_letras(cal_total);
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
         }
     });
 
@@ -98,11 +96,29 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
     $("#divResponse").on("click", ".btnSaveCalificacion", function(e) {
         var materiaC = $("#materiaC").html();
         var unidadC = $("#unidadC").html();
+
+        var th_btn = $(this).parent().parent().find(".th_btn");
+        
         var saberC = $(this).parent().parent().find(".cal_saber").val();
+        var thSaber = $(this).parent().parent().find(".th_saber");
+
         var hacerC = $(this).parent().parent().find(".cal_hacer").val();
+        var thHacer = $(this).parent().parent().find(".th_hacer");
+
         var serC = $(this).parent().parent().find(".cal_ser").val();
+        var thSer = $(this).parent().parent().find(".th_ser");
+
         var alumnoC = $(this).parent().parent().find(".alumno").html();
         var totalC =  $(this).parent().parent().find(".cal_total").html();
+        var tram = $(this).parent().parent().find(".cb_am"); //checkbox de acción de mejora
+        var amC = 0;
+        if(tram.val() != undefined) {
+            if(tram.is(':checked')) {
+                amC = 1;
+            } else{
+                amC = 0;
+            }
+        }
         $.ajax({
             url: "../model/EVAsaveCalif.php",
             type: "POST",
@@ -114,31 +130,33 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
                 hacer: hacerC,
                 ser: serC,
                 alumno: alumnoC,
-                total: totalC
+                total: totalC,
+                am: amC
             }
         })
         .done(function(data) {
             $("#msjSuccess").html(data);
+            setCampos();
         })
     });
 
-    //botón para editar la configuración
+    //botón para desbloquear la edición de la calificación
     $("#divResponse").on("click", ".btnEditarCampos", function(e) {
         var saberTh = $(this).parent().parent().find(".th_saber");
         var saberC = saberTh.html();
 
         var hacerTh = $(this).parent().parent().find(".th_hacer");
-        var hacerC = saberTh.html();
+        var hacerC = hacerTh.html();
 
         var serTh = $(this).parent().parent().find(".th_ser");
         var serC = serTh.html();
 
-        var thBtn = $(this).parent().parent().find(".th_btnEditar");
+        var thBtn = $(this).parent().parent().find(".th_btn");
 
         var thAm = $(this).parent().parent().find(".tr_am");
 
         var finalC = parseFloat($(this).parent().parent().find(".cal_total").html());
-
+        
         saberTh.empty();
         saberTh.append('<input type="number" min="0" max="100" class="cal_saber" value='+saberC+'>');
 
@@ -160,19 +178,50 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
     });
 
-    //botón para aplicar la acción de mejora
-    $("#divResponse").on("change", ".cb_am", function(e) {
-        var TRdesempeño = $(this).parent().parent().find(".cal_desempeño");
-        if($(this).is(":checked")) {
-            TRdesempeño.text("SA");
-        } else {
-            TRdesempeño.text("NA");
+
+    //botón para actualizar la calificación en la base de datos
+    $("#divResponse").on("click", ".btnEditCalificacion", function(e) {
+        var materiaC = $("#materiaC").html();
+        var unidadC = $("#unidadC").html();
+        var saberC = $(this).parent().parent().find(".cal_saber").val();
+        var hacerC = $(this).parent().parent().find(".cal_hacer").val();
+        var serC = $(this).parent().parent().find(".cal_ser").val();
+        var alumnoC = $(this).parent().parent().find(".alumno").html();
+        var totalC =  $(this).parent().parent().find(".cal_total").html();
+        var tram = $(this).parent().parent().find(".cb_am"); //checkbox de acción de mejora
+        var amC = 0;
+        if(tram.val() != undefined) {
+            if(tram.is(':checked')) {
+                amC = 1;
+            } else {
+                amC = 0;
+            }
         }
+        $.ajax({
+            url: "../model/EVAupdateCalif.php",
+            type: "POST",
+            dataType: "HTML",
+            data: {
+                materia: materiaC,
+                unidad: unidadC,
+                saber: saberC,
+                hacer: hacerC,
+                ser: serC,
+                alumno: alumnoC,
+                total: totalC,
+                am : amC
+            }
+        })
+        .done(function(data) {
+            $("#msjSuccess").html(data);
+            var th_btn = $(this).parent().parent().find(".th_btn");
+            var thSaber = $(this).parent().parent().find(".th_saber");
+            var thHacer = $(this).parent().parent().find(".th_hacer");
+            var thSer = $(this).parent().parent().find(".th_ser");
+            thSaber.empty();
+            console.log(thSaber);
+        })
     });
-
-
-    //botón para actualizar la configuración en la base de datos
-
 
     //validación de que los porcentajes den un total de 100%
     $("#divResponse").on("change", ".configuraciones", function(e){
@@ -216,4 +265,15 @@ function calificacion_letras(cal_total) {
         var cal_desempeño = "NA";
     }
     return cal_desempeño;
+}
+
+function setCampos() { //después de ingresar la calificación se setean los valores
+    thSaber.empty();
+    thSaber.html(saberC);
+    thHacer.empty();
+    thHacer.html(hacerC);
+    thSer.empty();
+    thSer.html(serC);
+    th_btn.empty();
+    th_btn.append('<a class="btnEditarCampos"><img src="../image/icons/edit.png" onmouseover="this.src=\'../image/icons/editcolor.png\'" onmouseout="this.src=\'../image/icons/edit.png\'"></a>');
 }

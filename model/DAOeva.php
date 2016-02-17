@@ -80,9 +80,14 @@
 			return $this->bd->executeSQL($sql);
 		}
 
-		function insertCalif($alumno, $materia, $unidad, $saber, $hacer, $ser, $total){
+		function insertCalif($alumno, $materia, $unidad, $saber, $hacer, $ser, $total, $am){
 			$sql = "INSERT INTO calificaciones VALUES (null, ".$alumno.", ".$materia.", 
-				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", ".$total.", 0);";
+				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", ".$total.", ".$am.");";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function updateCalif($alumno, $materia, $unidad, $saber, $hacer, $ser, $total, $am){
+			$sql = "UPDATE calificaciones SET saber = ".$saber.", hacer = ".$hacer.", ser = ".$ser.", final = ".$total.", accionMejora = ".$am." WHERE alumno = ".$alumno." AND materia = ".$materia." AND unidad = ".$unidad.";";
 			return $this->bd->executeSQL($sql);
 		}
 

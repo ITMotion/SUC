@@ -55,14 +55,14 @@
 					<tr>
 						<th class="alumno"><?php echo $alumno->matricula ?></th>
 						<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
-						<th><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0"></th>
-						<th><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0"></th>
-						<th><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0"></th>
+						<th class="th_saber"><input type="number" min="0" max="100" name="saber" class="cal_saber" value="0"></th>
+						<th class="th_hacer"><input type="number" min="0" max="100" name="hacer" class="cal_hacer" value="0"></th>
+						<th class="th_ser"><input type="number" min="0" max="100" name="ser"   class="cal_ser" value="0"></th>
 						<th class="asistencia"><?php echo $porcentajeAsist; ?></th>
 						<th class="cal_total"></th>
 						<th class="cal_desempeño"></th>
 						<th class="tr_am"></th>
-						<th><a class="btnSaveCalificacion">
+						<th class="th_btn"><a class="btnSaveCalificacion">
 							<img src="../image/icons/save.png" 
 								onmouseover="this.src='../image/icons/savecolor.png'" 
 								onmouseout="this.src='../image/icons/save.png'">
@@ -96,7 +96,7 @@
 						<th class="cal_total"><?php echo $calificacion[0]->final; ?></th>
 						<th class="cal_desempeño"><?php echo $desempeño; ?></th>
 						<th class="tr_am"><?php if($calificacion[0]->accionMejora == 1){ echo "SA"; } ?></th>
-						<th class="th_btnEditar"><a class="btnEditarCampos">
+						<th class="th_btn"><a class="btnEditarCampos">
 							<img src="../image/icons/edit.png" 
 								onmouseover="this.src='../image/icons/editcolor.png'" 
 								onmouseout="this.src='../image/icons/edit.png'">
