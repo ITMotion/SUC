@@ -236,7 +236,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             serTh.empty();
             serTh.text(serC);
             thBtn.empty();
-            thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
+            thBtn.append('<a class="btnEditarCampos"><img src="../image/icons/edit.png" onmouseover="this.src=\'../image/icons/editcolor.png\'" onmouseout="this.src=\'../image/icons/edit.png\'"></a>');
         })
     });
 

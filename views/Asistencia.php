@@ -50,7 +50,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($asignaturas as $asignatura): ?>
+						<?php 
+							if (!is_null($asignaturas)) {
+								foreach ($asignaturas as $asignatura): ?>
 							<tr>
 								<th>
 									<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>', '<?php echo $asignatura->idasignatura ?>')">
@@ -62,7 +64,7 @@
 								<th><?php echo $asignatura->grupo; ?></th>
 								<th><?php echo $asignatura->matDescripcion; ?></th>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach; } ?>
 					</tbody>
 				</table>
 			</div>
