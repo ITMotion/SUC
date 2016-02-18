@@ -136,7 +136,14 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         })
         .done(function(data) {
             $("#msjSuccess").html(data);
-            setCampos();
+            thSaber.empty();
+            thSaber.html(saberC);
+            thHacer.empty();
+            thHacer.html(hacerC);
+            thSer.empty();
+            thSer.html(serC);
+            th_btn.empty();
+            th_btn.append('<a class="btnEditarCampos"><img src="../image/icons/edit.png" onmouseover="this.src=\'../image/icons/editcolor.png\'" onmouseout="this.src=\'../image/icons/edit.png\'"></a>');
         })
     });
 
@@ -183,9 +190,17 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
     $("#divResponse").on("click", ".btnEditCalificacion", function(e) {
         var materiaC = $("#materiaC").html();
         var unidadC = $("#unidadC").html();
+        var thBtn = $(this).parent().parent().find(".th_btn");
+
         var saberC = $(this).parent().parent().find(".cal_saber").val();
+        var saberTh = $(this).parent().parent().parent().find(".th_saber");
+
         var hacerC = $(this).parent().parent().find(".cal_hacer").val();
+        var hacerTh = $(this).parent().parent().parent().find(".th_hacer");
+
         var serC = $(this).parent().parent().find(".cal_ser").val();
+        var serTh = $(this).parent().parent().parent().find(".th_ser");
+
         var alumnoC = $(this).parent().parent().find(".alumno").html();
         var totalC =  $(this).parent().parent().find(".cal_total").html();
         var tram = $(this).parent().parent().find(".cb_am"); //checkbox de acción de mejora
@@ -214,12 +229,14 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         })
         .done(function(data) {
             $("#msjSuccess").html(data);
-            var th_btn = $(this).parent().parent().find(".th_btn");
-            var thSaber = $(this).parent().parent().find(".th_saber");
-            var thHacer = $(this).parent().parent().find(".th_hacer");
-            var thSer = $(this).parent().parent().find(".th_ser");
-            thSaber.empty();
-            console.log(thSaber);
+            saberTh.empty();
+            saberTh.text(saberC);
+            hacerTh.empty();
+            hacerTh.text(hacerC);
+            serTh.empty();
+            serTh.text(serC);
+            thBtn.empty();
+            thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
         })
     });
 
@@ -265,15 +282,4 @@ function calificacion_letras(cal_total) {
         var cal_desempeño = "NA";
     }
     return cal_desempeño;
-}
-
-function setCampos() { //después de ingresar la calificación se setean los valores
-    thSaber.empty();
-    thSaber.html(saberC);
-    thHacer.empty();
-    thHacer.html(hacerC);
-    thSer.empty();
-    thSer.html(serC);
-    th_btn.empty();
-    th_btn.append('<a class="btnEditarCampos"><img src="../image/icons/edit.png" onmouseover="this.src=\'../image/icons/editcolor.png\'" onmouseout="this.src=\'../image/icons/edit.png\'"></a>');
 }
