@@ -266,7 +266,9 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             $("#tableConfigSection").html(data); //se aplican las nuevas configuraciones
         })
     });
-    $(".btn")
+    $("#divResponse").on("click", "#btnExportPDF", function(){
+        alert("Hola!");
+    });
 });
 function calificacion_letras(cal_total) {
     if (cal_total >= 95) {

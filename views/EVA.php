@@ -7,12 +7,29 @@
 	$db = new DAOeva();
 	$alumnos = $db->getAlumnosPorGrupo($grupo);
 	$porcentajesCalif = $db->getPorcentajeCalif($asignatura);
+	$infoAsignatura = $db->getInfoAsignatura($asignatura);
 ?>
-<a href="" class="btn btn-warning pull-right" data-toggle="modal" data-target="#configuracion">Configuración</a>
+<hr style=" display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-style: inset;
+    border-width: 1px;">
+<button class="btn btn-danger" id="btnExportPDF">Exportar PDF</button>
+<button class="btn btn-warning pull-right" data-toggle="modal" data-target="#configuracion">Configuración</button>
 <div class="clearfix"></div>
 <br>
 <h2 id="unidadC" style="display: none"><?php echo $unidad; ?></h2> <!--Para guardar las calificaciones-->
 <h2 id="materiaC" style="display: none"><?php echo $materia; ?></h2> <!--Para guardar las calificaciones-->
+<h2 id="asignaturaC" style="display: none"><?php echo $asignatura; ?></h2> <!--Para guardar las calificaciones-->
+
+<h3 class="col-md-12"><b>Carrera:</b> <?php echo $infoAsignatura[0]->carrera; ?></h3>
+<h3 class="col-md-3"><b>Grupo:</b> <?php echo $infoAsignatura[0]->grupo; ?></h3>
+<h3 class="col-md-3"><b>Materia:</b> <?php echo $infoAsignatura[0]->materia ?></h3>
+<h3 class="col-md-3"><b>Turno:</b> <?php echo $infoAsignatura[0]->horario ?></h3>
+<h3 class="col-md-3"><b>Grado:</b> <?php echo $infoAsignatura[0]->grado ?></h3>
+
+<div class="clearfix"></div>
+
 <div id="msjSuccess"></div>
 <div class="clearfix"></div>
 <!------------------------------------------------Comienza tabla-------------------------------------------------------------->

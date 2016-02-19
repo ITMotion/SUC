@@ -103,5 +103,18 @@
 				return null;
 			}
 		}
+
+		function getInfoAsignatura($asignatura) {
+			$sql = "SELECT G.grupo, G.salon, G.horario, C.descripcion AS carrera, M.descripcion AS materia, M.grado FROM grupomateria GM INNER JOIN grupos G ON GM.idgrupo = G.grupo INNER JOIN carreras C ON G.carrera = C.codigo INNER JOIN materias M ON GM.idmateria = M.clave WHERE id=".$asignatura.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
+		}
 	}
 ?>
