@@ -34,7 +34,7 @@
 			<!--Estas variables están definidas y se obtienen en el menú-->
 			<h1>Bienvenido, <?php echo $user[0]->nombres . " " . $user[0]->paterno . " " .$user[0]->materno ?></h1>
 			<h4>
-				<?php if ($user[0]->tipo == "PA") { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
+				<?php if ($user[0]->tipo == 2) { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
 			</h4>
 		</div>
 		<br>
@@ -50,7 +50,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($asignaturas as $asignatura): ?>
+						<?php 
+							if (!is_null($asignaturas)) {
+								foreach ($asignaturas as $asignatura): ?>
 							<tr>
 								<th>
 									<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>', '<?php echo $asignatura->idasignatura ?>')">
@@ -62,7 +64,7 @@
 								<th><?php echo $asignatura->grupo; ?></th>
 								<th><?php echo $asignatura->matDescripcion; ?></th>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach; } ?>
 					</tbody>
 				</table>
 			</div>
@@ -77,5 +79,6 @@
 		<div id="divResponse" class="col-md-12"></div>
 	</div>
 	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../model/EVA.js"></script>
 </body>
 </html>

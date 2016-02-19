@@ -80,10 +80,41 @@
 			return $this->bd->executeSQL($sql);
 		}
 
-		function insertCalif($materia, $unidad, $alumno, $saber, $hacer, $ser, $asistencia, $total){
+		function insertCalif($alumno, $materia, $unidad, $saber, $hacer, $ser, $total, $am){
 			$sql = "INSERT INTO calificaciones VALUES (null, ".$alumno.", ".$materia.", 
-				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", '".$asistencia."', '".$total."');";
+				".$unidad.", ".$saber.", ".$hacer.", ".$ser.", ".$total.", ".$am.");";
 			return $this->bd->executeSQL($sql);
+		}
+
+		function updateCalif($alumno, $materia, $unidad, $saber, $hacer, $ser, $total, $am){
+			$sql = "UPDATE calificaciones SET saber = ".$saber.", hacer = ".$hacer.", ser = ".$ser.", final = ".$total.", accionMejora = ".$am." WHERE alumno = ".$alumno." AND materia = ".$materia." AND unidad = ".$unidad.";";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function getCalificacionAlumno($matricula, $materia, $unidad) {
+			$sql = "SELECT * FROM calificaciones WHERE alumno = ".$matricula." AND materia = ".$materia." AND unidad = ".$unidad.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
+		}
+
+		function getInfoAsignatura($asignatura) {
+			$sql = "SELECT G.grupo, G.salon, G.horario, C.descripcion AS carrera, M.descripcion AS materia, M.grado FROM grupomateria GM INNER JOIN grupos G ON GM.idgrupo = G.grupo INNER JOIN carreras C ON G.carrera = C.codigo INNER JOIN materias M ON GM.idmateria = M.clave WHERE id=".$asignatura.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
 		}
 	}
 ?>
