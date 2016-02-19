@@ -34,7 +34,7 @@
 			<!--Estas variables están definidas y se obtienen en el menú-->
 			<h1>Bienvenido, <?php echo $user[0]->nombres . " " . $user[0]->paterno . " " .$user[0]->materno ?></h1>
 			<h4>
-				<?php if ($user[0]->tipo == "PA") { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
+				<?php if ($user[0]->tipo == 2) { echo "Profesor de Asignatura"; } else { echo "Profesor de Tiempo Completo"; } ?>
 			</h4>
 		</div>
 		<br>
