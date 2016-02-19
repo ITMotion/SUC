@@ -6,11 +6,11 @@ $(document).ready( function () { //esta función es para aplicar el plugin de da
     	],
     	"language": {
     		"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-    		"sInfo": "Del _START_ al _END_ de un total de _TOTAL_ materias",
+    		"sInfo": "Del _START_ al _END_ de un total de _TOTAL_ registros",
             "sZeroRecords":    "No se encontraron resultados",
             "sEmptyTable":     "Ningún dato disponible en esta tabla",
             "sLoadingRecords": "Cargando...",
-    		"sLengthMenu": "Mostrar _MENU_ materias",
+    		"sLengthMenu": "Mostrar _MENU_ grupos",
     		"sSearch": "Buscar:",
     		"oPaginate": {
     			"sFirst": "Primero",

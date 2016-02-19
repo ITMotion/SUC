@@ -15,7 +15,7 @@
 	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
-	<script src="../js/dataTableMat.js"></script>
+	<script src="../js/dataTableProf.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 
 	<?php 
@@ -27,12 +27,19 @@
 <body>
 	<?php include_once("Menu.html"); ?>
 	<div class="container">
-		<div id="deleteMessage"></div>
+		<div id="deleteMessage">
+			<?php if(isset($_GET['success'])){ ?>
+				<div class="alert alert-success col-md-10">
+					<button class="close" data-dismiss="alert"><span>&times;</span></button>
+					Se agregó correctamente al profesor.
+				</div>
+			<?php }  ?>
+		</div>
 		<h1 class="col-md-6"><b>Profesores</b></h1>
 		<a href="ProfesoresFrm.php" class="btn btn-primary pull-right">Agregar</a>
 		<div class="clearfix"></div>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped table-hover">
+			<table class="table table-condensed table-striped table-hover" id="tblProfesores">
 				<thead>
 					<tr>
 						<th>Matrícula</th>
@@ -55,19 +62,19 @@
 									$tipo = "Asignatura";
 								}
 					?>
-					<tr>
-						<th><?php echo $profesor->matricula; ?></th>
+					<tr class="rwP">
+						<th class="matricula"><?php echo $profesor->matricula; ?></th>
 						<th><?php echo $profesor->nombres; ?></th>
 						<th><?php echo $profesor->paterno; ?></th>
 						<th><?php echo $profesor->materno; ?></th>
 						<th><?php echo $profesor->correo; ?></th>
 						<th><?php echo $tipo; ?></th>
-						<th><a>
+						<th><a href="ProfesoresEditFrm.php?mat=<?php echo $profesor->matricula ?>">
 							<img src="../image/icons/edit.png" 
 								onmouseover="this.src='../image/icons/editcolor.png'" 
 								onmouseout="this.src='../image/icons/edit.png'">
 						</a></th>
-						<th><a>
+						<th class="btnDelete"><a>
 							<img src="../image/icons/delete.png" 
 								onmouseover="this.src='../image/icons/deletecolor.png'" 
 								onmouseout="this.src='../image/icons/delete.png'">
@@ -81,5 +88,6 @@
 			</table>
 		</div>
 	</div>
+	<script src="../model/profesores.js"></script>
 </body>
 </html>
