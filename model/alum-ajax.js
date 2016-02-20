@@ -79,3 +79,8 @@ function EnlaceGrupos(carrera) {
     xhttp.send();
 }
 
+$(document).ready(function(){
+    $("#btnImportacion").click(function(){
+        $("#frmImportacion").show("fast");
+    });
+});

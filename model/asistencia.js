@@ -1,5 +1,5 @@
 //obtiene las unidades de cada materia y las muestra en el div "unidades" de la página Asistencia.php
-function getUnidadesByMateria(materia, grupo) {
+function getUnidadesByMateria(materia, grupo, asignatura) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divUnidades = document.getElementById('unidades');
@@ -8,7 +8,7 @@ function getUnidadesByMateria(materia, grupo) {
             divUnidades.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "AsistenciaUnid.php?materia="+materia+"&grupo="+grupo, true);
+    xhttp.open("GET", "AsistenciaUnid.php?materia="+materia+"&grupo="+grupo+"&asignatura="+asignatura, true);
     xhttp.send();
 }
 
@@ -33,7 +33,7 @@ function updateAsistencia(bit, alumno, fecha, materia) {
     ajax.send();
 }
 
-function getEva(materia, grupo) {
+function getEva(materia, grupo, asignatura) {
     var unidad = document.getElementById("unidad").value;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -43,6 +43,6 @@ function getEva(materia, grupo) {
             divResponse.innerHTML = xhttp.responseText;
         }
     }
-    xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
+    xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad+"&asignatura="+asignatura, true);
     xhttp.send();
 }

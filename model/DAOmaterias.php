@@ -1,5 +1,5 @@
 <?php 
-	include_once("config.ini.php");
+	require_once("config.ini.php");
 	require_once("class.bd.php");
 
 	/**

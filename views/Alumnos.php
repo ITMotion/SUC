@@ -17,6 +17,10 @@
 	<script src="../js/dataTableAlumn.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 
+	<!----------------------------------------Fin Recursos input de archivos ------------------------------------------>
+	<script src="../js/bootstrap-filestyle.min.js"></script>
+	<!----------------------------------------Fin Recursos input de archivos ------------------------------------------>
+
 	<?php
 		require_once("../model/SesionAdministrador.php"); // control de sesiones
 		include_once("../model/DAOalum.php"); 
@@ -35,9 +39,19 @@
 				Se agregó correctamente al alumno.
 			</div>
 		<?php } ?>
-		<h1 class="col-md-6"><b>Alumnos</b></h1>
-		<a href="AlumnosFrm.php" class="btn btn-primary pull-right">Agregar</a>
-		<div class="clearfix"></div>	
+		<h1 class="col-md-4"><b>Alumnos</b></h1>
+		<button class="btn btn-warning pull-right" style="width: 20%; margin: 2%;" id="btnImportacion">Importación</button>
+		<a href="AlumnosFrm.php" class="btn btn-primary pull-right" style="width: 20%; margin: 2%;">Agregar</a>
+		<div class="clearfix"></div>
+			<div id="frmImportacion" style="display: none;">
+				<h3>Importación Masiva</h3>
+				<form action="AlumnosImportacionMasiva.php"  method="post" enctype="multipart/form-data">
+					<input type="file" name="csv" id="csv" accept=".csv" class="filestyle" data-placeholder="Seleccione un archivo csv" data-buttonBefore="true" data-size="sm" data-buttonName="btn-warning" data-buttonText="Explorar">
+					<br>
+					<input type ="submit" name="submit" value="Importar" class="btn btn-primary">
+				</form>
+			</div>
+			<br/>
 			<div class="table-responsive">
 				<table class="table table-condensed table-striped table-hover" id="tblAlumnos">
 					<thead>

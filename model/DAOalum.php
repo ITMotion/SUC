@@ -74,7 +74,31 @@
 			$this->bd->executeSQL($sql);
 		}
 
-		
+		function importarAlumnos($matricula, $nombres, $paterno, $materno, $grupo){
+			$sql ="INSERT INTO alumnos VALUES(".$matricula.",'".$nombres."','".$paterno."','".$materno."','".$grupo."')";
+			$this->bd->executeSQL($sql);
+		}
 
+		function validarGrupo($grupo) {
+			$sql = "SELECT grupo FROM grupos WHERE grupo = '".$grupo."';";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		function validarMatricula($matricula) {
+			$sql = "SELECT matricula FROM alumnos WHERE matricula = ".$matricula.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
 ?>
