@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones - Carreras</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="en">
 	<title>SUC: Sistema Único de Calificaciones - Grupo</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
 
 	<!-----------------------Recursos de Bootstrap-------------------------->
