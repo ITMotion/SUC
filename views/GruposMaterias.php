@@ -12,6 +12,13 @@
 	<script src="../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
+	
+	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
+	<script src="../js/dataTableGM.js"></script>
+	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
+	
 	<?php
 		require_once("../model/DAOgm.php"); //DAO de acceso a bd
 		$db = new DAOgm();
@@ -38,7 +45,7 @@
 		<div class="clearfix"></div>
 		<div class="col-md-8">
 			<div class="table-responsive">
-				<table class="table table-condensed table-striped table-hover">
+				<table class="table table-condensed table-striped table-hover" id="tblGM">
 					<thead>
 						<tr>
 							<th></th>
