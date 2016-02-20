@@ -11,7 +11,7 @@
 		$_SESSION['user'] = $user;
 		if ($sesion[0]->tipo == 1) {
 			$_SESSION['permisos']=1;
-			header("Location: ../views/Materias.php");
+			header("Location: ../views/Administrator.php");
 		}
 		elseif ($sesion[0]->tipo == 2) {
 			$_SESSION['permisos']=2;
