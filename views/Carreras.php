@@ -11,6 +11,12 @@
 	<script src="../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
+	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
+	<script src="../js/dataTableCarreras.js"></script>
+	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
+
 	<?php
 		require_once("../model/SesionAdministrador.php"); // control de sesiones
 		//Se llama al archivo DAOcarrera
@@ -47,7 +53,7 @@
 		<a href="CarrerasFrm.php"><button class="btn btn-primary pull-right">Agregar</button></a>
 		<div class="clearfix"></div>
 			<div class="table-responsive">
-				<table class="table table-condensed table-striped table-hover">
+				<table class="table table-condensed table-striped table-hover" id="tblCarreras">
 					<thead>
 						<tr>
 							<th>Carrera</th>
