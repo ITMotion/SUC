@@ -29,7 +29,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		
 		<div id="deleteMessage"></div>
