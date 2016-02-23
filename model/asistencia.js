@@ -14,7 +14,10 @@ function getUnidadesByMateria(materia, grupo, asignatura) {
 
 //obtiene el calendario consultando la tabla de gruposmaterias y de unidades
 function getCalendar(materia, grupo){
+    console.log(materia);
+    console.log(grupo);
     var unidad = document.getElementById("unidad").value;
+    console.log(unidad);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divResponse = document.getElementById('divResponse');

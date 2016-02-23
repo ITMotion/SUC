@@ -75,7 +75,7 @@
     			INNER JOIN diasmaterias DM ON GM.id = DM.materia
     			INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
     			INNER JOIN unidades U ON GM.idmateria = U.materia
-				WHERE GM.idgrupo = '".$grupo."' AND idmateria = ".$materia." AND U.descripcion = ".$unidad." 
+				WHERE GM.idgrupo = '".$grupo."' AND idmateria = ".$materia." AND U.id = ".$unidad." 
 					AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin;";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
