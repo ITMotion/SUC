@@ -16,14 +16,14 @@
 	<?php
 
 		$matricula = $_GET['matricula'];
-		include_once("../model/DAOalum.php"); 
+		include_once("../model/DAOalum.php");
 		$db = new DAOalum();
 		$row = $db->GetAlumnoByMatricula($matricula);
-		$carreras = $db->getCarreras();		
+		$carreras = $db->getCarreras();
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		<h1>Editar alumno</h1>
 		<form action="../model/Alumnos-updateAlumno.php" method="POST" class="form-horizontal">
@@ -38,16 +38,16 @@
 				<br>
 				<select name="carrera" id="carrera" class="form-control" onchange="getGrupo(value)">
 				<option value="0">Seleccione una carrera</option>
-					<?php 
-					if(!empty($carreras)){	
+					<?php
+					if(!empty($carreras)){
 						foreach ($carreras as $carrera) {
 							echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
 						}
 					}
 					?>
-			</select>	
+			</select>
 				<div id="Part2"></div>
-			</div>	
+			</div>
 		</form>
 	</div>
 <script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>

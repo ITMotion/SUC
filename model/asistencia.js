@@ -32,7 +32,7 @@ function getCalendar(materia, grupo){
 
 function updateAsistencia(bit, alumno, fecha, materia) {
     var ajax = new XMLHttpRequest();
-    ajax.open("GET", "../model/asistenciaUpdate.php?fecha="+fecha+"&matricula="+alumno+"&asistencia="+bit+"&materia="+materia, true);
+    ajax.open("GET", "../../model/asistenciaUpdate.php?fecha="+fecha+"&matricula="+alumno+"&asistencia="+bit+"&materia="+materia, true);
     ajax.send();
 }
 

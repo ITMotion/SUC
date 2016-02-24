@@ -13,24 +13,24 @@
 	<script src="../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
-	
+
 	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
 	<script src="../js/dataTableGM.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
-	
+
 	<?php
 		require_once("../model/DAOgm.php"); //DAO de acceso a bd
 		$db = new DAOgm();
 		$list = $db -> getGmInfo(); //obtener toda la información sobre la asignatura
 	?>
-	
+
 </head>
 <body>
-	<?php require_once("menu.html") ?>
+	<?php require_once("Menu.html") ?>
 	<div class="container">
-		
+
 		<!-----------Mensaje de exito en eliminar-------------->
 		<div id="deleteMessage"></div>
 
@@ -56,14 +56,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
+						<?php
 							if(!empty($list)) {
 								foreach ($list as $row) { ?>
 						<tr>
 							<th>
 								<a id="btnSelect" onclick="getInfoAssignment(<?php echo $row->id ?>)">
-									<img src="../image/icons/select.png" 
-										onmouseover="this.src='../image/icons/select-onclick.png'" 
+									<img src="../image/icons/select.png"
+										onmouseover="this.src='../image/icons/select-onclick.png'"
 										onmouseout="this.src='../image/icons/select.png'">
 								</a>
 							</th>
@@ -71,9 +71,9 @@
 							<th><?php echo $row->descripcion ?></th>
 							<th><?php echo $row->paterno . " " . $row->materno . " " . $row->nombres; ?></th>
 						</tr>
-						<?php 
+						<?php
 								}
-							} 
+							}
 						?>
 					</tbody>
 				</table>
@@ -81,7 +81,7 @@
 		</div>
 		<br>
 		<div class="col-md-4">
-			<div class="panel" id="paneldias"></div>	
+			<div class="panel" id="paneldias"></div>
 		</div>
 	</div>
 	<script src="../model/gm-ajax.js"></script>

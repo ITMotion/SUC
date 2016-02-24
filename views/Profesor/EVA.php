@@ -1,9 +1,9 @@
-<?php  
+<?php
 	$grupo = $_GET['grupo'];
 	$materia = $_GET['materia'];
 	$unidad = $_GET['unidad'];
 	$asignatura = $_GET["asignatura"];
-	require_once("../model/DAOeva.php");
+	require_once("../../model/DAOeva.php");
 	$db = new DAOeva();
 	$alumnos = $db->getAlumnosPorGrupo($grupo);
 	$porcentajesCalif = $db->getPorcentajeCalif($asignatura);
@@ -59,8 +59,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php 
-			$i=0; 
+			<?php
+			$i=0;
 			foreach ($alumnos as $alumno):
 				$i++;
 				$asistencia = $db->getAsistencia($alumno->matricula, $unidad, $materia);
@@ -80,13 +80,13 @@
 						<th class="cal_desempeño"></th>
 						<th class="tr_am"></th>
 						<th class="th_btn"><a class="btnSaveCalificacion">
-							<img src="../image/icons/save.png" 
-								onmouseover="this.src='../image/icons/savecolor.png'" 
-								onmouseout="this.src='../image/icons/save.png'">
+							<img src="../../image/icons/save.png"
+								onmouseover="this.src='../../image/icons/savecolor.png'"
+								onmouseout="this.src='../../image/icons/save.png'">
 						</a></th>
 					</tr>
-			<?php 
-				} 
+			<?php
+				}
 				else { //si tiene calificación
 					if($porcentajeAsist > 85) {
 						if($calificacion[0]->final >= 95){
@@ -103,7 +103,7 @@
 						$desempeño = "NA";
 					}
 			?>
-					<tr> 
+					<tr>
 						<th class="alumno"><?php echo $alumno->matricula; ?></th>
 						<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres); ?></th>
 						<th class="th_saber"><?php echo $calificacion[0]->saber; ?></th>
@@ -114,9 +114,9 @@
 						<th class="cal_desempeño"><?php echo $desempeño; ?></th>
 						<th class="tr_am"><?php if($calificacion[0]->accionMejora == 1){ echo "SA"; } ?></th>
 						<th class="th_btn"><a class="btnEditarCampos">
-							<img src="../image/icons/edit.png" 
-								onmouseover="this.src='../image/icons/editcolor.png'" 
-								onmouseout="this.src='../image/icons/edit.png'">
+							<img src="../../image/icons/edit.png" 
+								onmouseover="this.src='../../image/icons/editcolor.png'"
+								onmouseout="this.src='../../image/icons/edit.png'">
 						</a></th>
 					</tr>
 			<?php } endforeach ?>
@@ -138,7 +138,7 @@
 						<label for="saberC">Saber</label>
 						<input type="number" value="saberC" name="saberC" class="form-control configuraciones" name="saberC" id="saberC" placeholder="<?php echo $porcentajesCalif[0]->saber ?>">
 					</div>
-					
+
 					<div class="form-group">
 						<label for="hacerC">Hacer</label>
 						<input type="number" value="hacerC" class="form-control configuraciones" name="hacerC" id="hacerC" placeholder="<?php echo $porcentajesCalif[0]->saberHacer ?>">
@@ -149,7 +149,7 @@
 						<input type="number" value="serC" class="form-control configuraciones" name="serC" id="serC" placeholder="<?php echo $porcentajesCalif[0]->ser ?>">
 					</div>
 
-					<input type="hidden" name="asignatura" value="<?php echo $asignatura ?>"> <!--Pasamos el valor de la asignatura--> 
+					<input type="hidden" name="asignatura" value="<?php echo $asignatura ?>"> <!--Pasamos el valor de la asignatura-->
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-primary pull-right" id="btnConfig" disabled="true">Guardar</button>

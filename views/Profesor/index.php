@@ -5,31 +5,26 @@
 	<title>SUC: Sistema Único de Calificaciones - Asistencia</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<!-----------------------Recursos de Bootstrap-------------------------->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
-	
-	<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="../../js/jquery.dataTables.js"></script>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<?php
-		session_start();
-		if($_SESSION["permisos"] != 2) {
-			if($_SESSION['permisos'] == 1) {
-				header('Location: Administrator.php?unauthorized');
-			}
-		}
-		include_once("../model/DAOasistencia.php");
+		require_once("../../model/SesionProfesor.php"); //control de sesiones
+		include_once("../../model/DAOasistencia.php");
 		$db = new DAOasistencia();
 		$asignaturas = $db->getAsignaturasByProfesor($_SESSION["user"]);
 	?>
 </head>
 <body>
-	<?php include_once("menu.html"); ?>
+	<?php include_once("../Menu.html"); ?>
 	<div class="container">
-		
+
 		<div class="col-md-8">
 			<!--Estas variables están definidas y se obtienen en el menú-->
 			<h1>Bienvenido, <?php echo $user[0]->nombres . " " . $user[0]->paterno . " " .$user[0]->materno ?></h1>
@@ -44,21 +39,21 @@
 				<table class="table table-condensed table-striped table-hover">
 					<thead>
 						<tr>
-							<th></th>	
+							<th></th>
 							<th>Grupo</th>
 							<th>Materia</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
+						<?php
 							if (!is_null($asignaturas)) {
 								foreach ($asignaturas as $asignatura): ?>
 							<tr>
 								<th>
 									<a id="btnSelect" onclick="getUnidadesByMateria(<?php echo $asignatura->idmateria; ?>, '<?php echo $asignatura->grupo; ?>', '<?php echo $asignatura->idasignatura ?>')">
-										<img src="../image/icons/select.png" 
-											onmouseover="this.src='../image/icons/select-onclick.png'" 
-											onmouseout="this.src='../image/icons/select.png'">
+										<img src="../../image/icons/select.png"
+											onmouseover="this.src='../../image/icons/select-onclick.png'"
+											onmouseout="this.src='../../image/icons/select.png'">
 									</a>
 								</th>
 								<th><?php echo $asignatura->grupo; ?></th>
@@ -78,7 +73,7 @@
 		<br>
 		<div id="divResponse" class="col-md-12"></div>
 	</div>
-	<script type="text/javascript" charset="UTF-8" src="../model/asistencia.js"></script>
-	<script type="text/javascript" charset="UTF-8" src="../model/EVA.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../model/asistencia.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../model/EVA.js"></script>
 </body>
 </html>

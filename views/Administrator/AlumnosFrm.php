@@ -11,9 +11,9 @@
 	<script src="../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
-	<?php 
+	<?php
 		require_once("../model/SesionAdministrador.php"); // control de sesiones
-		include_once("../model/DAOalum.php"); 
+		include_once("../model/DAOalum.php");
 		$db = new DAOalum();
 		$carreras = $db->getCarreras();
 		if (isset($_GET['success'])) {
@@ -24,7 +24,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		<h1>Agregar alumno nuevo</h1>
 	<?php if (empty($carreras)) { ?>
@@ -38,15 +38,15 @@
 		<div class="form-group">
 			<select name="carrera" id="carrera" class="form-control" onchange="getMateria(value)">
 				<option value="0">Seleccione una carrera</option>
-					<?php 
-					if(!empty($carreras)){	
+					<?php
+					if(!empty($carreras)){
 						foreach ($carreras as $carrera) {
 							echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
 						}
 					}
 					?>
 					<?php } ?>
-			</select>		
+			</select>
 		</div>
 		<div id="Part2"></div>
 		</form>

@@ -13,21 +13,21 @@
 	<script src="../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
-	<?php 
+	<?php
 		$grupo = $_GET['grupo'];
-		include_once("../model/DAOgrupo.php"); 
+		include_once("../model/DAOgrupo.php");
 		$db = new DAOgrupo();
 		$carreras = $db->getCarreras();
 		$list = $db->getGrupos($grupo);
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		<h1>Editar grupo</h1>
 		<form action="../model/Grupo-updateGrupo.php" method="POST" class="form-horizontal">
 			<div class="form-group">
-				
+
 				<input type="hidden" id="grupo" name="grupo" class="form-control" placeholder="<?php echo $list[0]->grupo ?>" value="<?php echo $list[0]->grupo ?>">
 				<br>
 				<input type="text" id="salon" name="salon" class="form-control" placeholder="ingrese el nuevo salon">
@@ -39,8 +39,8 @@
 				<br>
 				<select name="carrera" id="carrera" class="form-control">
 				<option value="0">Seleccione una carrera</option>
-					<?php 
-					if(!empty($carreras)){	
+					<?php
+					if(!empty($carreras)){
 						foreach ($carreras as $carrera) {
 							echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
 						}
@@ -49,7 +49,7 @@
 			</select>
 			<br>
 				<button class="btn btn-primary pull-right">Enviar</button>
-			</div>	
+			</div>
 		</form>
 	</div>
 <script src="../model/grupo-ajax.js"></script>

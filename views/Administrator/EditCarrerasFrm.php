@@ -12,20 +12,20 @@
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
-	
+
 	<?php
 		$descripcion = $_GET["descripcion"];
 		$codigo = $_GET["codigo"];
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		<h1>Editar Carrera</h1>
 		<form action="../model/Carreras-updateCarrera.php" method="POST" class="form-horizontal">
 			<div class="form-group">
 				<label for="carrera">Carrera</label>
-				<input type="text" placeholder="<?php echo $descripcion ?>" name="descripcion" id="descripcion" class="form-control"> 
+				<input type="text" placeholder="<?php echo $descripcion ?>" name="descripcion" id="descripcion" class="form-control">
 				<input type="hidden" name="codigo" class="form-control" id="codigo" value="<?php echo $codigo ?>" >
 			</div>
 			<button class="btn btn-primary pull-right">Guardar</button>

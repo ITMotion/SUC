@@ -25,15 +25,15 @@
 	?>
 </head>
 <body>
-	<?php include_once("menu.html") ?>
+	<?php include_once("Menu.html") ?>
 	<div class="container">
 		<h1>Asignaturas</h1>
 		<form action="../model/gm-asignarMateria.php" method="POST" class="form-horizontal">
 			<div class="form-group">
 				<select name="carrera" id="carrera" class="form-control" onchange="getMateria(value)">
 					<option value="0">Seleccione una carrera</option>
-					<?php 
-					if(!empty($carreras)) {	
+					<?php
+					if(!empty($carreras)) {
 						foreach ($carreras as $carrera) {
 							echo "<option value='$carrera->codigo'>$carrera->descripcion</option>";
 						}

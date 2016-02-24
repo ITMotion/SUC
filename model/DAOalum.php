@@ -8,7 +8,7 @@
 		}
 		function activa_conexion(){
 			$this->bd = new DB;
-			$this->bd->openCon(); 
+			$this->bd->openCon();
 		}
 
 		//obtener la tabla de los alumnos
@@ -98,6 +98,18 @@
 			}
 			else {
 				return false;
+			}
+		}
+
+		function getAlumnosByProfesor($matProfesor){
+			$sql = "SELECT A.matricula, A.nombres, A.paterno, A.materno, A.grupo
+				FROM alumnos A INNER JOIN grupomateria GM ON A.grupo = GM.idgrupo WHERE idprofesor = ".$matProfesor.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
 			}
 		}
 	}
