@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once("DAOprofesores.php");
 	$dbProfesores = new DAOprofesores();
 
@@ -10,5 +10,5 @@
 	$tipo = $_POST['tipo'];
 
 	$dbProfesores->editProfesor($matricula, $nombres, $paterno, $materno, $correo, $tipo);
-	header("Location: ../views/Profesores.php?success");
+	header("Location: ../views/Administrator/Profesores.php?success");
 ?>

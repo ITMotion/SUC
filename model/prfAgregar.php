@@ -1,4 +1,4 @@
-<?php  
+<?php
 	require_once("DAOprofesores.php");
 	$dbProfesores = new DAOprofesores();
 
@@ -21,5 +21,5 @@
 	$message = "Estimado ".$nombres." ".$paterno." ".$materno.", a continuación se le proporciona su número de usuario y contraseña para ingresar al Sistema Único de Calificaciones: \n Usuario: ".$matricula."\n Contraseña: ".$contraseña."\n Para cualquier duda o aclaración envíe un correo a soporte@itmotions.net";
 
 	mail($correo, "SUC - Usuario y Contraseña", $message); //enviar el correo electrónico con sus claves
-	header("Location: ../views/Profesores.php?success");
+	header("Location: ../views/Administrator/Profesores.php?success");
 ?>

@@ -7,53 +7,40 @@ function getMateria(clave) {
     		divGrupos.innerHTML = xhttp.responseText;
     	}
     };
-    xhttp.open("GET", "AlumnosFrm2.php?codigo="+clave, true);
+    xhttp.open("GET", "AsignaturasFrm2.php?codigo="+clave, true);
     xhttp.send();
 }
 
-function EditAlumnos(matricula) {
+function getInfoAssignment(id) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        var divPanel = document.getElementById('panel');
+        var divPanel = document.getElementById('paneldias');
         divPanel.innerHTML = "Cargando...";
         if(xhttp.readyState == 4) {
             divPanel.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "AlumnosPanel.php?matricula="+matricula, true);
+    xhttp.open("GET", "AsignaturasPanel.php?clave="+id, true);
     xhttp.send();
 }
 
-function getGrupo(matricula) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        var divGrupos = document.getElementById('Part2');
-        divGrupos.innerHTML = "Cargando...";
-        if(xhttp.readyState == 4) {
-            divGrupos.innerHTML = xhttp.responseText;
-        }
-    };
-    xhttp.open("GET", "EditAlumnosFrm2.php?matricula="+matricula, true);
-    xhttp.send();
-}
-
-function deleteAlumno(matricula) {
-    if (confirm("¿De verdad deseas eliminar el alumno? Se eliminaran permanentemente los registros de alumnos y de asistencia correspondientes a este grupo. ¡Sobre aviso no hay engaño!")) {
-         var xhttp = new XMLHttpRequest();
+function deleteAssignment(id) {
+    if (confirm("¿De verdad deseas eliminar la asignatura?")) {
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             var divPanel = document.getElementById('deleteMessage');
             divPanel.innerHTML = "Cargando...";
+            location.reload();
             if(xhttp.readyState == 4) {
-                location.reload();
                 divPanel.innerHTML = xhttp.responseText;
             }
         };
-        xhttp.open("GET", "AlumnosDelete.php?matricula="+matricula, true);
+        xhttp.open("GET", "AsignaturasDelete.php?clave="+id, true);
         xhttp.send();
     };
 }
 
-function EnlaceAlumnos(carrera) {
+function EnlaceGrupos(clave) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divGrupos = document.getElementById('grupoenlace');
@@ -62,11 +49,11 @@ function EnlaceAlumnos(carrera) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "AlumnosEnlace.php?carrera="+carrera, true);
+    xhttp.open("GET", "../views/AsignaturasEnlace.php?clave="+clave, true);
     xhttp.send();
 }
 
-function EnlaceGrupos(carrera) {
+function EnlaceMaterias(clave) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divGrupos = document.getElementById('grupoenlace');
@@ -75,12 +62,6 @@ function EnlaceGrupos(carrera) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "GruposEnlace.php?carrera="+carrera, true);
+    xhttp.open("GET", "materiasEnlace.php?clave="+clave, true);
     xhttp.send();
 }
-
-$(document).ready(function(){
-    $("#btnImportacion").click(function(){
-        $("#frmImportacion").show("fast");
-    });
-});

@@ -7,20 +7,7 @@
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/GrupoFrm2.php?clave="+clave, true);
-    xhttp.send();
-}
-
-function getGrupo2(grupo) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        var divGrupos = document.getElementById('Part2');
-        divGrupos.innerHTML = "Cargando...";
-        if(xhttp.readyState == 4) {
-            divGrupos.innerHTML = xhttp.responseText;
-        }
-    };
-    xhttp.open("GET", "../views/EditGrupoFrm2.php?grupo="+grupo, true);
+    xhttp.open("GET", "GrupoFrm2.php?clave="+clave, true);
     xhttp.send();
 }
 
@@ -49,6 +36,6 @@ function EnlaceCarrera(carrera) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/CarreraEnlace.php?carrera="+carrera, true);
+    xhttp.open("GET", "CarreraEnlace.php?carrera="+carrera, true);
     xhttp.send();
 }

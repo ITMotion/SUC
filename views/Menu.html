@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//validación de la sesión
 	if(!isset($_SESSION["permisos"])) { //si no existen permisos regirige al login
 		header("Location: ../index.php?error");
@@ -7,7 +7,7 @@
 		echo "<script> $(document).ready(function() {
 			alert('¡No estás autorizado a este módulo!') }) </script>";
 	}
-	require_once("../model/DAOlogin.php");
+	require_once("../../model/DAOlogin.php");
 	$dblogin = new DAOlogin();
 ?>
 <nav class="navbar navbar-default">
@@ -29,36 +29,35 @@
 		$username = $user[0]->nombres;
 
 ?>
-				<li><a href="Asistencia.php">Asistencia</a></li>
-				<li><a href="">EVA</a></li>
-						
+				<li><a href="index.php">EVA</a></li>
+				<li><a href="AlumnosProfesor.php">Alumnos</a></li>
 <?php
 	}
 	elseif ($_SESSION["permisos"] == 3) { //en caso de que sea alumno
 		$user = $dblogin->getInfoAlumno($_SESSION["user"]);
 		$username = $user[0]->nombres;
 ?>
-				
+
 <?php
 	}
 	else {
 		$username = "Admin";
-	
+
 ?>
 				<li><a href="Alumnos.php">Alumnos</a></li>
 				<li><a href="Grupos.php">Grupos</a></li>
 				<li><a href="Profesores.php">Profesores</a></li>
 				<li><a href="Materias.php">Materias</a></li>
-				<li><a href="GruposMaterias.php">Asignaturas</a></li>
+				<li><a href="Asignaturas.php">Asignaturas</a></li>
 				<li><a href="Usuarios.php">Usuarios</a></li>
 				<li><a href="Carreras.php">Carreras	</a></li>
-<?php 
+<?php
 	}
 ?>
 				<li class="dropdown">
 					<a href="" data-toggle="dropdown"><?php echo $username ?><span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="../model/logout.php">Cerrar Sesión</a></li>	
+						<li><a href="../../model/logout.php">Cerrar Sesión</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -2,7 +2,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
     $('#divResponse').on('change', '.cal_saber', function(e) {
         var saber = parseFloat($(this).val()); //tomamos la calificación del saber
         var confSaber = parseFloat($("#confSaber").html()) / 100; //porcentaje que representa el saber en la unidad
-        var totalSaber = saber * confSaber; 
+        var totalSaber = saber * confSaber;
 
         var hacer = parseFloat($(this).parent().parent().find(".cal_hacer").val()); //porcentaje que representa el hacer
         var confHacer = parseFloat($("#confHacer").html()) / 100;
@@ -12,7 +12,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var confSer = parseFloat($("#confSer").html()) / 100;
         var totalSer = ser * confSer;
 
-        var cal_total = (totalSaber + totalHacer + totalSer).toFixed(2); 
+        var cal_total = (totalSaber + totalHacer + totalSer).toFixed(2);
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
@@ -27,7 +27,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
                 tram.append('<input type="checkbox" class="cb_am">');
             }
             var cal_desempeño = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);
         }
     });
     $("#divResponse").on("change", ".cal_hacer", function(e) {
@@ -52,14 +52,14 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
 
         if(asistencia < 85 ) { //Si no tiene el porcentaje de asistencia requerido para derecho a calificación
             $(this).parent().nextAll(".cal_desempeño").text("NA");
-            
+
         } else {
             if(cal_total < 80) { // si la calificación final es reprobatoria aplicara el checkbox para acción de mejora
                tram.append('<input type="checkbox" class="cb_am">');
             }
             var cal_desempeño = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
-        }       
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);
+        }
     });
     $("#divResponse").on("change", ".cal_ser", function(e) {
         var saber = parseFloat($(this).parent().parent().find(".cal_saber").val());
@@ -78,7 +78,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         $(this).parent().nextAll(".cal_total").text(cal_total);
 
         var asistencia = parseFloat($(this).parent().nextAll(".asistencia").html());
-        
+
         var tram = $(this).parent().parent().find(".tr_am");
         tram.empty();
         if(asistencia < 85 ) { //si no tiene el porcentaje de asistencia requerido para calificación
@@ -88,7 +88,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
                 tram.append('<input type="checkbox" value="1" class="cb_am">');
             }
             var cal_desempeño = calificacion_letras(cal_total);
-            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);    
+            $(this).parent().nextAll(".cal_desempeño").text(cal_desempeño);
         }
     });
 
@@ -98,7 +98,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var unidadC = $("#unidadC").html();
 
         var th_btn = $(this).parent().parent().find(".th_btn");
-        
+
         var saberC = $(this).parent().parent().find(".cal_saber").val();
         var thSaber = $(this).parent().parent().find(".th_saber");
 
@@ -120,7 +120,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             }
         }
         $.ajax({
-            url: "../model/EVAsaveCalif.php",
+            url: "../../model/EVAsaveCalif.php",
             type: "POST",
             dataType: "HTML",
             data :{
@@ -143,7 +143,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             thSer.empty();
             thSer.html(serC);
             th_btn.empty();
-            th_btn.append('<a class="btnEditarCampos"><img src="../image/icons/edit.png" onmouseover="this.src=\'../image/icons/editcolor.png\'" onmouseout="this.src=\'../image/icons/edit.png\'"></a>');
+            th_btn.append('<a class="btnEditarCampos"><img src="../../image/icons/edit.png" onmouseover="this.src=\'../../image/icons/editcolor.png\'" onmouseout="this.src=\'../../image/icons/edit.png\'"></a>');
         })
     });
 
@@ -163,7 +163,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         var thAm = $(this).parent().parent().find(".tr_am");
 
         var finalC = parseFloat($(this).parent().parent().find(".cal_total").html());
-        
+
         saberTh.empty();
         saberTh.append('<input type="number" min="0" max="100" class="cal_saber" value='+saberC+'>');
 
@@ -173,16 +173,16 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         serTh.empty();
         serTh.append('<input type="number" min="0" max="100" class="cal_ser" value='+serC+'>');
         thBtn.empty();
-        
+
         if (finalC < 80) { //si está reprobado
             if (thAm.html()=="SA") {
                 thAm.empty();
                 thAm.append('<input type="checkbox" value="1" class="cb_am" checked="true">')
             } else {
-                thAm.append('<input type="checkbox" value="0" class="cb_am">'); //botón para la acción de mejora    
+                thAm.append('<input type="checkbox" value="0" class="cb_am">'); //botón para la acción de mejora
             }
-        } 
-        thBtn.append('<a class="btnEditCalificacion"><img src="../image/icons/save.png" onmouseover="this.src=\'../image/icons/savecolor.png\'" onmouseout="this.src=\'../image/icons/save.png\'"></a>');
+        }
+        thBtn.append('<a class="btnEditCalificacion"><img src="../../image/icons/save.png" onmouseover="this.src=\'../../image/icons/savecolor.png\'" onmouseout="this.src=\'../../image/icons/save.png\'"></a>');
     });
 
 
@@ -213,7 +213,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             }
         }
         $.ajax({
-            url: "../model/EVAupdateCalif.php",
+            url: "../../model/EVAupdateCalif.php",
             type: "POST",
             dataType: "HTML",
             data: {
@@ -236,7 +236,7 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
             serTh.empty();
             serTh.text(serC);
             thBtn.empty();
-            thBtn.append('<a class="btnEditarCampos"><img src="../image/icons/edit.png" onmouseover="this.src=\'../image/icons/editcolor.png\'" onmouseout="this.src=\'../image/icons/edit.png\'"></a>');
+            thBtn.append('<a class="btnEditarCampos"><img src="../../image/icons/edit.png" onmouseover="this.src=\'../../image/icons/editcolor.png\'" onmouseout="this.src=\'../../image/icons/edit.png\'"></a>');
         })
     });
 
@@ -253,14 +253,14 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
     });
 
     //botón de configuración de porcentajes
-    $("#divResponse").on("click", "#btnConfig", function(){ 
+    $("#divResponse").on("click", "#btnConfig", function(){
         $.ajax({
-            url: "../model/EVAsaveConfig.php",
+            url: "../../model/EVAsaveConfig.php",
             type: "POST",
             dataType: "HTML",
             data: $("#frmConfig").serialize()
         })
-        .done(function(data) { 
+        .done(function(data) {
             $("#configuracion").modal("toggle"); //se oculta el modal
             $("#tableConfigSection").empty(); // se vacia el contenido anterior
             $("#tableConfigSection").html(data); //se aplican las nuevas configuraciones
