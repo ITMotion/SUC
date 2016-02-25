@@ -1,6 +1,6 @@
-<?php  
+<?php
 	$id = $_GET['clave'];
-	include_once("../model/DAOgm.php");
+	include_once("../../model/DAOgm.php");
 	$db = new DAOgm();
 	$db->deleteGM($id);
 ?>

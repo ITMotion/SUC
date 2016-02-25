@@ -7,11 +7,11 @@ function getMateria(clave) {
     		divGrupos.innerHTML = xhttp.responseText;
     	}
     };
-    xhttp.open("GET", "GruposMateriasFrm2.php?codigo="+clave, true);
+    xhttp.open("GET", "AsignaturasFrm2.php?codigo="+clave, true);
     xhttp.send();
 }
 
-function getInfoAssignment(id) {  
+function getInfoAssignment(id) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divPanel = document.getElementById('paneldias');
@@ -20,7 +20,7 @@ function getInfoAssignment(id) {
             divPanel.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "GruposMateriasPanel.php?clave="+id, true);
+    xhttp.open("GET", "AsignaturasPanel.php?clave="+id, true);
     xhttp.send();
 }
 
@@ -35,7 +35,7 @@ function deleteAssignment(id) {
                 divPanel.innerHTML = xhttp.responseText;
             }
         };
-        xhttp.open("GET", "GruposMateriasDelete.php?clave="+id, true);
+        xhttp.open("GET", "AsignaturasDelete.php?clave="+id, true);
         xhttp.send();
     };
 }
@@ -49,7 +49,7 @@ function EnlaceGrupos(clave) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/GruposMateriasEnlace.php?clave="+clave, true);
+    xhttp.open("GET", "../views/AsignaturasEnlace.php?clave="+clave, true);
     xhttp.send();
 }
 
@@ -62,6 +62,6 @@ function EnlaceMaterias(clave) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/materiasEnlace.php?clave="+clave, true);
+    xhttp.open("GET", "materiasEnlace.php?clave="+clave, true);
     xhttp.send();
 }

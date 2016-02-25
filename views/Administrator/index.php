@@ -3,19 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones - Administrador</title>
-	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+	<?php require_once("../../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
 
 	<!-----------------------Recursos de Bootstrap-------------------------->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/adminindex.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/adminindex.css">
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-	<?php require_once("Menu.html") ?>
+	<?php require_once("../Menu.html") ?>
 	<div class="container" id="content">
 		<div class="col-lg-12">
 			<div class="jumbotron">

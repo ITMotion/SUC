@@ -11,7 +11,7 @@ function getMateria(clave) {
     xhttp.send();
 }
 
-function EditAlumnos(matricula) {  
+function EditAlumnos(matricula) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divPanel = document.getElementById('panel');
@@ -20,7 +20,7 @@ function EditAlumnos(matricula) {
             divPanel.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/AlumnosPanel.php?matricula="+matricula, true);
+    xhttp.open("GET", "AlumnosPanel.php?matricula="+matricula, true);
     xhttp.send();
 }
 
@@ -33,7 +33,7 @@ function getGrupo(matricula) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/EditAlumnosFrm2.php?matricula="+matricula, true);
+    xhttp.open("GET", "EditAlumnosFrm2.php?matricula="+matricula, true);
     xhttp.send();
 }
 
@@ -62,7 +62,7 @@ function EnlaceAlumnos(carrera) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/AlumnosEnlace.php?carrera="+carrera, true);
+    xhttp.open("GET", "AlumnosEnlace.php?carrera="+carrera, true);
     xhttp.send();
 }
 
@@ -75,7 +75,7 @@ function EnlaceGrupos(carrera) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/GruposEnlace.php?carrera="+carrera, true);
+    xhttp.open("GET", "GruposEnlace.php?carrera="+carrera, true);
     xhttp.send();
 }
 

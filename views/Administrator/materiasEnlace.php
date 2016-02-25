@@ -3,25 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones - Materias</title>
-	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+	<?php require_once("../../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
 
 	<!-----------------------Recursos de Bootstrap-------------------------->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
-	<?php 
-		include_once("../model/DAOgm.php");
+	<?php
+		include_once("../../model/DAOgm.php");
 		$db = new DAOgm();
 		$carreras = $db->getCarreras();
 		$clave = $_GET['clave'];
-		
+
 	?>
 </head>
 <body>
-	
+
 	<div class="container">
 		<form action="MateriasFrm2.php" method="POST" class="form-horizontal">
 			<div class="form-group">
@@ -39,7 +39,7 @@
 			</div>
 
 			<input type="hidden" value="asignaturas" name="enlace">
-			
+
 			<input type="hidden" id="carrera" name="carrera" value="<?php echo $clave ?>">
 			<div class="form-group">
 				<label for="unidades">Número de Unidades:</label>
@@ -49,7 +49,7 @@
 					<?php } ?>
 				</select>
 			</div>
-			
+
 			<button class="btn btn-primary pull-right col-md-2">Siguiente</button>
 			<a class="btn btn-warning col-md-2" href="Materias.php">Cancelar</a>
 		</form>

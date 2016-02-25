@@ -1,10 +1,10 @@
-<?php 
+<?php
 	$carrera = $_GET['carrera'];
-	include_once("../model/DAOgrupo.php");
+	include_once("../../model/DAOgrupo.php");
 	$db = new DAOgrupo();
-	
+
 ?>
-<form action="../model/Grupo-asignarGrupo.php" method="POST">
+<form action="../../model/Grupo-asignarGrupo.php" method="POST">
 
 	<input type="hidden" name="carrera" value="<?php echo $carrera ?>">
 	<div class="form-group">

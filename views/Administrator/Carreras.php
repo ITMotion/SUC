@@ -4,52 +4,53 @@
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones - Carreras</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	
+
+	<?php require_once("../../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
 	<!-----------------------Recursos de Bootstrap-------------------------->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
 	<!----------------------------------------Recursos para filtros de tablas ------------------------------------------>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="../js/jquery.dataTables.js"></script>
-	<script src="../js/dataTableCarreras.js"></script>
+	<script type="text/javascript" charset="utf8" src="../../js/jquery.dataTables.js"></script>
+	<script src="../../js/dataTableCarreras.js"></script>
 	<!----------------------------------------Fin Recursos filtros de tablas ------------------------------------------>
 
 	<?php
-		require_once("../model/SesionAdministrador.php"); // control de sesiones
 		//Se llama al archivo DAOcarrera
-		include_once("../model/DAOcarrera.php");
+		include_once("../../model/DAOcarrera.php");
 		//Se asigna la función del archivo DAOcarrera a la variable $carreras
 		$db = new DAOcarrera();
 		$carreras = $db->getCarreras();
 	 ?>
 </head>
 <body>
-	
+
 	<!--Se llama al menú-->
-	<?php include_once("Menu.html"); ?>
+	<?php include_once("../Menu.html"); ?>
 	<div class="container">
 		<h1 class="">Carreras</h1>
 		<?php if (isset($_GET["success"])) {?>
 			<div class="alert alert-success col-md-10">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				Se agregó la carrera correctamente
-			</div>	
+			</div>
 		<?php } ?>
 		<?php if (isset($_GET["updsuccess"])) {?>
 			<div class="alert alert-success col-md-10">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				Se editó la carrera correctamente
-			</div>	
+			</div>
 		<?php } ?>
 		<?php if (isset($_GET["delSuccess"])) {?>
 			<div class="alert alert-success col-md-10">
 				<button class="close" data-dismiss="alert"><span>&times;</span></button>
 				Se eliminó la carrera correctamente
-			</div>	
+			</div>
 		<?php } ?>
 		<a href="CarrerasFrm.php"><button class="btn btn-primary pull-right">Agregar</button></a>
 		<div class="clearfix"></div>
@@ -65,19 +66,19 @@
 					<tbody>
 						<!--Se sacan los valores de la base de datos y se imprimen-->
 						<?php
-							if (!is_null($carreras)) { 
-								foreach ($carreras as $carrera): 
+							if (!is_null($carreras)) {
+								foreach ($carreras as $carrera):
 						?>
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
 								<th><a href="EditCarrerasFrm.php?codigo=<?php echo $carrera->codigo?>&descripcion=<?php echo $carrera->descripcion?>" >
-									<img src="../image/icons/edit.png" 
-									onmouseover="this.src='../image/icons/editcolor.png'" 
+									<img src="../image/icons/edit.png"
+									onmouseover="this.src='../image/icons/editcolor.png'"
 									onmouseout="this.src='../image/icons/edit.png'">
 								</a></th>
 								<th><a href="" onclick="deleteCarreras(<?php echo $carrera->codigo ?>)">
-									<img src="../image/icons/delete.png" 
-									onmouseover="this.src='../image/icons/deletecolor.png'" 
+									<img src="../image/icons/delete.png"
+									onmouseover="this.src='../image/icons/deletecolor.png'"
 									onmouseout="this.src='../image/icons/delete.png'">
 								</a></th>
 							</tr>
@@ -86,6 +87,6 @@
 				</table>
 			</div>
 	</div>
-	<script src="../model/carreras.js"></script>
+	<script src="../../model/carreras.js"></script>
 </body>
 </html>

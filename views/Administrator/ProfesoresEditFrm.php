@@ -4,28 +4,28 @@
 	<meta charset="UTF-8">
 	<title>SUC - Sistema Único de Calificaciones - Profesores</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<?php require_once("../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
-	
+	<?php require_once("../../model/SesionAdministrador.php"); ?> <!--Control de sesiones-->
+
 	<!-----------------------Recursos de Bootstrap-------------------------->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
 	<?php
 		if (isset($_GET['mat'])) {
-			include_once("../model/DAOprofesores.php"); 
+			include_once("../../model/DAOprofesores.php");
 			$dbprofesores = new DAOprofesores();
-			$profesor = $dbprofesores->getInfoProfesor($_GET['mat']);	
+			$profesor = $dbprofesores->getInfoProfesor($_GET['mat']);
 	?>
 </head>
 <body>
-	<?php include_once("Menu.html"); ?>
+	<?php include_once("../Menu.html"); ?>
 	<div class="container">
 		<?php if (!is_null($profesor)) { ?>
-			<form action="../model/prfEdit.php" method="POST">
-				
+			<form action="../../model/prfEdit.php" method="POST">
+
 				<input type="hidden" name="matricula" value="<?php echo $profesor[0]->matricula ?>" required>
 
 				<div class="form-group">

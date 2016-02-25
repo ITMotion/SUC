@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require_once("../model/SesionAdministrador.php"); // control de sesiones?>
+	<?php require_once("../../model/SesionAdministrador.php"); // control de sesiones?>
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones - Importación Másiva</title>
 	<!-----------------------Recursos de Bootstrap-------------------------->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 </head>
 <body>
@@ -16,7 +16,7 @@
 	if (isset($_POST['submit'])) {
 		$fname = $_FILES['csv']['tmp_name'];
 		$handle = fopen($fname, "r");
-		include_once("../model/DAOalum.php");
+		include_once("../../model/DAOalum.php");
 		$db = new DAOalum();
 		$registros = 0;
 		while (($openfile = fgetcsv($handle,1000,",")) !== FALSE) {
@@ -32,7 +32,7 @@
 						$registros++;
 					} else {
 						$grupoInvalido[] = $grupo;
-					}	
+					}
 				} else {
 					$matriculaInvalida[] = $matricula;
 				}
@@ -43,7 +43,7 @@
 		}
 	}
 ?>
-<?php include_once("menu.html") ?>
+<?php include_once("../Menu.html") ?>
 <div class="container">
 	<?php if(isset($malFormato)) { ?>
 		<div class="alert alert-danger col-md-12">

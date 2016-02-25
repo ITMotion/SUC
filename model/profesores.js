@@ -16,7 +16,4 @@ $(document).ready(function(){
 			$(this).closest("tr").remove();
 		}
 	});
-	$(".btnEdit").click(function(){
-		
-	});
 })

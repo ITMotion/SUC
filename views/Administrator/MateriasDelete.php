@@ -1,6 +1,6 @@
-<?php 
+<?php
 	$clave = $_GET['clave'];
-	include_once("../model/DAOmaterias.php");
+	include_once("../../model/DAOmaterias.php");
 	$db = new DAOmaterias();
 	$db->deleteMateria($clave);
 ?>

@@ -1,9 +1,9 @@
-<?php  
+<?php
 	//Se obtiene la clave de la materia
 	$materia = $_GET["materia"];
 
 	//Se instancía la clase DAOmateria para la consulta a la base de datos
-	include_once("../model/DAOmateria.php");
+	include_once("../../model/DAOmateria.php");
 	$db = new DAOmateria();
 	$materia = $db->getMateriaInfo($materia);
 ?>

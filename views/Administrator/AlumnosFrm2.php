@@ -1,6 +1,6 @@
-﻿<?php 
+﻿<?php
 	$carrera = $_GET['codigo'];
-	include_once("../model/DAOalum.php");
+	include_once("../../model/DAOalum.php");
 	$db = new DAOalum();
 	$grupos = $db->getGruposPorCarrera($carrera);
 	if (empty($grupos)) {
@@ -13,11 +13,11 @@
 <?php } else { ?>
 	<div class="form-group">
 		<select name="grupos" id="grupos" class="form-control">
-			<?php 
+			<?php
 				foreach ($grupos as $grupo) {
 					echo "<option>$grupo->grupo</option>";
 				}
-			?>	
+			?>
 		</select>
 	</div>
 
@@ -37,4 +37,4 @@
 		<button class="btn btn-primary pull-right">Enviar</button>
 	</div>
 <?php } ?>
-<script src="../model/alum-ajax.js"></script>
+<script src="../../model/alum-ajax.js"></script>
