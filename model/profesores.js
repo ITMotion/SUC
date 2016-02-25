@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	$(".btnDelete").click(function() { //para eliminar un profesor de la tabla
 		if (confirm("¿Deseas eliminar el profesor seleccionado?")) { //primero pregunta si está seguro
-			var matricula = $(this).parent().parent().find(".matricula").html();
+			var matricula = $(this).parent().find(".matricula").html();
 			$.ajax({
-				url: "../model/prfDelete.php",
+				url: "../../model/prfDelete.php",
 				type: "POST",
 				dataType: "HTML",
 				data: {
