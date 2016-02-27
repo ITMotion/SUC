@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-	<?php require_once("../Menu.html") ?>
+	<?php require_once("Menu.php") ?>
 	<div class="container" id="content">
 		<div class="col-lg-12">
 			<div class="jumbotron">

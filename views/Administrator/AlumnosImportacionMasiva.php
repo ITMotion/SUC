@@ -43,7 +43,7 @@
 		}
 	}
 ?>
-<?php include_once("../Menu.html") ?>
+<?php include_once("Menu.php") ?>
 <div class="container">
 	<?php if(isset($malFormato)) { ?>
 		<div class="alert alert-danger col-md-12">

@@ -49,7 +49,7 @@ function EnlaceGrupos(clave) {
             divGrupos.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "../views/AsignaturasEnlace.php?clave="+clave, true);
+    xhttp.open("GET", "AsignaturasEnlace.php?clave="+clave, true);
     xhttp.send();
 }
 

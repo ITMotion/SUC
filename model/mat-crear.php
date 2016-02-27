@@ -1,9 +1,9 @@
-<?php  
-	
+<?php
+
 	/*Instanciar la clase DAOmaterias en donde se hace la conexión a la base de datos y las consultas sql */
 	include_once("DAOmaterias.php");
 	$db = new DAOmaterias();
-	
+
 	/*Obtener todas las variables del formulario:*/
 	//Variables de la materia
 	$descripcion = $_POST['descripcion'];
@@ -21,15 +21,15 @@
 	$materia = $db->getLastMateria();
 	/*insertar las variables de unidad a la tabla de unidades*/
 	$unidad = 1;
-	for ($i=0; $i < $numUnidades; $i++) { 
+	for ($i=0; $i < $numUnidades; $i++) {
 		$db->crearUnidad($fechasInicio[$i], $fechasFinales[$i], $unidad, $materia[0]->clave);
-		$unidad++;	
+		$unidad++;
 	}
-	
+
 	if(!isset($_POST["enlace"])){
-		header("Location: ../views/materias.php?success");
+		header("Location: ../views/Administrator/materias.php?success");
 	}
 	elseif ($_POST["enlace"] == "asignaturas") {
-		header("Location: ../views/GruposMateriasFrm.php");
+		header("Location: ../views/Administrator/GruposMateriasFrm.php");
 	}
 ?>

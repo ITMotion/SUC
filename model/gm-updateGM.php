@@ -1,4 +1,4 @@
-<?php  
+<?php
 	$id = $_POST["id"];
 	$profesor = $_POST['profesor'];
 	$dias = $_POST['dias'];
@@ -10,5 +10,5 @@
 	$db->updateGM($id, $profesor);
 	$db->deleteDays($id);
 	$db->setDays($id, $dias);
-	header("Location: ../views/gruposmaterias.php?success");
+	header("Location: ../views/Administrator/Asignaturas.php?success");
 ?>
