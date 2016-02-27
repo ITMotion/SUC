@@ -24,7 +24,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<form action="../../model/gm-updateGM.php" method="POST" class="form-horizontal">
 			<h1 class="col-md-12">Editar Asignatura</h1>

@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	<?php include_once("../Menu.html"); ?>
+	<?php include_once("Menu.php"); ?>
 	<div class="container">
 		<h1>Agregar Nuevo Profesor</h1>
 		<form action="../../model/prfAgregar.php" method="POST">

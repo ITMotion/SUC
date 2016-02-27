@@ -21,7 +21,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html"); ?>
+	<?php include_once("Menu.php"); ?>
 	<div class="container">
 		<?php if (!is_null($profesor)) { ?>
 			<form action="../../model/prfEdit.php" method="POST">
