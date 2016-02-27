@@ -46,12 +46,7 @@
 				Se editó la carrera correctamente
 			</div>
 		<?php } ?>
-		<?php if (isset($_GET["delSuccess"])) {?>
-			<div class="alert alert-success col-md-10">
-				<button class="close" data-dismiss="alert"><span>&times;</span></button>
-				Se eliminó la carrera correctamente
-			</div>
-		<?php } ?>
+		<div id="deleteMessage"></div>
 		<a href="CarrerasFrm.php"><button class="btn btn-primary pull-right">Agregar</button></a>
 		<div class="clearfix"></div>
 			<div class="table-responsive">
@@ -72,14 +67,14 @@
 							<tr>
 								<th><?php echo $carrera->descripcion; ?></th>
 								<th><a href="EditCarrerasFrm.php?codigo=<?php echo $carrera->codigo?>&descripcion=<?php echo $carrera->descripcion?>" >
-									<img src="../image/icons/edit.png"
-									onmouseover="this.src='../image/icons/editcolor.png'"
-									onmouseout="this.src='../image/icons/edit.png'">
+									<img src="../../image/icons/edit.png"
+									onmouseover="this.src='../../image/icons/editcolor.png'"
+									onmouseout="this.src='../../image/icons/edit.png'">
 								</a></th>
 								<th><a href="" onclick="deleteCarreras(<?php echo $carrera->codigo ?>)">
-									<img src="../image/icons/delete.png"
-									onmouseover="this.src='../image/icons/deletecolor.png'"
-									onmouseout="this.src='../image/icons/delete.png'">
+									<img src="../../image/icons/delete.png"
+									onmouseover="this.src='../../image/icons/deletecolor.png'"
+									onmouseout="this.src='../../image/icons/delete.png'">
 								</a></th>
 							</tr>
 						<?php endforeach; } ?>
