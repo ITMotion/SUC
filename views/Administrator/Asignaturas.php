@@ -28,7 +28,7 @@
 
 </head>
 <body>
-	<?php require_once("../Menu.html") ?>
+	<?php require_once("Menu.php") ?>
 	<div class="container">
 
 		<!-----------Mensaje de exito en eliminar-------------->

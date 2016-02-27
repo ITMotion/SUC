@@ -25,7 +25,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1>Asignaturas</h1>
 		<form action="../../model/gm-asignarMateria.php" method="POST" class="form-horizontal">

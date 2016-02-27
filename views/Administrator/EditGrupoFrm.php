@@ -22,7 +22,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1>Editar grupo</h1>
 		<form action="../../model/Grupo-updateGrupo.php" method="POST" class="form-horizontal">

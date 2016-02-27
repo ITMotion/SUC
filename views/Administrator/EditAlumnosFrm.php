@@ -23,7 +23,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1>Editar alumno</h1>
 		<form action="../../model/Alumnos-updateAlumno.php" method="POST" class="form-horizontal">

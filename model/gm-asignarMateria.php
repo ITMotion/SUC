@@ -1,4 +1,4 @@
-<?php  
+<?php
 	$grupo = $_POST['grupos'];
 	$materia = $_POST['materia'];
 	$profesor = $_POST['profesor'];
@@ -10,8 +10,8 @@
 		$db->setRow($grupo, $materia, $profesor);
 		$asignacion = $db->getLastRowInserted();
 		$db->setDays($asignacion[0]->id, $dias);
-		header("Location: ../views/GruposMaterias.php?success");
+		header("Location: ../views/Administrator/Asignaturas.php?success");
 	} else {
-		header("Location: ../views/GruposMateriasFrm.php?success=2");
+		header("Location: ../views/Administrator/Asignaturas.php?success=2");
 	}
 ?>

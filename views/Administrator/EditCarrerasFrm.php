@@ -19,7 +19,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1>Editar Carrera</h1>
 		<form action="../../model/Carreras-updateCarrera.php" method="POST" class="form-horizontal">

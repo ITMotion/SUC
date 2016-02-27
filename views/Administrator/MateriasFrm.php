@@ -20,7 +20,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<form action="MateriasFrm2.php" method="POST" class="form-horizontal">
 			<div class="form-group">

@@ -9,6 +9,7 @@
 	}
 	require_once("../../model/DAOlogin.php");
 	$dblogin = new DAOlogin();
+	$username = "Administrador";
 ?>
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
@@ -23,37 +24,12 @@
 		</div>
 		<div class="collapse navbar-collapse" id="menu">
 			<ul class="nav navbar-nav navbar-right">
-<?php
-	if ($_SESSION["permisos"] == 2) { //en caso de que sea profesor
-		$user = $dblogin->getInfoProfesor($_SESSION["user"]);
-		$username = $user[0]->nombres;
-
-?>
-				<li><a href="index.php">EVA</a></li>
-				<li><a href="AlumnosProfesor.php">Alumnos</a></li>
-<?php
-	}
-	elseif ($_SESSION["permisos"] == 3) { //en caso de que sea alumno
-		$user = $dblogin->getInfoAlumno($_SESSION["user"]);
-		$username = $user[0]->nombres;
-?>
-
-<?php
-	}
-	else {
-		$username = "Admin";
-
-?>
 				<li><a href="Alumnos.php">Alumnos</a></li>
 				<li><a href="Grupos.php">Grupos</a></li>
 				<li><a href="Profesores.php">Profesores</a></li>
 				<li><a href="Materias.php">Materias</a></li>
 				<li><a href="Asignaturas.php">Asignaturas</a></li>
-				<li><a href="Usuarios.php">Usuarios</a></li>
 				<li><a href="Carreras.php">Carreras	</a></li>
-<?php
-	}
-?>
 				<li class="dropdown">
 					<a href="" data-toggle="dropdown"><?php echo $username ?><span class="caret"></span></a>
 					<ul class="dropdown-menu">
