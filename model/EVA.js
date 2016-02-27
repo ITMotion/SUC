@@ -1,4 +1,18 @@
-$(document).ready(function() { //funciones para el calculo de la calificación final
+/*
+* Autor: Gustavo Valderrama
+* Correo: gustavoavalderrama
+* Teléfono: 9981528203
+* Descripción: Este fichero se ocupa en el módulo "EVA"
+**   para manipular la estructura DOM al
+**   momento de insertar las calificaciones
+*/
+
+$(document).ready(function() {
+  /*
+  * Cuando el usuario ingrese un número en cualquier campo de calificaciones
+  * el sistema toma ese número junto con los números en los demás campos y hace un cálculo
+  * con los porcentajes de cada calificación que están encima de la tabla.
+  */
     $('#divResponse').on('change', '.cal_saber', function(e) {
         var saber = parseFloat($(this).val()); //tomamos la calificación del saber
         var confSaber = parseFloat($("#confSaber").html()) / 100; //porcentaje que representa el saber en la unidad
@@ -92,7 +106,12 @@ $(document).ready(function() { //funciones para el calculo de la calificación f
         }
     });
 
-    //botón para guardar la calificación
+    /*
+    * Al presionar el botón Guardar Calificación de cada fila, busca los valores
+    * y los envía por medio de una solicitud AJAX a la base de datos.
+    * Seguido de esto se limpian los campos de entrada de la fila y se sustituyen por texto estático.
+    * Así mismo, se cambia el botón de Guardar por el de Editar
+    */
     $("#divResponse").on("click", ".btnSaveCalificacion", function(e) {
         var materiaC = $("#materiaC").html();
         var unidadC = $("#unidadC").html();
