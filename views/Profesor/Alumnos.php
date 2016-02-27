@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<?php require_once("../../model/SesionProfesor.php"); ?> <!--Contról de Sesiones-->
 	<title>SUC: Sistema Único de Calificaciones - Alumnos</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<!-----------------------Recursos de Bootstrap-------------------------->
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
-	<script type="text/javascript" charset="UTF-8" src="../js/../jquery.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
 	<script src="../../js/bootstrap.min.js"></script>
 	<script src="../../js/scripts.js"></script>
 	<!--------------------------Fin recursos de bootstrap-------------------------->
@@ -22,14 +23,13 @@
 	<!----------------------------------------Fin Recursos input de archivos ------------------------------------------>
 
 	<?php
-		require_once("../../model/SesionProfesor.php"); // control de sesiones
 		include_once("../../model/DAOalum.php");
 		$dbAlumnos = new DAOalum();
 		$list = $dbAlumnos->getAlumnosByProfesor($_SESSION["user"]);
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1 class="col-md-4"><b>Alumnos</b></h1>
 		<button class="btn btn-warning pull-right" style="width: 20%; margin: 2%;" id="btnImportacion">Importación</button>

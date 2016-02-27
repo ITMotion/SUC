@@ -1,11 +1,7 @@
 <?php
 	//validación de la sesión
 	if(!isset($_SESSION["permisos"])) { //si no existen permisos regirige al login
-		header("Location: ../index.php?error");
-	}
-	if (isset($_GET["unauthorized"])) { //si no tiene los permisos correctos para ingresar al módulo
-		echo "<script> $(document).ready(function() {
-			alert('¡No estás autorizado a este módulo!') }) </script>";
+		header("Location: ../../index.php?error");
 	}
 	require_once("../../model/DAOlogin.php");
 	$dblogin = new DAOlogin();

@@ -1,7 +1,7 @@
 <?php
 	//validación de la sesión
 	if(!isset($_SESSION["permisos"])) { //si no existen permisos regirige al login
-		header("Location: ../index.php?error");
+		header("Location: ../../index.php?error");
 	}
 	if (isset($_GET["unauthorized"])) { //si no tiene los permisos correctos para ingresar al módulo
 		echo "<script> $(document).ready(function() {
@@ -26,8 +26,8 @@
 		<div class="collapse navbar-collapse" id="menu">
 			<ul class="nav navbar-nav navbar-right">
         <li><a href="index.php">EVA</a></li>
-				<li><a href="AlumnosProfesor.php">Alumnos</a></li>
-        <li><a href="#">Materias</a></li>
+				<li><a href="Asignaturas.php">Asignaturas</a></li>
+				<li><a href="Alumnos.php">Alumnos</a></li>
         <li class="dropdown">
 					<a href="" data-toggle="dropdown"><?php echo $username ?><span class="caret"></span></a>
 					<ul class="dropdown-menu">

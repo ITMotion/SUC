@@ -12,9 +12,18 @@
 	<!--------------------------Fin recursos de bootstrap-------------------------->
 
 	<link rel="stylesheet" type="text/css" href="css/login.css">
-	<?php 
+	<?php
 		if (isset($_GET['error'])) {
 			echo "<script> alert('¡Por favor inicia sesión!'); </script>";
+		}
+		session_start();
+		if (isset($_SESSION['user'])) {
+			if ($_SESSION['permisos'] == 1) {
+				header("Location: views/Administrator/index.php");
+			}
+			elseif ($_SESSION['permisos'] == 2) {
+				header("Location: views/Profesor/index.php");
+			}
 		}
 	?>
 </head>
@@ -43,7 +52,7 @@
 					    		<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
 					  		</div>
 					  		<br/>
-				  			
+
 					</div>
 					<div class="modal-footer">
 							<button type="submit" class="btn btn-primary pull-right" id="btnEntrar">Entrar</button>
