@@ -9,18 +9,18 @@
 
 		function activa_conexion(){
 			$this->bd = new DB;
-			$this->bd->openCon(); 
+			$this->bd->openCon();
 		}
 
 		//Obtiene la tabla grupo-materia
 		function getGmInfo() {
 			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, PR.paterno, PR.materno, PR.nombres
-				FROM grupomateria GM 
-				INNER JOIN grupos GR 
-					ON GM.idgrupo = GR.grupo 
-				INNER JOIN materias MT 
-					ON GM.idmateria = MT.clave 
-				INNER JOIN profesores PR 
+				FROM grupomateria GM
+				INNER JOIN grupos GR
+					ON GM.idgrupo = GR.grupo
+				INNER JOIN materias MT
+					ON GM.idmateria = MT.clave
+				INNER JOIN profesores PR
 					ON GM.idprofesor = PR.matricula
 					ORDER BY GM.idgrupo asc;";
 			$this->bd->selectSQL($sql);
@@ -34,12 +34,12 @@
 
 		function getGmDetailedInfo($id) {
 			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, MT.clave, MT.carrera, PR.paterno, PR.materno, PR.nombres
-				FROM grupomateria GM 
-				INNER JOIN grupos GR 
-					ON GM.idgrupo = GR.grupo 
-				INNER JOIN materias MT 
-					ON GM.idmateria = MT.clave 
-				INNER JOIN profesores PR 
+				FROM grupomateria GM
+				INNER JOIN grupos GR
+					ON GM.idgrupo = GR.grupo
+				INNER JOIN materias MT
+					ON GM.idmateria = MT.clave
+				INNER JOIN profesores PR
 					ON GM.idprofesor = PR.matricula
 					WHERE GM.id = ".$id.";";
 			$this->bd->selectSQL($sql);
@@ -128,7 +128,7 @@
 
 		//establece los días que aplican a la materia
 		function setDays($materia, $dias) {
-			for ($i=0; $i < count($dias); $i++) { 
+			for ($i=0; $i < count($dias); $i++) {
 				$sql = "INSERT INTO diasmaterias VALUES (null, ".$materia.", '".$dias[$i]."');";
 				$this->bd->executeSQL($sql);
 			}
@@ -172,5 +172,17 @@
 			$sql = "DELETE FROM grupomateria WHERE id = ".$id.";";
 			$this->bd->executeSQL($sql);
 		}
+
+		function getAsignaturaProfesor($matricula) {
+			$sql = "SELECT GM.idgrupo, M.clave FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE idprofesor = ".$matricula;
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
 	}
 ?>
