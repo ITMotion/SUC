@@ -15,19 +15,20 @@ $(document).ready(function() {
       })
     }
   });
-  $("Part2").on("change", "#materia", function(e){
-    if ($(this).val() == "Otra") {
-      $(this).empty();
-      $(this).append('
-        <div class="form-group">
-          <label for="materia">Seleccione la materia:</label>
-          <input type="text" name="materia" value="" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="grado">Seleccione el grado:</label>
-          <input type="number" name="grado" min="1" max="13" class="form-control" required>
-        </div>
-      ')
+  $("#Part2").on("change", "#materia", function(e){
+    console.log("Seleccionado");
+    if ($(this).val() == 0) {
+      $("#modalMateria").modal("toggle");
     }
   });
+  
+  $("form").submit(function(event){
+    event.preventDefault();
+  })
+
+  $("#Part2").on("success.form.fv", ".frmMateria", function(e) {
+    alert("Hola!");
+  })
+
 });
+
