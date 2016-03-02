@@ -50,12 +50,10 @@
 
           <button class="btn btn-primary pull-right" onclick="saveMateria()">Guardar Materia</button>
         </form>
+        <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
         <div class="clearfix"></div>
       </div>
-      <div class="modal-footer">
-        
-        <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
-      </div>
+      <div class="modal-footer"></div>
     </div>
   </div>
 </div>
