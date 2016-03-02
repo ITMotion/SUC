@@ -15,20 +15,39 @@ $(document).ready(function() {
       })
     }
   });
+  
+  $("form").submit(function(e) {
+    e.preventDefault();
+  });
+
   $("#Part2").on("change", "#materia", function(e){
-    console.log("Seleccionado");
     if ($(this).val() == 0) {
       $("#modalMateria").modal("toggle");
     }
   });
-  
-  $("form").submit(function(event){
-    event.preventDefault();
-  })
-
-  $("#Part2").on("success.form.fv", ".frmMateria", function(e) {
-    alert("Hola!");
-  })
-
 });
+
+function validar() {
+  var form = document.getElementById('frmMateria');
+  if (form.checkValidity()) {
+    var descripcion = $("#matDescripcion").val();
+    var grado =  $("#matGrado").val();
+    var carrera = $("#carrera").val();
+    $.ajax({
+      url: "../../model/Profesor/mat-crear.php",
+      type: "POST",
+      dataType: "HTML",
+      data: {
+        descripcion: descripcion,
+        grado: grado,
+        carrera: carrera
+      }
+    }).done(function(data) {
+      var SM = $("#materia");
+      SM.append('<option value="11" selected="selected">'+descripcion+'</option>');
+      $("#modalMateria").modal("toggle");
+      $("#respuesta").html(data);
+    });
+  }
+}
 

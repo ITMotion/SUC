@@ -35,7 +35,20 @@
 				$this->closeCon();
 				return true;
 			}			
-		} 
+		}
+
+		function insertAutoIncrement($sql) {
+			$this->openCon();
+			$this->rs=$this->cnn->query($sql); 
+			if(!$this->rs){
+				$this->error="Error en la consulta: ". mysql_error();
+				return false;
+			}else{
+				$id = $this->cnn->insert_id;
+				$this->closeCon();
+				return $id;
+			}	
+		}
 		
 		function selectSQL($sql){
 			$this->openCon(); 

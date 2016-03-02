@@ -73,6 +73,11 @@
 			return $this->bd->executeSQL($sql);
 		}
 
+		function crearMateriaId($descripcion, $grado, $carrera) {
+			$sql = "INSERT INTO materias (descripcion, grado, carrera) VALUES ('".$descripcion."', ".$grado.", ".$carrera.");";
+			return $this->bd->insertAutoIncrement($sql);
+		}
+
 		function getLastMateria() {
 			$sql = "SELECT MAX(clave) AS clave FROM materias;";
 			$this->bd->selectSQL($sql);

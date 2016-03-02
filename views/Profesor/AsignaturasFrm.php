@@ -32,7 +32,6 @@
           </select>
         </div>
         <div id="Part2"></div>
-      </form>
       <?php } else { ?>
         <div class="alert alert-warning col-md-10">
   				<button class="close" data-dismiss="alert"><span>&times;</span></button>
