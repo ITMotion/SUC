@@ -21,9 +21,10 @@
       <h1>Nueva Asignatura</h1>
       <?php if(!is_null($carreras)) { ?>
       <form class="" action="index.html" method="post">
+
         <div class="form-group">
           <label for="carrera">Seleccione la carrera de la materia que desea agregar</label>
-          <select class="form-control" name="carrera" id="carrera">
+          <select class="form-control selectAsignatura" name="carrera" id="carrera">
             <option value="0">Seleccione una carrera</option>
             <?php foreach ($carreras as $carrera): ?>
               <option value=" <?php echo $carrera->codigo; ?> "><?php echo $carrera->descripcion; ?></option>
@@ -31,6 +32,7 @@
               <option value="0">Otra</option>
           </select>
         </div>
+
         <div id="Part2"></div>
       <?php } else { ?>
         <div class="alert alert-warning col-md-10">

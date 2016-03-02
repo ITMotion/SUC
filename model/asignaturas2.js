@@ -25,9 +25,22 @@ $(document).ready(function() {
       $("#modalMateria").modal("toggle");
     }
   });
+
+  $("#Part2").on("change", ".selectAsignatura", function(e) {
+    validarSelect();
+  });
+
 });
 
-function validar() {
+function validarSelect() {
+  if ($("#carrera").val() != 0 && $("#materia").val() != 0 && $("#grupo").val() != 0) {
+    $("#btnSaveAsignatura").prop("disabled", false);
+  } else {
+    $("#btnSaveAsignatura").prop("disabled", true);
+  }
+}
+
+function saveMateria() {
   var form = document.getElementById('frmMateria');
   if (form.checkValidity()) {
     var descripcion = $("#matDescripcion").val();
@@ -36,7 +49,7 @@ function validar() {
     $.ajax({
       url: "../../model/Profesor/mat-crear.php",
       type: "POST",
-      dataType: "HTML",
+      dataType: "json",
       data: {
         descripcion: descripcion,
         grado: grado,
@@ -44,7 +57,7 @@ function validar() {
       }
     }).done(function(data) {
       var SM = $("#materia");
-      SM.append('<option value="11" selected="selected">'+descripcion+'</option>');
+      SM.append('<option value="'+ data.id +'" selected="selected">'+descripcion+'</option>');
       $("#modalMateria").modal("toggle");
       $("#respuesta").html(data);
     });

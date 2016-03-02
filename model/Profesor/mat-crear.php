@@ -11,5 +11,7 @@
 
 	/*insertar las variables a la tabla de materias*/
 	$id = $db->crearMateriaId($descripcion, $grado, $carrera);
-	echo "<p id='idMat'>".$id."</p>";
+	$jsondata["id"] = $id;
+	header('Content-type: application/json; charset=utf-8');
+	echo json_encode($jsondata, JSON_FORCE_OBJECT);
 ?>
