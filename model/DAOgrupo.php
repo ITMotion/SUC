@@ -33,9 +33,7 @@
 			else {
 				return null;
 			}
-
 		}
-
 
 		function getGruposPorCarrera($carrera) {
 			$sql = "SELECT * FROM grupos WHERE carrera = ".$carrera;

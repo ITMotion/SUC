@@ -27,7 +27,7 @@
 	}
 
 	if(!isset($_POST["enlace"])){
-		header("Location: ../views/Administrator/materias.php?success");
+		header("Location: ../views/Administrator/Materias.php?success");
 	}
 	elseif ($_POST["enlace"] == "asignaturas") {
 		header("Location: ../views/Administrator/GruposMateriasFrm.php");

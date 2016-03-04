@@ -20,7 +20,7 @@
     <div class="container">
       <h1>Nueva Asignatura</h1>
       <?php if(!is_null($carreras)) { ?>
-      <form class="" action="index.html" method="post">
+      <form class="" action="../../model/Profesor/crearAsignatura.php" method="POST" id="frmAsignatura" onsubmit="return true">
 
         <div class="form-group">
           <label for="carrera">Seleccione la carrera de la materia que desea agregar</label>

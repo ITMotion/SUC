@@ -174,7 +174,7 @@
 		}
 
 		function getAsignaturaProfesor($matricula) {
-			$sql = "SELECT GM.idgrupo, M.clave FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE idprofesor = ".$matricula;
+			$sql = "SELECT GM.idgrupo, M.descripcion AS materia FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE idprofesor = ".$matricula;
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;

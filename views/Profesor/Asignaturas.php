@@ -38,8 +38,8 @@
               foreach ($asignaturas as $asignatura) {
             ?>
             <tr>
-              <td></td>
-              <td></td>
+              <td><?php echo $asignatura->idgrupo ?></td>
+              <td><?php echo $asignatura->materia ?></td>
               <td><a href="">
   								<img src="../../image/icons/edit.png"
   								onmouseover="this.src='../../image/icons/editcolor.png'"

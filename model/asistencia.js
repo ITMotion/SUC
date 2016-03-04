@@ -13,7 +13,7 @@ function getUnidadesByMateria(materia, grupo, asignatura) {
 }
 
 //obtiene el calendario consultando la tabla de gruposmaterias y de unidades
-function getCalendar(materia, grupo){
+function getCalendar(materia, grupo, asignatura){
     console.log(materia);
     console.log(grupo);
     var unidad = document.getElementById("unidad").value;
@@ -26,7 +26,7 @@ function getCalendar(materia, grupo){
             divResponse.innerHTML = xhttp.responseText;
         }
     };
-    xhttp.open("GET", "AsistenciaTable.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad, true);
+    xhttp.open("GET", "AsistenciaTable.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad+"&asignatura="+asignatura, true);
     xhttp.send();
 }
 

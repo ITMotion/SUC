@@ -27,7 +27,7 @@
 	<?php
 		include_once("../../model/DAOalum.php");
 		$db = new DAOalum();
-		$list = $db -> GetInfoAlumnos();
+		$list = $db->GetInfoAlumnos();
 	?>
 </head>
 <body>
