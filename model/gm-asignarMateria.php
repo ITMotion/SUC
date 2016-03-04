@@ -7,8 +7,7 @@
 	include_once("DAOgm.php");
 	$db = new DAOgm();
 	if(!$db->compruebaFila($grupo, $materia, $profesor)) {
-		$db->setRow($grupo, $materia, $profesor);
-		$asignacion = $db->getLastRowInserted();
+		$asignacion = $db->setRow($grupo, $materia, $profesor);
 		$db->setDays($asignacion[0]->id, $dias);
 		header("Location: ../views/Administrator/Asignaturas.php?success");
 	} else {

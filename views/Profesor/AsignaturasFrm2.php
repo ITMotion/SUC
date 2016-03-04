@@ -29,7 +29,7 @@
   </div>
 
   <div class="form-group">
-    <label for="unidad">¿Cuantas unidades tendrá la asignatura?</label>
+    <label for="unidades">¿Cuantas unidades tendrá la asignatura?</label>
     <select class="form-control selectAsignatura" name="unidades" id="unidades">
 <?php for($i=0; $i<10; $i++) { ?>
       <option><?php echo $i+1; ?></option>

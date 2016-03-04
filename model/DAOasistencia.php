@@ -109,26 +109,6 @@
 			}
 		}
 
-		/*function obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad, $alumno) {
-			$sql = "SELECT ASIST.fecha
-				FROM grupomateria GM INNER JOIN diasmaterias DM
-				ON GM.id = DM.materia
-				INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
-    			INNER JOIN unidades U ON GM.idmateria = U.materia
-    			INNER JOIN asistencia ASIST ON CAL.fecha = ASIST.fecha
-    			WHERE GM.idgrupo = '".$grupo."' 
-    			AND idmateria = '".$materia."' 
-    			AND U.descripcion = ".$unidad."
-    			AND ASIST.alumno = ".$alumno."
-    			AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin ORDER BY ASIST.fecha ASC;";
-			$this->bd->selectSQL($sql);
-			if(!empty($this->bd->rowresult)){
-				return $this->bd->rowresult;
-			}
-			else {
-				return null;
-			}
-		}*/
 
 		function getAsistencia($alumno, $asignatura, $fecha) {
 			$sql = "SELECT asistencia FROM asistencia WHERE alumno = ".$alumno." AND materia = '".$asignatura."' AND fecha = '".$fecha."';";
@@ -142,8 +122,8 @@
 			}
 		}
 
-		function createAsistencia($alumno, $materia, $fecha) {
-			$sql = "INSERT INTO asistencia VALUES (null, ".$alumno.", '".$materia."', '".$fecha."', 0);";
+		function createAsistencia($alumno, $asignatura, $fecha) {
+			$sql = "INSERT INTO asistencia VALUES (null, ".$alumno.", '".$asignatura."', '".$fecha."', 0);";
 			return $this->bd->executeSQL($sql);
 		}
 

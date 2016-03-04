@@ -111,7 +111,7 @@
 		//inserta una nueva fila en la tabla de grupomateria
 		function setRow($grupo, $materia, $profesor) {
 			$sql = "INSERT INTO grupomateria VALUES (null, '".$grupo."', '".$materia."', '".$profesor."');";
-			return $this->bd->executeSQL($sql);
+			return $this->bd->insertAutoIncrement($sql);
 		}
 
 		//OBTIENE la última fila insertada en la tabla grupomateria
@@ -126,12 +126,19 @@
 			}
 		}
 
-		//establece los días que aplican a la materia
-		function setDays($materia, $dias) {
-			for ($i=0; $i < count($dias); $i++) {
-				$sql = "INSERT INTO diasmaterias VALUES (null, ".$materia.", '".$dias[$i]."');";
-				$this->bd->executeSQL($sql);
+
+		function setDays($asignatura, $dias) {
+			$sql = "INSERT INTO diasmaterias (materia, dia) VALUES ";
+			for($i=0; $i<sizeof($dias); $i++) {
+				$sql = $sql . "(".$asignatura.",'".$dias[$i]."')";
+				
+				if ($i == (sizeof($dias) - 1)) {
+					$sql =  $sql . ";";
+				} else {
+					$sql =  $sql . ",";
+				}
 			}
+			$this->bd->executeSQL($sql);
 		}
 
 		function getDays($materia) {
