@@ -42,7 +42,7 @@
 <?php for($i=0; $i<5; $i++) { ?>
   <div class="checkbox-inline">
     <label>
-      <input type="checkbox" name="dias[]" value="<?php echo strtolower($dias[$i]) ?>"><?php echo $dias[$i] ?>
+      <input type="checkbox" name="dias[]" value="<?php echo mb_strtolower($dias[$i], 'UTF-8') ?>"><?php echo $dias[$i] ?>
     </label>
   </div>
 <?php } ?>

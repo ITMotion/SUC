@@ -13,8 +13,8 @@
   	<!--------------------------Fin recursos de bootstrap-------------------------->
     <?php
       include_once("../../model/DAOgm.php");
-      $tblAsignaturas = new DAOgm();
-      $asignaturas = $tblAsignaturas->getAsignaturaProfesor($_SESSION['user']);
+      $db = new DAOgm();
+      $asignaturas = $db->getAsignaturaProfesor($_SESSION['user']);
     ?>
   </head>
   <body>
@@ -29,6 +29,12 @@
             <tr>
               <th>Grupo</th>
               <th>Materia</th>
+              <th>Unidades</th>
+              <th>L</th>
+              <th>M</th>
+              <th>X</th>
+              <th>J</th>
+              <th>V</th>
               <th></th>
               <th></th>
             </tr>
@@ -37,10 +43,15 @@
             <?php
             if(!is_null($asignaturas)) {
               foreach ($asignaturas as $asignatura) {
+                $dias = array("lunes", "martes", "miércoles", "jueves", "viernes");
             ?>
             <tr>
               <td><?php echo $asignatura->idgrupo ?></td>
               <td><?php echo $asignatura->materia ?></td>
+              <td>5</td>
+              <?php foreach ($dias as $dia): ?>
+                <td><?php if($db->compruebaDia($asignatura->id, $dia)){ echo "X"; } ?></td>
+              <?php endforeach ?>
               <td><a href="">
   								<img src="../../image/icons/edit.png"
   								onmouseover="this.src='../../image/icons/editcolor.png'"

@@ -152,6 +152,18 @@
 			}
 		}
 
+		function compruebaDia($asignatura, $dia) {
+			$sql = "SELECT * FROM diasmaterias WHERE dia = '".$dia."' AND materia = ". $asignatura.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return true;
+			}
+			else 
+			{
+				return false;
+			}
+		}
+
 		function getAsignatura($id) {
 			$sql = "SELECT * FROM grupomateria GM INNER JOIN diasmaterias DM ON GM.id = DM.id WHERE GM.id = ".$id.";";
 			$this->bd->selectSQL($sql);
@@ -181,7 +193,7 @@
 		}
 
 		function getAsignaturaProfesor($matricula) {
-			$sql = "SELECT GM.idgrupo, M.descripcion AS materia FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE idprofesor = ".$matricula;
+			$sql = "SELECT GM.id, GM.idgrupo, M.descripcion AS materia FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE idprofesor = ".$matricula;
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
@@ -191,5 +203,17 @@
 			}
 		}
 
+		function setUnidades($asignatura, $numUnidades) {
+			$sql = "INSERT INTO unidades (materia, descripcion) VALUES ";
+			for ($i=0; $i < $numUnidades; $i++) { 
+				$sql = $sql . "(".$asignatura.",".($i+1).")";
+				if ($i == ($numUnidades - 1)) {
+					$sql =  $sql . ";";
+				} else {
+					$sql =  $sql . ",";
+				}
+			}
+			$this->bd->executeSQL($sql);
+		}
 	}
 ?>
