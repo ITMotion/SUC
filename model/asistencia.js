@@ -44,6 +44,45 @@ function getEva(materia, grupo, asignatura) {
         divResponse.innerHTML = "Cargando...";
         if(xhttp.readyState == 4) {
             divResponse.innerHTML = xhttp.responseText;
+            $("#tblEVA").dataTable({
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [ 9 ] }, //para que no use las columnas donde se encuentran los botones eliminar
+                    { "bSearchable": false, "aTargets": [ 9 ] } //para que no use las columnas donde se encuentran los botones eliminar
+                ],
+                "language": {
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ alumnos)",
+                    "sInfo": "Del _START_ al _END_ de un total de _TOTAL_ alumnos",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sLoadingRecords": "Cargando...",
+                    "sLengthMenu": "Mostrar _MENU_ alumnos",
+                    "sSearch": "Buscar:",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast" : "Último",
+                        "sNext" : "Siguiente",
+                        "sPrevious" : "Anterior"
+                    }
+                },
+                keys: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'pdf',
+                        key: 'p',
+                        altKey: true
+                    },
+                    {
+                        extend: 'excel',
+                        key: 'x',
+                        altKey: true
+                    },
+                    {
+                        extend: 'pageLength',
+                        text: '# de Filas'
+                    }
+                ]
+            });
         }
     }
     xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad+"&asignatura="+asignatura, true);

@@ -189,7 +189,7 @@
 		//elimina un registro de la tabla grupomateria
 		function deleteGM($id) {
 			$sql = "DELETE FROM grupomateria WHERE id = ".$id.";";
-			$this->bd->executeSQL($sql);
+			return $this->bd->executeSQL($sql);
 		}
 
 		function getAsignaturaProfesor($matricula) {
@@ -214,6 +214,17 @@
 				}
 			}
 			$this->bd->executeSQL($sql);
+		}
+
+		function countUnidades($asignatura) {
+			$sql = "SELECT COUNT(id) AS numero FROM unidades WHERE materia = ".$asignatura.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
 		}
 	}
 ?>

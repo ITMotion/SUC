@@ -17,8 +17,8 @@
 		?>
 	</select>
 </div>
-<button class="btn btn-success pull-right" onclick="getCalendar(<?php echo $materia ?>, '<?php echo $grupo; ?>', '<?php echo $asignatura ?>')">Consultar Lista de Asistencia</button>
-<button class="btn btn-success" onclick="getEva(<?php echo $materia ?>, '<?php echo $grupo; ?>', '<?php echo $asignatura ?>')">Consultar EVA</button>
+<button id="btnAsistencia" class="btn btn-success pull-right" onclick="getCalendar(<?php echo $materia ?>, '<?php echo $grupo; ?>', '<?php echo $asignatura ?>')">Consultar Lista de Asistencia</button>
+<button id="btnEVA" class="btn btn-success" onclick="getEva(<?php echo $materia ?>, '<?php echo $grupo; ?>', '<?php echo $asignatura ?>')">Consultar EVA</button>
 <?php
 	}
 	else {

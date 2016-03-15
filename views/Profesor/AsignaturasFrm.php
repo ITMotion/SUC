@@ -42,6 +42,6 @@
   			</div>
       <?php } ?>
     </div>
-    <script src="../../model/asignaturas2.js"></script>
+    <script src="../../model/asignaturaFrm.js"></script>
   </body>
 </html>
