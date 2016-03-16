@@ -5,7 +5,8 @@
     <?php require_once("../../model/SesionProfesor.php"); ?> <!--Contról de Sesiones-->
     <title>SUC: Sistema Único de Calificaciones - Asignaturas</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!--- Recursos de Bootstrap -->
+    
+    <!-- Recursos de Bootstrap -->
   	<link rel="stylesheet" href="../../css/bootstrap.min.css">
   	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
   	<script src="../../js/bootstrap.min.js"></script>
@@ -67,7 +68,7 @@
               <?php foreach ($dias as $dia): ?>
                 <th><?php if($db->compruebaDia($asignatura->id, $dia)){ echo "X"; } ?></th>
               <?php endforeach ?>
-              <th><a href="">
+              <th><a href="AsignaturasEditFrm.php?assignment=<?php echo $asignatura->id; ?>">
   								<img src="../../image/icons/edit.png"
   								onmouseover="this.src='../../image/icons/editcolor.png'"
   								onmouseout="this.src='../../image/icons/edit.png'">
