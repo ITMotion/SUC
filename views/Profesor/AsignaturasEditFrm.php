@@ -20,6 +20,7 @@
 		  		$db = new DAOgm();
 		  		$asignatura = $db->getAsignaturaEdit($idAsignatura);
 		  		$materias = $db->getMateriasPorCarrera($asignatura[0]->carrera);
+		  		$unidades = $db->countUnidades($idAsignatura);
 		  		$grupos = $db->getGruposPorCarrera($asignatura[0]->carrera);
 		  		if (is_null($asignatura)) {
 		  			header("Location: Asignaturas.php");
@@ -37,7 +38,8 @@
 	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1>Modificar Asignatura</h1>
-		<form class="table">
+		<form class="table" action="../../model/Profesor/editarAsignatura.php" method="POST">
+			<input type="hidden" name="asignatura" value="<?php echo $idAsignatura; ?>">
 			<div class="form-group">
 				<label for="materia" class="control-label">Materia:</label>
 				<select name="materia" id="materia" class="form-control">
@@ -55,14 +57,16 @@
 					<?php endforeach ?>
 				</select>
 			</div>
+			
+			<input type="hidden" name="NumUnidadesV" value="<?php echo $unidades[0]->numero; ?>">
 
 			<div class="form-group">
-				<label for="unidades">Cantidad de unidades:</label>
-				<select name="unidades" id="unidades" class="form-control" required>
+				<label for="NumUnidadesN">Cantidad de unidades:</label>
+				<select name="NumUnidadesN" id="unidades" class="form-control" required>
 					<?php 
-						for ($i=1; $i < 11; $i++) { 
+						for ($i = 1; $i < 11; $i++) { 
 					?>
-					<option><?php echo $i; ?></option>
+					<option <?php if(!is_null($unidades[0]->numero)) { if($unidades[0]->numero == $i) { echo "selected"; }} ?>><?php echo $i; ?></option>
 					<?php
 						} 
 					?>
@@ -80,7 +84,8 @@
 				<?php } ?>
 			</div>
 
-			<button class="btn btn-primary pull-right">Guardar</button>
+			<button class="btn btn-primary pull-right" type="success">Guardar</button>
+			<button class="btn btn-warning" onclick="window.history.back()">Cancelar</button>
 		</form>
 	</div>
 </body>

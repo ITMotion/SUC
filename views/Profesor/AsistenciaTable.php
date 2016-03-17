@@ -54,6 +54,28 @@
 </div>
 <?php }
 	else {
-		echo "<h3>Error 100: No existen días laborales entre las fechas establecidas. Favor de contactar al administrador.</h3>";
+?>
+	<a class="btn btn-primary col-md-12" data-toggle="modal" href='#modal-id'>Configurar Fechas Válidas Para la Unidad</a>
+	<div class="modal fade" id="modal-id">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<label for="FI">Fecha Inicio:</label>
+					<input type="date" name="FI">
+					<label for="FF">Fecha Final:</label>
+					<input type="date" name="FF">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
 	}
 ?>

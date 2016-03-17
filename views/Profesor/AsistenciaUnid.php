@@ -6,6 +6,7 @@
 	$db = new DAOasistencia();
 	$unidades = $db->getUnidadesByMateria($asignatura);
 	if(!is_null($unidades)) {
+
 ?>
 <div class="form-group">
 	<label for="unidad">Seleccione la unidad a consultar:</label>

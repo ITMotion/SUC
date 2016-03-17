@@ -33,7 +33,10 @@
 		}
 
 		function getAsignaturaEdit($id) {
-			$sql = "SELECT GM.idmateria AS materia, GM.idgrupo AS grupo, M.carrera FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE id = ".$id.";";
+			$sql = "SELECT GM.idmateria AS materia, GM.idgrupo AS grupo, M.carrera
+			FROM grupomateria GM 
+			INNER JOIN materias M ON GM.idmateria = M.clave
+			WHERE GM.id = ".$id.";";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
@@ -149,7 +152,7 @@
 					$sql =  $sql . ",";
 				}
 			}
-			$this->bd->executeSQL($sql);
+			return $this->bd->executeSQL($sql);
 		}
 
 		function getDays($materia) {
@@ -191,6 +194,11 @@
 			$this->bd->executeSQL($sql);
 		}
 
+		function updateAsignatura($asignatura, $materia, $grupo) {
+			$sql = "UPDATE grupomateria SET idgrupo = '".$grupo."', idmateria = ".$materia." WHERE id = ".$asignatura.";";
+			return $this->bd->executeSQL($sql);
+		}
+
 		//elimina de la tabla diasmaterias los dias correspondientes a la materia
 		function deleteDays($id) {
 			$sql = "DELETE FROM diasmaterias WHERE materia = ".$id.";";
@@ -227,6 +235,19 @@
 			$this->bd->executeSQL($sql);
 		}
 
+		function updateUnidades($asignatura, $NumUnidadesN, $NumUnidadesV) {
+			$sql = "INSERT INTO unidades (materia, descripcion) VALUES ";
+			for ($NumUnidadesV; $NumUnidadesV != $NumUnidadesN; $NumUnidadesV++) { 
+				$sql = $sql . "(".$asignatura.",".($NumUnidadesV+1).")";
+				if ($NumUnidadesV == ($NumUnidadesN - 1)) {
+					$sql =  $sql . ";";
+				} else {
+					$sql =  $sql . ",";
+				}
+			}
+			return $this->bd->executeSQL($sql);
+		}
+
 		function countUnidades($asignatura) {
 			$sql = "SELECT COUNT(id) AS numero FROM unidades WHERE materia = ".$asignatura.";";
 			$this->bd->selectSQL($sql);
@@ -236,6 +257,11 @@
 			else {
 				return null;
 			}
+		}
+
+		function deleteUnidad($asignatura, $unidad) {
+			$sql = "DELETE FROM unidades WHERE descripcion = ".$unidad." AND materia = ".$asignatura.";";
+			return $this->bd->executeSQL($sql);
 		}
 	}
 ?>
