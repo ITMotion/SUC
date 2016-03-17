@@ -32,6 +32,17 @@
 			}
 		}
 
+		function getAsignaturaEdit($id) {
+			$sql = "SELECT GM.idmateria AS materia, GM.idgrupo AS grupo, M.carrera FROM grupomateria GM INNER JOIN materias M ON GM.idmateria = M.clave WHERE id = ".$id.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
 		function getGmDetailedInfo($id) {
 			$sql = "SELECT GM.id, GR.grupo, MT.descripcion, MT.clave, MT.carrera, PR.paterno, PR.materno, PR.nombres
 				FROM grupomateria GM

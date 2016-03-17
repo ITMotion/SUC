@@ -68,7 +68,7 @@
               <?php foreach ($dias as $dia): ?>
                 <th><?php if($db->compruebaDia($asignatura->id, $dia)){ echo "X"; } ?></th>
               <?php endforeach ?>
-              <th><a href="AsignaturasEditFrm.php?assignment=<?php echo $asignatura->id; ?>">
+              <th><a href="AsignaturasEditFrm.php?a=<?php echo $asignatura->id; ?>">
   								<img src="../../image/icons/edit.png"
   								onmouseover="this.src='../../image/icons/editcolor.png'"
   								onmouseout="this.src='../../image/icons/edit.png'">
