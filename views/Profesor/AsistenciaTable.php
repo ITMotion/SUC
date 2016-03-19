@@ -64,10 +64,12 @@
 					<h4 class="modal-title">Modal title</h4>
 				</div>
 				<div class="modal-body">
-					<label for="FI">Fecha Inicio:</label>
-					<input type="date" name="FI">
-					<label for="FF">Fecha Final:</label>
-					<input type="date" name="FF">
+					<form>
+						<label for="FI">Fecha Inicio:</label>
+						<input type="date" name="FI" min="2016-01-06" max="2016-04-13">
+						<label for="FF" class="col-md-offset-1">Fecha Final:</label>
+						<input type="date" name="FF" required>
+					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
