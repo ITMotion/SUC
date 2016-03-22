@@ -54,6 +54,11 @@
 </div>
 <?php }
 	else {
+		$grado = $db->getGradoMateria($materia);
+		$fechas = $db->getFechasCuatrimestre($grado[0]->grado);
+		if (is_null($fechas)) {
+			echo "<h1>¡El cuatrimestre no es válido!</h1>";
+		} else {
 ?>
 	<a class="btn btn-primary col-md-12" data-toggle="modal" href='#modal-id'>Configurar Fechas Válidas Para la Unidad</a>
 	<div class="modal fade" id="modal-id">
@@ -66,9 +71,9 @@
 				<div class="modal-body">
 					<form>
 						<label for="FI">Fecha Inicio:</label>
-						<input type="date" name="FI" min="2016-01-06" max="2016-04-13">
+						<input type="date" name="FI" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required>
 						<label for="FF" class="col-md-offset-1">Fecha Final:</label>
-						<input type="date" name="FF" required>
+						<input type="date" name="FF" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -79,5 +84,6 @@
 		</div>
 	</div>
 <?php
+		}
 	}
 ?>

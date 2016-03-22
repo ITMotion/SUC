@@ -131,5 +131,15 @@
 			$sql = "UPDATE asistencia SET asistencia = ".$asistencia." WHERE alumno = ".$matricula." AND materia = '".$materia."' AND fecha = '".$fecha."';";
 			return $this->bd->executeSQL($sql);
 		}
+
+		function getGradoMateria($materia) {
+			$sql = "SELECT grado FROM materias WHERE clave = ".$materia.";";
+			return $this->bd->selectSQL($sql);
+		}
+
+		function getFechasCuatrimestre($cuatrimestre) {
+			$sql = "SELECT * FROM cuatrimestres WHERE cuatrimestre = ".$cuatrimestre.";";
+			return $this->bd->selectSQL($sql);
+		}
 	}
 ?>
