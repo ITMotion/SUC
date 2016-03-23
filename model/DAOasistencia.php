@@ -141,5 +141,10 @@
 			$sql = "SELECT * FROM cuatrimestres WHERE cuatrimestre = ".$cuatrimestre.";";
 			return $this->bd->selectSQL($sql);
 		}
+
+		function updateFechasUnidad($FI, $FF, $unidad) {
+			$sql = "UPDATE unidades SET fechainicio = '".$FI."', fechafin = '".$FF."' WHERE id = ".$unidad.";";
+			return $this->bd->executeSQL($sql);
+		}
 	}
 ?>

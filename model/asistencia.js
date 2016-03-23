@@ -15,6 +15,7 @@ function getUnidadesByMateria(materia, grupo, asignatura) {
 //obtiene el calendario consultando la tabla de gruposmaterias y de unidades
 function getCalendar(materia, grupo, asignatura){
     var unidad = document.getElementById("unidad").value;
+    console.log(materia + " " + grupo + " " + asignatura + " " + unidad);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divResponse = document.getElementById('divResponse');
@@ -61,7 +62,6 @@ function getEva(materia, grupo, asignatura) {
                         "sPrevious" : "Anterior"
                     }
                 },
-                keys: true,
                 dom: 'Bfrtip',
                 buttons: [
                     {
@@ -114,7 +114,31 @@ $(document).ready(function() {
     $("#divResponse").on("click", "#btnSaveFechas", function(e) {
         var FI = $("#FI").val();
         var FF = $("#FF").val();
-        var unidad = $("#unidad").val();
-        console.log("UPDATE unidades SET fechainicio = "+FI+". fechafin ="+FF+" WHERE id = "+unidad);
+        var grupo = $('#grupo').html();
+        var materia = $('#materia').html();
+        var asignatura = $('#asignatura').html();
+        if (FI < FF) {
+            var unidad = $("#unidad").val();
+            console.log(unidad);
+            $.ajax({
+                url: "../../model/UpdateFechasUnidad.php",
+                type: "POST",
+                dataType: "HTML",
+                data: {
+                    FI: FI,
+                    FF: FF,
+                    unidad: unidad
+                }
+            }).done(function(data){
+                $('#fechas').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+                getCalendar(materia, grupo, asignatura);
+            });  
+        } else {
+            alert("¡La fecha final no puede ser menor a la fecha de inicio!");
+        }
+        
+        //console.log("UPDATE unidades SET fechainicio = "+FI+". fechafin ="+FF+" WHERE id = "+unidad);
     });
 });

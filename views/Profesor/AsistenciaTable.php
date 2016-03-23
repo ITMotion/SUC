@@ -17,7 +17,8 @@
 				<th>Nombre</th>
 				<?php
 					foreach ($assignment as $column) {
-						echo "<th>$column->fecha</th>";
+						$date = date_create($column->fecha);
+						echo "<th>".date_format($date, 'd')."</th>";
 					}
 				?>
 			</tr>
@@ -60,8 +61,11 @@
 			echo "<h1>¡El cuatrimestre no es válido!</h1>";
 		} else {
 ?>
-	<a class="btn btn-primary col-md-12" data-toggle="modal" href='#modal-id'>Configurar Fechas Válidas Para la Unidad</a>
-	<div class="modal fade" id="modal-id">
+	<h1 id="materia" style="display: none"><?php echo $materia; ?></h1>
+	<h1 id="grupo" style="display: none"><?php echo $grupo; ?></h1>
+	<h1 id="asignatura" style="display: none"><?php echo $asignatura; ?></h1>
+	<a class="btn btn-primary col-md-12" data-toggle="modal" href='#fechas'>Configurar Fechas Válidas Para la Unidad</a>
+	<div class="modal fade" id="fechas">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

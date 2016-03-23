@@ -64,7 +64,11 @@
 				$i++;
 				$asistencia = $db->getAsistencia($alumno->matricula, $unidad, $asignatura);
 				$asistenciaTotal = $db->getAsistenciaTotal($alumno->matricula, $unidad, $asignatura);
-				$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);
+				if ($asistenciaTotal[0]->TOTAL != 0) {
+					$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);	
+				} else {
+					$porcentajeAsist = 0;
+				}
 				$calificacion = $db->getCalificacionAlumno($alumno->matricula, $materia, $unidad);
 				if (is_null($calificacion)) { //si no tiene calificacion
 			?>
