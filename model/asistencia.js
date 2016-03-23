@@ -14,10 +14,7 @@ function getUnidadesByMateria(materia, grupo, asignatura) {
 
 //obtiene el calendario consultando la tabla de gruposmaterias y de unidades
 function getCalendar(materia, grupo, asignatura){
-    console.log(materia);
-    console.log(grupo);
     var unidad = document.getElementById("unidad").value;
-    console.log(unidad);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         var divResponse = document.getElementById('divResponse');
@@ -88,3 +85,36 @@ function getEva(materia, grupo, asignatura) {
     xhttp.open("GET", "EVA.php?grupo="+grupo+"&materia="+materia+"&unidad="+unidad+"&asignatura="+asignatura, true);
     xhttp.send();
 }
+
+function validarFechas(FI, FF) {
+    if (FI != '' && FF != '') {
+        $("#btnSaveFechas").prop('disabled', false);
+    } else {
+        $("#btnSaveFechas").prop('disabled', true);
+    }
+}
+
+$(document).ready(function() {
+    $("#divResponse").on("change", "#FI", function(e) {
+        var FI = $(this).val();
+        var FF = $("#FF");
+        if (FF.val() < FI) {
+            FF.val('');    
+        }
+        FF.attr('min', FI);
+        validarFechas(FI, FF.val());
+    });
+
+    $("#divResponse").on("change", "#FF", function(e) {
+        var FI = $("#FI").val();
+        var FF = $("#FF").val();
+        validarFechas(FI, FF); 
+    });
+
+    $("#divResponse").on("click", "#btnSaveFechas", function(e) {
+        var FI = $("#FI").val();
+        var FF = $("#FF").val();
+        var unidad = $("#unidad").val();
+        console.log("UPDATE unidades SET fechainicio = "+FI+". fechafin ="+FF+" WHERE id = "+unidad);
+    });
+});

@@ -66,19 +66,19 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Modal title</h4>
+					<h4 class="modal-title">Configurar Fechas</h4>
 				</div>
 				<div class="modal-body">
 					<form>
 						<label for="FI">Fecha Inicio:</label>
-						<input type="date" name="FI" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required>
+						<input type="date" name="FI" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required id="FI">
 						<label for="FF" class="col-md-offset-1">Fecha Final:</label>
-						<input type="date" name="FF" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required>
+						<input type="date" name="FF" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required id="FF">
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-primary" id="btnSaveFechas" disabled="true">Guardar</button>
+					<button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
 		</div>
