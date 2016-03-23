@@ -4,16 +4,20 @@
 	<meta charset="UTF-8">
 	<title>SUC: Sistema Único de Calificaciones - Asistencia</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<!-----------------------Recursos de Bootstrap-------------------------->
+	<?php require_once("../../model/SesionProfesor.php"); //control de sesiones ?>
+	<!---Recursos de Bootstrap-->
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
 	<script type="text/javascript" charset="UTF-8" src="../../js/jquery.js"></script>
 	<script src="../../js/bootstrap.min.js"></script>
 	<script src="../../js/scripts.js"></script>
-	<!--------------------------Fin recursos de bootstrap-------------------------->
+	<!--Fin recursos de bootstrap-->
 
-	<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="../../js/jquery.dataTables.js"></script>
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
+	<!--Recursos para el plugin de DataTables-->
+	<link rel="stylesheet" type="text/css" href="../../css/datatables.min.css">
+	<script src="../../js/datatables.min.js"></script>
+	<!--Fin de Recursos para el plugin de DataTables-->
+
 	<?php
 		require_once("../../model/SesionProfesor.php"); //control de sesiones
 		include_once("../../model/DAOasistencia.php");

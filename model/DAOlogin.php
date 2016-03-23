@@ -19,7 +19,7 @@
 		}
 
 		function comprobarCredenciales() {
-			$sql = "CALL login (".$this->user.",".$this->password.");";
+			$sql = "SELECT tipo FROM usuarios WHERE username = ".$this->user." AND contraseña = ".$this->password.";";
 			$this->bd->selectSQL($sql);
 			return $this->bd->rowresult;
 		}

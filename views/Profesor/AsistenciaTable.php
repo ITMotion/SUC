@@ -2,6 +2,7 @@
 	$grupo = $_GET['grupo'];
 	$materia = $_GET['materia'];
 	$unidad = $_GET['unidad'];
+	$asignatura = $_GET['asignatura'];
 	include_once("../../model/DAOasistencia.php");
 	$db = new DAOasistencia();
 	$assignment = $db->getAsignaturaByGrupoAndMateriaAndUnidad($grupo, $materia, $unidad);
@@ -16,7 +17,8 @@
 				<th>Nombre</th>
 				<?php
 					foreach ($assignment as $column) {
-						echo "<th>$column->fecha</th>";
+						$date = date_create($column->fecha);
+						echo "<th>".date_format($date, 'd')."</th>";
 					}
 				?>
 			</tr>
@@ -28,23 +30,23 @@
 				<th><?php echo strtoupper($alumno->paterno . " " . $alumno->materno . " " . $alumno->nombres) ?></th>
 				<?php
 					foreach ($assignment as $column):
-						$asistencia = $db->getAsistencia($alumno->matricula, $materia, $column->fecha);
+						$asistencia = $db->getAsistencia($alumno->matricula, $asignatura, $column->fecha);
 						if ($asistencia != 0) {
 							if($asistencia[0]->asistencia == 1){
 				?>
 					<th><input type="checkbox" checked
-					onclick="updateAsistencia(0, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $materia ?>')"></th>
+					onclick="updateAsistencia(0, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $asignatura ?>')"></th>
 				<?php
 							}
 							else {
 				?>
 					<th><input type="checkbox"
-					onclick="updateAsistencia(1, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $materia ?>')"></th>
+					onclick="updateAsistencia(1, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $asignatura ?>')"></th>
 				<?php 		}
 						} else {
 				?>
 					<th><input type="checkbox"
-					onclick="updateAsistencia(1, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $materia ?>')"></th>
+					onclick="updateAsistencia(1, <?php echo $alumno->matricula ?>, '<?php echo $column->fecha ?>', '<?php echo $asignatura ?>')"></th>
 				<?php } endforeach ?>
 			</tr>
 			<?php endforeach ?>
@@ -53,6 +55,39 @@
 </div>
 <?php }
 	else {
-		echo "<h3>Error 100: No existen días laborales entre las fechas establecidas. Favor de contactar al administrador.</h3>";
+		$grado = $db->getGradoMateria($materia);
+		$fechas = $db->getFechasCuatrimestre($grado[0]->grado);
+		if (is_null($fechas)) {
+			echo "<h1>¡El cuatrimestre no es válido!</h1>";
+		} else {
+?>
+	<h1 id="materia" style="display: none"><?php echo $materia; ?></h1>
+	<h1 id="grupo" style="display: none"><?php echo $grupo; ?></h1>
+	<h1 id="asignatura" style="display: none"><?php echo $asignatura; ?></h1>
+	<a class="btn btn-primary col-md-12" data-toggle="modal" href='#fechas'>Configurar Fechas Válidas Para la Unidad</a>
+	<div class="modal fade" id="fechas">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Configurar Fechas</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<label for="FI">Fecha Inicio:</label>
+						<input type="date" name="FI" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required id="FI">
+						<label for="FF" class="col-md-offset-1">Fecha Final:</label>
+						<input type="date" name="FF" min="<?php echo $fechas[0]->fecha_inicio ?>" max="<?php echo $fechas[0]->fecha_fin ?>" required id="FF">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btnSaveFechas" disabled="true">Guardar</button>
+					<button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+		}
 	}
 ?>

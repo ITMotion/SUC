@@ -45,8 +45,8 @@
 			}
 		}
 
-		function getUnidadesByMateria($materia) {
-			$sql = "SELECT * FROM unidades WHERE materia = '".$materia."';";
+		function getUnidadesByMateria($asignatura) {
+			$sql = "SELECT * FROM unidades WHERE materia = '".$asignatura."';";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
@@ -74,7 +74,7 @@
 			$sql = "SELECT CAL.fecha FROM grupomateria GM
     			INNER JOIN diasmaterias DM ON GM.id = DM.materia
     			INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
-    			INNER JOIN unidades U ON GM.idmateria = U.materia
+    			INNER JOIN unidades U ON GM.id = U.materia
 				WHERE GM.idgrupo = '".$grupo."' AND idmateria = ".$materia." AND U.id = ".$unidad." 
 					AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin;";
 			$this->bd->selectSQL($sql);
@@ -109,32 +109,12 @@
 			}
 		}
 
-		/*function obtenerAsistenciaPorGrupoYMateriaYUnidad($grupo, $materia, $unidad, $alumno) {
-			$sql = "SELECT ASIST.fecha
-				FROM grupomateria GM INNER JOIN diasmaterias DM
-				ON GM.id = DM.materia
-				INNER JOIN calendario CAL ON DM.dia = CAL.`dia-semana`
-    			INNER JOIN unidades U ON GM.idmateria = U.materia
-    			INNER JOIN asistencia ASIST ON CAL.fecha = ASIST.fecha
-    			WHERE GM.idgrupo = '".$grupo."' 
-    			AND idmateria = '".$materia."' 
-    			AND U.descripcion = ".$unidad."
-    			AND ASIST.alumno = ".$alumno."
-    			AND CAL.fecha BETWEEN U.fechainicio AND U.fechafin ORDER BY ASIST.fecha ASC;";
-			$this->bd->selectSQL($sql);
-			if(!empty($this->bd->rowresult)){
-				return $this->bd->rowresult;
-			}
-			else {
-				return null;
-			}
-		}*/
 
-		function getAsistencia($alumno, $materia, $fecha) {
-			$sql = "SELECT asistencia FROM asistencia WHERE alumno = ".$alumno." AND materia = '".$materia."' AND fecha = '".$fecha."';";
+		function getAsistencia($alumno, $asignatura, $fecha) {
+			$sql = "SELECT asistencia FROM asistencia WHERE alumno = ".$alumno." AND materia = '".$asignatura."' AND fecha = '".$fecha."';";
 			$this->bd->selectSQL($sql);
 			if(empty($this->bd->rowresult)){
-				$this->createAsistencia($alumno, $materia, $fecha);
+				$this->createAsistencia($alumno, $asignatura, $fecha);
 				return 0;
 			}
 			else {
@@ -142,13 +122,28 @@
 			}
 		}
 
-		function createAsistencia($alumno, $materia, $fecha) {
-			$sql = "INSERT INTO asistencia VALUES (null, ".$alumno.", '".$materia."', '".$fecha."', 0);";
+		function createAsistencia($alumno, $asignatura, $fecha) {
+			$sql = "INSERT INTO asistencia VALUES (null, ".$alumno.", '".$asignatura."', '".$fecha."', 0);";
 			return $this->bd->executeSQL($sql);
 		}
 
 		function updateAsistencia($fecha, $matricula, $asistencia, $materia) {
 			$sql = "UPDATE asistencia SET asistencia = ".$asistencia." WHERE alumno = ".$matricula." AND materia = '".$materia."' AND fecha = '".$fecha."';";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function getGradoMateria($materia) {
+			$sql = "SELECT grado FROM materias WHERE clave = ".$materia.";";
+			return $this->bd->selectSQL($sql);
+		}
+
+		function getFechasCuatrimestre($cuatrimestre) {
+			$sql = "SELECT * FROM cuatrimestres WHERE cuatrimestre = ".$cuatrimestre.";";
+			return $this->bd->selectSQL($sql);
+		}
+
+		function updateFechasUnidad($FI, $FF, $unidad) {
+			$sql = "UPDATE unidades SET fechainicio = '".$FI."', fechafin = '".$FF."' WHERE id = ".$unidad.";";
 			return $this->bd->executeSQL($sql);
 		}
 	}

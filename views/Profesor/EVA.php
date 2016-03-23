@@ -14,7 +14,6 @@
     margin-bottom: 0.5em;
     border-style: inset;
     border-width: 1px;">
-<button class="btn btn-danger" id="btnExportPDF">Exportar PDF</button>
 <button class="btn btn-warning pull-right" data-toggle="modal" data-target="#configuracion">Configuración</button>
 <div class="clearfix"></div>
 <br>
@@ -34,7 +33,7 @@
 <div class="clearfix"></div>
 <!------------------------------------------------Comienza tabla-------------------------------------------------------------->
 <div class="table-responsive">
-	<table class="table t1able-condensed table-striped table-hover">
+	<table id="tblEVA" class="table t1able-condensed table-striped table-hover">
 		<thead>
 				<tr id="tableConfigSection">
 					<th></th>
@@ -63,9 +62,13 @@
 			$i=0;
 			foreach ($alumnos as $alumno):
 				$i++;
-				$asistencia = $db->getAsistencia($alumno->matricula, $unidad, $materia);
-				$asistenciaTotal = $db->getAsistenciaTotal($alumno->matricula, $unidad, $materia);
-				$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);
+				$asistencia = $db->getAsistencia($alumno->matricula, $unidad, $asignatura);
+				$asistenciaTotal = $db->getAsistenciaTotal($alumno->matricula, $unidad, $asignatura);
+				if ($asistenciaTotal[0]->TOTAL != 0) {
+					$porcentajeAsist = round($asistencia[0]->parcial / $asistenciaTotal[0]->TOTAL * 100);	
+				} else {
+					$porcentajeAsist = 0;
+				}
 				$calificacion = $db->getCalificacionAlumno($alumno->matricula, $materia, $unidad);
 				if (is_null($calificacion)) { //si no tiene calificacion
 			?>

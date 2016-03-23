@@ -38,7 +38,7 @@
 	?>
 </head>
 <body>
-	<?php include_once("../Menu.html") ?>
+	<?php include_once("Menu.php") ?>
 	<div class="container">
 		<h1><b>Unidades de la materia:</b> <?php echo $descripcion ?></h1>
 		<form action="../../model/mat-crear.php" method="POST" class="form-horizontal">

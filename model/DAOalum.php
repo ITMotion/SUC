@@ -13,7 +13,7 @@
 
 		//obtener la tabla de los alumnos
 		function GetInfoAlumnos(){
-			$sql ="SELECT * FROM ALUMNOS";
+			$sql ="SELECT * FROM alumnos";
 
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
@@ -25,7 +25,7 @@
 		}
 
 		function getAlumnoByMatricula($matricula) {
-			$sql="SELECT * FROM ALUMNOS WHERE matricula =$matricula";
+			$sql="SELECT * FROM alumnos WHERE matricula =$matricula";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;

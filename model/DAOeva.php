@@ -28,11 +28,11 @@
 			}
 		}
 
-		function getAsistenciaTotal($matricula, $unidad, $materia) 
+		function getAsistenciaTotal($matricula, $unidad, $asignatura) 
 		{
 			$sql = "SELECT COUNT(A.asistencia) AS TOTAL
 			FROM asistencia A INNER JOIN unidades U ON A.materia = U.materia 
-			WHERE A.alumno = ".$matricula." AND A.materia = ".$materia." AND A.fecha BETWEEN U.fechainicio AND U.fechafin;";
+			WHERE A.alumno = ".$matricula." AND A.materia = ".$asignatura." AND A.fecha BETWEEN U.fechainicio AND U.fechafin;";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult))
 			{
