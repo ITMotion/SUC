@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>SUC: Sistema Único de Calificaciones - Asistencia</title>
+	<title>SUC: Sistema Único de Calificaciones - Profesor</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<?php require_once("../../model/SesionProfesor.php"); //control de sesiones ?>
 	<!---Recursos de Bootstrap-->
@@ -19,7 +19,6 @@
 	<!--Fin de Recursos para el plugin de DataTables-->
 
 	<?php
-		require_once("../../model/SesionProfesor.php"); //control de sesiones
 		include_once("../../model/DAOasistencia.php");
 		$db = new DAOasistencia();
 		$asignaturas = $db->getAsignaturasByProfesor($_SESSION["user"]);
