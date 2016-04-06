@@ -23,5 +23,50 @@
 			$this->bd->selectSQL($sql);
 			return $this->bd->rowresult;
 		}
+
+		function obtenerCalificaciones($alumno, $asignatura) {
+			$sql = "SELECT U.descripcion AS unidad, C.saber, C.hacer, C.ser, C.final, C.accionMejora FROM calificaciones C INNER JOIN grupomateria GM ON C.materia = GM.idmateria INNER JOIN unidades U ON C.unidad = U.id WHERE C.alumno = ".$alumno." AND GM.id = ".$asignatura." ORDER BY C.unidad;";
+			$this->bd->selectSQL($sql);
+			if (isset($this->bd->rowresult)) {
+				return $this->bd->rowresult;		
+			} else {
+				return null;
+			}
+		}
+
+		/* Obtiene todos los registros de asistencia, sin importar si es positiva o negativa*/
+		function getAsistenciaTotal($matricula, $unidad, $asignatura) 
+		{
+			$sql = "SELECT COUNT(A.asistencia) AS TOTAL
+			FROM asistencia A INNER JOIN unidades U ON A.materia = U.materia 
+			WHERE A.alumno = ".$matricula." AND A.materia = ".$asignatura." AND A.fecha BETWEEN U.fechainicio AND U.fechafin;";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
+		}
+
+		/*Obtiene las asistencias positivas del alumno */
+		function getAsistencia($matricula, $unidad, $asignatura)
+		{
+			$sql = "SELECT COUNT(A.asistencia) AS parcial
+			FROM asistencia A INNER JOIN unidades U ON A.materia = U.materia 
+			WHERE A.asistencia = 1 AND A.alumno = ".$matricula." AND A.materia = ".$asignatura." AND A.fecha BETWEEN U.fechainicio AND U.fechafin;";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult))
+			{
+				return $this->bd->rowresult;
+			}
+			else 
+			{
+				return null;
+			}
+		}
+
 	}
 ?>

@@ -128,14 +128,21 @@ $(document).ready(function() {
         var thSer = $(this).parent().parent().find(".th_ser");
 
         var alumnoC = $(this).parent().parent().find(".alumno").html();
-        var totalC =  $(this).parent().parent().find(".cal_total").html();
+
+        var thTotal = $(this).parent().parent().find(".cal_total"); //th de la calificacion final
+        var totalC =  $(this).parent().parent().find(".cal_total").html(); // valor de la calificación final
+
         var tram = $(this).parent().parent().find(".cb_am"); //checkbox de acción de mejora
+        var am = $(this).parent().parent().find(".tr_am"); //th de acción de mejora
         var amC = 0;
         if(tram.val() != undefined) {
             if(tram.is(':checked')) {
                 amC = 1;
+                amV = "SA";
+                totalC = 80;
             } else{
                 amC = 0;
+                amV = "";
             }
         }
         $.ajax({
@@ -161,7 +168,11 @@ $(document).ready(function() {
             thHacer.html(hacerC);
             thSer.empty();
             thSer.html(serC);
-            th_btn.empty();
+            am.empty();
+            am.html(amV);
+            thTotal.empty();
+            thTotal.html(totalC);
+            th_btn.empty();            
             th_btn.append('<a class="btnEditarCampos"><img src="../../image/icons/edit.png" onmouseover="this.src=\'../../image/icons/editcolor.png\'" onmouseout="this.src=\'../../image/icons/edit.png\'"></a>');
         })
     });

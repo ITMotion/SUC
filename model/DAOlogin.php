@@ -24,6 +24,15 @@
 			return $this->bd->rowresult;
 		}
 
+		function compruebaContraseña($contraseña) {
+			$sql = "SELECT contraseña FROM usuarios WHERE contraseña = '".$contraseña."'";
+			if (!is_null($this->bd->selectSQL($sql))) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		function getInfoAlumno($user) {
 			$sql = "SELECT * FROM alumnos WHERE matricula = $user;";
 			$this->bd->selectSQL($sql);

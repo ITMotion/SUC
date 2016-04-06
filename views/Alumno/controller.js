@@ -12,23 +12,12 @@ $(document).ready(function () {
 	});
 
 	$("#content").on("click", ".card", function(e) {
-		var asignatura = $(this).find(".idAsignatura").html();
-		var materia = $(this).find(".materia").html();
-		var profesor = $(this).find(".profesor").html();
-		$.ajax({
-			url: "DetalleCalificaciones.php",
-			type: "POST",
-			dataType: "HTML",
-			data: {
-				asignatura: asignatura,
-				materia: materia,
-				profesor: profesor
-			}
-		}).done(function(data) {
-			$("#content").fadeOut(200, function(){
-				$(this).html(data).fadeIn(200);
-			});
-		});
+		var table = $(this).find(".tableCal");
+		if(table.is(":hidden")) {
+			table.slideDown("slow");
+		} else {
+			table.slideToggle("slow");
+		}
 	});
 });
 

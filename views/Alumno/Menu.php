@@ -33,7 +33,7 @@
 				<li class="dropdown">
 					<a href="#" data-toggle="dropdown"><?php echo $username; ?> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="">Mis Datos</a></li>
+						<li><a href="MisDatos.php">Mis Datos</a></li>
 						<li><a href="../../model/logout.php">Cerrar Sesión</a></li>
 					</ul>
 				</li>
