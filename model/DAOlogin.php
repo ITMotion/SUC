@@ -33,6 +33,16 @@
 			}
 		}
 
+		function actualizaContraseña($user, $contraseña) {
+			$sql = "UPDATE usuarios SET contraseña = '".$contraseña."' WHERE username = ".$user.";";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function actualizaCorreoAlumno($alumno, $correo) {
+			$sql = "UPDATE alumnos SET correo = '".$correo."' WHERE matricula = ".$alumno.";";
+			return $this->bd->executeSQL($sql);
+		}
+
 		function getInfoAlumno($user) {
 			$sql = "SELECT * FROM alumnos WHERE matricula = $user;";
 			$this->bd->selectSQL($sql);

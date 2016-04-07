@@ -7,6 +7,9 @@ $(document).ready(function () {
 		if(valor == "Asistencia") {
 			controlador(2);
 		}
+		if (valor == "Mis Datos") {
+			controlador(3);
+		}
 		$("li").removeClass("active");	
 		$(this).parent().closest("li").addClass("active");
 	});
@@ -28,8 +31,8 @@ function controlador(direccion) {
 			type: "POST",
 			dataType: "HTML",
 		}).done(function(data){
-			$("#content").fadeOut(200, function(){
-				$(this).html(data).fadeIn(200);
+			$("#content").fadeOut(100, function(){
+				$(this).html(data).fadeIn(100);
 			});
 		});
 	}
@@ -39,8 +42,19 @@ function controlador(direccion) {
 			type: "POST",
 			dataType: "HTML",
 		}).done(function(data){
-			$("#content").fadeOut(200, function(){
-				$(this).html(data).fadeIn(200);
+			$("#content").fadeOut(100, function(){
+				$(this).html(data).fadeIn(100);
+			});
+		});
+	}
+	if (direccion == 3) {
+		$.ajax({
+			url: "MisDatos.php",
+			type: "POST",
+			dataType: "HTML",
+		}).done(function(data){
+			$("#content").fadeOut(100, function(){
+				$(this).html(data).fadeIn(100);
 			});
 		});
 	}

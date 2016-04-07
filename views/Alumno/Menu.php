@@ -28,12 +28,12 @@
 		<!-- Comienzan las opciones del menú -->
 		<div class="collapse navbar-collapse" id="menuAlumno">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="controlador">Calificaciones</a></li>
-				<li><a class="controlador">Asistencia</a></li>
+				<li><a class="controlador" data-toggle="collapse" data-target=".navbar-collapse.in">Calificaciones</a></li>
+				<li><a class="controlador" data-toggle="collapse" data-target=".navbar-collapse.in">Asistencia</a></li>
 				<li class="dropdown">
 					<a href="#" data-toggle="dropdown"><?php echo $username; ?> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="MisDatos.php">Mis Datos</a></li>
+						<li><a class="controlador" data-toggle="collapse" data-target=".navbar-collapse.in">Mis Datos</a></li>
 						<li><a href="../../model/logout.php">Cerrar Sesión</a></li>
 					</ul>
 				</li>

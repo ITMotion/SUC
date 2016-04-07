@@ -1,1 +1,3 @@
-<h1>Asistencia</h1>
+<div class="container">
+	<h1>¡En construcción!</h1>
+</div>

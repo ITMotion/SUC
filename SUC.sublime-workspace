@@ -267,7 +267,7 @@
 			"file": "views/Alumno/Calificaciones.php",
 			"settings":
 			{
-				"buffer_size": 3354,
+				"buffer_size": 2861,
 				"line_ending": "Windows"
 			}
 		},
@@ -275,7 +275,7 @@
 			"file": "views/Alumno/MisDatos.php",
 			"settings":
 			{
-				"buffer_size": 2593,
+				"buffer_size": 3516,
 				"line_ending": "Windows"
 			}
 		},
@@ -283,23 +283,15 @@
 			"file": "views/Alumno/MisDatos.js",
 			"settings":
 			{
-				"buffer_size": 941,
+				"buffer_size": 1001,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "model/Alumno/updateProfile.php",
+			"file": "views/Alumno/Menu.php",
 			"settings":
 			{
-				"buffer_size": 753,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "model/DAOlogin.php",
-			"settings":
-			{
-				"buffer_size": 1295,
+				"buffer_size": 1452,
 				"line_ending": "Windows"
 			}
 		},
@@ -307,7 +299,7 @@
 			"file": "views/Alumno/controller.js",
 			"settings":
 			{
-				"buffer_size": 980,
+				"buffer_size": 1249,
 				"line_ending": "Windows"
 			}
 		}
@@ -320,9 +312,21 @@
 	"command_palette":
 	{
 		"height": 375.0,
-		"last_filter": "hourgl",
+		"last_filter": "remove",
 		"selected_items":
 		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"alert",
+				"Snippet: bs3-alert-danger"
+			],
 			[
 				"hourgl",
 				"Snippet: glyphicon-hourglass"
@@ -356,10 +360,6 @@
 				"Snippet: bs3-icon-glyphicon"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"submit",
 				"Snippet: bs3-input-submit"
 			],
@@ -388,10 +388,6 @@
 				"Snippet: bs3-block-button"
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
 				"sn",
 				"Snippet: html"
 			],
@@ -412,7 +408,7 @@
 				"Project: Close"
 			]
 		],
-		"width": 498.0
+		"width": 514.0
 	},
 	"console":
 	{
@@ -434,16 +430,21 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/SUC",
-		"/C/xampp/htdocs/SUC/model",
-		"/C/xampp/htdocs/SUC/model/Profesor",
 		"/C/xampp/htdocs/SUC/views",
 		"/C/xampp/htdocs/SUC/views/Alumno"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/SUC/views/Alumno/css/Calificaciones.css",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/xampp/htdocs/SUC/views/Alumno/css",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/xampp/htdocs/SUC/model/Alumno/updateProfile.php",
+		"/C/xampp/htdocs/SUC/model/DAOlogin.php",
 		"/C/xampp/htdocs/SUC/model/ADAOCalificaciones.php",
 		"/C/xampp/htdocs/SUC/views/Alumno/Menu.php",
-		"/C/xampp/htdocs/SUC/model/DAOlogin.php",
 		"/C/xampp/htdocs/SUC/views/Profesor/EVA.php",
 		"/C/xampp/htdocs/SUC/model/DAOeva.php",
 		"/C/xampp/htdocs/SUC/views/Alumno/index.php",
@@ -518,8 +519,6 @@
 		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Theme - Hero/Hero Dark.sublime-theme",
 		"/C/wamp/www/SUC/model/alum-ajax.js",
 		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/wamp/www/SUC/views/Alumnos.php",
 		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/wamp/www/SUC/views/Menu.html",
@@ -563,12 +562,7 @@
 		"/C/wamp/www/SUC/model/prfAgregar.php",
 		"/C/wamp/www/SUC/model/prfDelete.php",
 		"/C/wamp/www/SUC/model/EVAsaveCalif.php",
-		"/C/wamp/www/SUC/model/EVAexportPDF.php",
-		"/C/wamp/www/SUC/views/EVA.php",
-		"/C/Users/gusta/Downloads/dompdf/www/demo.php",
-		"/C/Users/gusta/Downloads/dompdf/dompdf_config.inc.php",
-		"/C/Users/gusta/Downloads/dompdf/dompdf.php",
-		"/C/Users/gusta/Downloads/dompdf/index.php"
+		"/C/wamp/www/SUC/model/EVAexportPDF.php"
 	],
 	"find":
 	{
@@ -587,6 +581,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"indent",
 			"cb_am",
 			"00cc99",
 			"navbar-default",
@@ -629,7 +624,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -638,15 +633,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3354,
+						"buffer_size": 2861,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								216,
-								222
+								229,
+								229
 							]
 						],
 						"settings":
@@ -655,10 +650,10 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -667,15 +662,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2593,
+						"buffer_size": 3516,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								964,
-								964
+								402,
+								289
 							]
 						],
 						"settings":
@@ -684,7 +679,7 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 432.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -696,15 +691,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 941,
+						"buffer_size": 1001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								932,
-								932
+								489,
+								489
 							]
 						],
 						"settings":
@@ -713,56 +708,27 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "model/Alumno/updateProfile.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								486,
-								486
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "model/DAOlogin.php",
+					"buffer": 3,
+					"file": "views/Alumno/Menu.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1295,
+						"buffer_size": 1452,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								898,
-								898
+								354,
+								200
 							]
 						],
 						"settings":
@@ -771,27 +737,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "views/Alumno/controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 980,
+						"buffer_size": 1249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								494,
-								355
+								1161,
+								1168
 							]
 						],
 						"settings":
@@ -799,8 +765,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,

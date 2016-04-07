@@ -18,6 +18,9 @@
 	<!-- Recursos de está página -->
 	<link rel="stylesheet" href="../../css/alumnoindex.css">
 	<script src="controller.js"></script>
+
+	<!--Recursos de MisDatos.php -->
+	<script src="MisDatos.js"></script>
 </head>
 <body>
 	<?php require_once("Menu.php"); ?>
