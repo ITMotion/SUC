@@ -12,7 +12,7 @@
 	$user = $dblogin->getInfoProfesor($_SESSION["user"]);
 	$username = $user[0]->nombres;
 ?>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
@@ -38,3 +38,5 @@
     </div>
   </div>
 </nav>
+
+<div style="margin-bottom: 55px;"></div>

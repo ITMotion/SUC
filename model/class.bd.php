@@ -29,7 +29,7 @@
 			$this->openCon(); 
 			$this->rs=$this->cnn->query($sql); 
 			if(!$this->rs){
-				$this->error="Error en la consulta: ". mysql_error();
+				$this->error="Error en la consulta: ". mysqli_error();
 				return false;
 			}else{
 				$this->closeCon();

@@ -59,6 +59,7 @@
 			}
 		}
 
+		//usar agregarAlumno()
 		function insertAlumno($nombres, $paterno, $materno, $grupo) {
 			$sql = "INSERT INTO alumnos VALUES (null, '".$nombres."', '".$paterno."', '".$materno."', '".$grupo."');";
 			return $this->bd->executeSQL($sql);
@@ -102,7 +103,7 @@
 		}
 
 		function getAlumnosByProfesor($matProfesor){
-			$sql = "SELECT A.matricula, A.nombres, A.paterno, A.materno, A.grupo
+			$sql = "SELECT A.matricula, A.nombres, A.paterno, A.materno, A.grupo, A.correo
 				FROM alumnos A INNER JOIN grupomateria GM ON A.grupo = GM.idgrupo WHERE idprofesor = ".$matProfesor.";";
 			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
@@ -111,6 +112,27 @@
 			else {
 				return null;
 			}
+		}
+
+		function obtenerGruposPorProfesor($matProfesor) {
+			$sql = "SELECT idgrupo FROM grupomateria WHERE idprofesor = ".$matProfesor.";";
+			$this->bd->selectSQL($sql);
+			if(!empty($this->bd->rowresult)){
+				return $this->bd->rowresult;
+			}
+			else {
+				return null;
+			}
+		}
+
+		function agregarAlumno($matricula, $nombres, $paterno, $materno, $grupo, $correo) {
+			$sql = "INSERT INTO alumnos values (".$matricula.", '".$nombres."', '".$paterno."', '".$materno."', '".$correo."', '".$grupo."');";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function agregarAlumnoAI($nombres, $paterno, $materno, $grupo, $correo) {
+			$sql = "INSERT INTO alumnos VALUES (null, '".$nombres."', '".$paterno."', '".$materno."', '".$correo."','".$grupo."');";
+			return $this->bd->executeSQL($sql);
 		}
 	}
 ?>
