@@ -29,7 +29,6 @@
 		function getCarreras(){
 			$sql="SELECT * FROM carreras;";
 			$this->bd->selectSQL($sql);
-			$this->bd->selectSQL($sql);
 			if(!empty($this->bd->rowresult)){
 				return $this->bd->rowresult;
 			}

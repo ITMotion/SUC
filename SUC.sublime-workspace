@@ -1,0 +1,860 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"total",
+				"totalC"
+			],
+			[
+				"is_n",
+				"is_null"
+			],
+			[
+				"control",
+				"controlador"
+			],
+			[
+				"ease",
+				"ease-out"
+			],
+			[
+				"transitio",
+				"transition-delay"
+			],
+			[
+				"transi",
+				"transition-duration"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"asi",
+				"asignatura"
+			],
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"data",
+				"dataType"
+			],
+			[
+				"ch",
+				"checkValidity"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"validar",
+				"validarSelect"
+			],
+			[
+				"max",
+				"max	Attr"
+			],
+			[
+				"isn",
+				"is_null"
+			],
+			[
+				"ma",
+				"materno"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"con",
+				"contraseña"
+			],
+			[
+				"contras",
+				"contraseña"
+			],
+			[
+				"contrasñe",
+				"contraseñaMaterno"
+			],
+			[
+				"contr",
+				"contraseñaPaterno"
+			],
+			[
+				"m",
+				"matricula"
+			],
+			[
+				"co",
+				"correo"
+			],
+			[
+				"min",
+				"min	Attr"
+			],
+			[
+				"profe",
+				"profesor"
+			],
+			[
+				"saber",
+				"saberC"
+			],
+			[
+				"sabe",
+				"saberC"
+			],
+			[
+				"cal_",
+				"cal_total"
+			],
+			[
+				"califi",
+				"calificacion_letras"
+			],
+			[
+				"hacer",
+				"hacerC"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"hace",
+				"hacerTh"
+			],
+			[
+				"div",
+				"divResponse"
+			],
+			[
+				"dese",
+				"desempeñoC"
+			],
+			[
+				"utf8",
+				"utf8_decode"
+			],
+			[
+				"utf",
+				"utf8_encode"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"asisnt",
+				"asistenciaTotal"
+			],
+			[
+				"s",
+				"style	Attr"
+			],
+			[
+				"fechas",
+				"fechasFinales"
+			],
+			[
+				"jque",
+				"jquery-ui"
+			],
+			[
+				"gr",
+				"grupo"
+			],
+			[
+				"as",
+				"assignment"
+			],
+			[
+				"grupo",
+				"grupomateria"
+			],
+			[
+				"materia",
+				"materiaexistente"
+			],
+			[
+				"prof",
+				"profesor"
+			],
+			[
+				"onmouse",
+				"onmouseout	Attr"
+			],
+			[
+				"pro",
+				"profesor"
+			],
+			[
+				"mat",
+				"materia"
+			],
+			[
+				"p",
+				"profesor"
+			],
+			[
+				"profes",
+				"profesores"
+			],
+			[
+				"x",
+				"xhttp"
+			],
+			[
+				"invo",
+				"invoqueTXT"
+			],
+			[
+				"xml",
+				"XMLHttpRequest"
+			],
+			[
+				"btn",
+				"btnTXT"
+			],
+			[
+				"in",
+				"innerHTML"
+			],
+			[
+				"contador",
+				"contador2"
+			],
+			[
+				"XML",
+				"XMLHttpRequest"
+			],
+			[
+				"check",
+				"checked"
+			],
+			[
+				"array_m",
+				"array_merge"
+			],
+			[
+				"arra",
+				"array	$… = array (…)"
+			],
+			[
+				"id",
+				"idGrupo"
+			],
+			[
+				"array",
+				"array"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "views/Alumno/Calificaciones.php",
+			"settings":
+			{
+				"buffer_size": 2861,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/Alumno/MisDatos.php",
+			"settings":
+			{
+				"buffer_size": 3516,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/Alumno/MisDatos.js",
+			"settings":
+			{
+				"buffer_size": 1001,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/Alumno/Menu.php",
+			"settings":
+			{
+				"buffer_size": 1452,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/Alumno/controller.js",
+			"settings":
+			{
+				"buffer_size": 1249,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "remove",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"alert",
+				"Snippet: bs3-alert-danger"
+			],
+			[
+				"hourgl",
+				"Snippet: glyphicon-hourglass"
+			],
+			[
+				"glyphicon-back",
+				"Snippet: glyphicon-backward"
+			],
+			[
+				"glyphicon-edi",
+				"Snippet: glyphicon-edit"
+			],
+			[
+				"glyphicon-s",
+				"Snippet: glyphicon-save"
+			],
+			[
+				"lock",
+				"Snippet: glyphicon-lock"
+			],
+			[
+				"aler",
+				"Snippet: bs3-alert-info"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"icon",
+				"Snippet: bs3-icon-glyphicon"
+			],
+			[
+				"submit",
+				"Snippet: bs3-input-submit"
+			],
+			[
+				"chec",
+				"Snippet: bs3-input-checkbox"
+			],
+			[
+				"button-wa",
+				"Snippet: bs3-button-warning"
+			],
+			[
+				"button-pri",
+				"Snippet: bs3-button-primary"
+			],
+			[
+				"form",
+				"Snippet: bs3-form"
+			],
+			[
+				"modal",
+				"Snippet: bs3-modal"
+			],
+			[
+				"bs3",
+				"Snippet: bs3-block-button"
+			],
+			[
+				"sn",
+				"Snippet: html"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"snippet",
+				"Snippet: bs3-form"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"close",
+				"Project: Close"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/SUC",
+		"/C/xampp/htdocs/SUC/views",
+		"/C/xampp/htdocs/SUC/views/Alumno"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/SUC/views/Alumno/css/Calificaciones.css",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/xampp/htdocs/SUC/views/Alumno/css",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/C/xampp/htdocs/SUC/model/Alumno/updateProfile.php",
+		"/C/xampp/htdocs/SUC/model/DAOlogin.php",
+		"/C/xampp/htdocs/SUC/model/ADAOCalificaciones.php",
+		"/C/xampp/htdocs/SUC/views/Alumno/Menu.php",
+		"/C/xampp/htdocs/SUC/views/Profesor/EVA.php",
+		"/C/xampp/htdocs/SUC/model/DAOeva.php",
+		"/C/xampp/htdocs/SUC/views/Alumno/index.php",
+		"/C/xampp/htdocs/SUC/views/Alumno/DetalleCalificaciones.php",
+		"/C/xampp/htdocs/SUC/views/Alumno/controller.js",
+		"/C/xampp/htdocs/SUC/model/class.bd.php",
+		"/C/xampp/htdocs/SUC/model/asistencia.js",
+		"/C/xampp/htdocs/SUC/model/EVA.js",
+		"/C/xampp/htdocs/SUC/model/DAOcarrera.php",
+		"/C/xampp/htdocs/SUC/views/Administrator/ProfesoresFrm.php",
+		"/C/xampp/htdocs/SUC/model/Alumno/DAOAlumno.php",
+		"/C/xampp/htdocs/SUC/views/Alumno/Asistencia.php",
+		"/C/xampp/htdocs/SUC/views/Profesor/Menu.php",
+		"/C/xampp/htdocs/SUC/model/SesionAdministrador.php",
+		"/C/xampp/htdocs/SUC/css/alumnoindex.css",
+		"/C/xampp/htdocs/SUC/model/SesionAlumno.php",
+		"/C/xampp/htdocs/SUC/model/SesionProfesor.php",
+		"/C/xampp/htdocs/SUC/model/login.php",
+		"/C/xampp/htdocs/SUC/views/Profesor/index.php",
+		"/C/xampp/htdocs/SUC/views/Alumnos/index.php",
+		"/C/Users/gusta/Downloads/spoilers 6x16.txt",
+		"/C/wamp/www/AngularJS/hola_controller/controller.js",
+		"/C/wamp/www/AngularJS/hola_controller/index.html",
+		"/C/Users/gusta/Videos/Películas/Captain America - Winter Soldier/Informacion importante.txt",
+		"/C/wamp/www/AngularJS/hola_mundo/index.html",
+		"/C/wamp/www/SUC/views/Profesor/AsistenciaTable.php",
+		"/C/wamp/www/PIA/class/class.propertyaction.php",
+		"/C/wamp/www/PIA/cms/newPropFrm.php",
+		"/C/wamp/www/PIA/cms/menu.php",
+		"/C/wamp/www/PIA/cms/property.php",
+		"/C/wamp/www/PIA/cms/inventory.php",
+		"/C/wamp/www/PIA/js/jquery-gmaps-latlon-picker.js",
+		"/C/Users/gusta/Desktop/Usuarios.txt",
+		"/C/wamp/www/SUC/views/Profesor/AsignaturasFrm2.php",
+		"/C/wamp/www/SUC/views/Profesor/AsignaturasFrm.php",
+		"/C/wamp/www/SUC/model/DAOmaterias.php",
+		"/C/wamp/www/SUC/model/DAOgm.php",
+		"/C/wamp/www/SUC/model/Profesor/crearAsignatura.php",
+		"/F/Diccionario/app/src/main/java/com/example/gustavo/diccionario/Main.java",
+		"/F/Diccionario/app/src/main/res/layout/activity_main.xml",
+		"/C/wamp/www/SUC/model/gm-asignarMateria.php",
+		"/C/wamp/www/SUC/views/Profesor/Asignaturas.php",
+		"/C/wamp/www/SUC/model/DAOasistencia.php",
+		"/C/wamp/www/SUC/views/Profesor/AsistenciaUnid.php",
+		"/C/wamp/www/SUC/model/asistencia.js",
+		"/C/wamp/www/SUC/views/Profesor/index.php",
+		"/C/wamp/www/SUC/model/DAOeva.php",
+		"/C/wamp/www/SUC/views/Profesor/EVA.php",
+		"/C/wamp/www/SUC/model/asignaturas2.js",
+		"/C/wamp/www/SUC/model/DAOgrupo.php",
+		"/C/wamp/www/SUC/model/Profesor/crearGrupo.php",
+		"/C/wamp/www/SUC/model/Profesor/crearMateria.php",
+		"/C/wamp/www/SUC/js/login.js",
+		"/C/wamp/www/SUC/views/Administrator/MateriasFrm2.php",
+		"/C/wamp/www/SUC/model/DAOalum.php",
+		"/C/Users/gusta/AppData/Local/Temp/DAOalum.php_20160303091352.php",
+		"/C/Users/gusta/AppData/Local/Temp/DAOalum.php_20160303091250.php",
+		"/C/wamp/www/SUC/views/Administrator/Alumnos.php",
+		"/C/wamp/www/SUC/model/mat-crear.php",
+		"/C/Users/gusta/AppData/Local/Temp/mat-crear.php_20160302232908.php",
+		"/C/Users/gusta/AppData/Local/Temp/DAOalum.php_20160302232208.php",
+		"/C/wamp/www/SUC/model/DAOlogin.php",
+		"/C/Users/gusta/AppData/Local/Temp/DAOlogin.php_20160302231321.php",
+		"/C/Users/gusta/Google Drive/UT Cancún/Desarrollo de Aplicaciones III/Unidad I/escuela 23-02.sql",
+		"/C/Users/gusta/AppData/Local/Temp/class.bd.php_20160302230937.php",
+		"/C/Users/gusta/AppData/Local/Temp/config.ini.php_20160302230956.php",
+		"/C/Users/gusta/AppData/Local/Temp/config.ini.php_20160302230652.php",
+		"/C/Users/gusta/AppData/Local/Temp/DAOlogin.php_20160302225955.php",
+		"/C/wamp/www/SUC/model/Profesor/mat-crear.php",
+		"/C/wamp/www/SUC/model/EVA.js",
+		"/F/gus.txt",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Theme - Hero/Hero Dark.sublime-theme",
+		"/C/wamp/www/SUC/model/alum-ajax.js",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/wamp/www/SUC/views/Alumnos.php",
+		"/C/Users/gusta/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/wamp/www/SUC/views/Menu.html",
+		"/C/wamp/www/SUC/views/AsistenciaUnid.php",
+		"/C/wamp/www/SUC/views/Asistencia.php",
+		"/C/wamp/www/SUC/views/AsistenciaTable.php",
+		"/C/Users/gusta/Desktop/escuela[Conflicto].sql",
+		"/C/Users/gusta/AppData/Local/Temp/DAOlogin.php_20160222211202.php",
+		"/C/Users/gusta/AppData/Local/Temp/DAOlogin.php_20160222211044.php",
+		"/C/wamp/www/SUC/views/AlumnosFrm.php",
+		"/C/Users/gusta/AppData/Local/Temp/config.ini.php_20160220150154.php",
+		"/C/Users/gusta/AppData/Local/Temp/config.ini.php_20160220150352.php",
+		"/C/Users/gusta/AppData/Local/Temp/config.ini.php_20160220150049.php",
+		"/C/wamp/www/SUC/views/CarrerasFrm.php",
+		"/C/wamp/www/SUC/views/EditAlumnosFrm.php",
+		"/C/wamp/www/SUC/views/EditCarrerasFrm.php",
+		"/C/wamp/www/SUC/views/EditGrupoFrm.php",
+		"/C/wamp/www/SUC/views/GrupoFrm.php",
+		"/C/wamp/www/SUC/views/GruposMaterias.php",
+		"/C/wamp/www/SUC/views/GruposMateriasEditFrm.php",
+		"/C/wamp/www/SUC/views/GruposMateriasFrm.php",
+		"/C/wamp/www/SUC/views/Materias.php",
+		"/C/wamp/www/SUC/views/MateriasFrm.php",
+		"/C/wamp/www/SUC/views/ProfesoresFrm.php",
+		"/C/wamp/www/SUC/views/ProfesoresEditFrm.php",
+		"/C/wamp/www/SUC/views/Profesores.php",
+		"/C/wamp/www/SUC/views/Grupos.php",
+		"/C/wamp/www/SUC/views/Carreras.php",
+		"/C/wamp/www/SUC/views/Administrator.php",
+		"/C/wamp/alias/phpmyadmin.conf",
+		"/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
+		"/C/wamp/www/SUC/model/login.php",
+		"/C/wamp/www/SUC/model/SesionAdministrador.php",
+		"/C/wamp/www/SUC/model/DAOprofesores.php",
+		"/C/wamp/www/SUC/model/prfEdit.php",
+		"/C/wamp/www/SUC/model/profesores.js",
+		"/C/wamp/www/SUC/js/dataTableProf.js",
+		"/C/wamp/www/SUC/js/dataTableGrup.js",
+		"/C/wamp/www/SUC/js/dataTableMat.js",
+		"/C/wamp/www/SUC/js/dataTableGrupo.js",
+		"/C/wamp/www/SUC/model/prfAgregar.php",
+		"/C/wamp/www/SUC/model/prfDelete.php",
+		"/C/wamp/www/SUC/model/EVAsaveCalif.php",
+		"/C/wamp/www/SUC/model/EVAexportPDF.php"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"indent",
+			"cb_am",
+			"00cc99",
+			"navbar-default",
+			"default",
+			"inverse",
+			"getUnidadesByMateria",
+			"theme",
+			"tag",
+			"Deny",
+			"Order",
+			"Order deny,allow",
+			"Allow",
+			"Follow",
+			"directory",
+			"setCamp",
+			"cal_total_letras",
+			"allow",
+			"number",
+			"<button class=\"btn btn-success pull-right\" onclick=\"getCalendar(<?php echo $materia ?>, '<?php echo $grupo; ?>')\">Consultar Lista de Asistencia</button>",
+			"<!",
+			"<",
+			"Tipo",
+			"newProperty",
+			"function"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"cal_desempeño"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "views/Alumno/Calificaciones.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2861,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/Alumno/MisDatos.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								289
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/Alumno/MisDatos.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								489,
+								489
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/Alumno/Menu.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								354,
+								200
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/Alumno/controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1161,
+								1168
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 648.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 63.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "SUC.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 177.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -24,6 +24,25 @@
 			return $this->bd->rowresult;
 		}
 
+		function compruebaContraseña($contraseña) {
+			$sql = "SELECT contraseña FROM usuarios WHERE contraseña = '".$contraseña."'";
+			if (!is_null($this->bd->selectSQL($sql))) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		function actualizaContraseña($user, $contraseña) {
+			$sql = "UPDATE usuarios SET contraseña = '".$contraseña."' WHERE username = ".$user.";";
+			return $this->bd->executeSQL($sql);
+		}
+
+		function actualizaCorreoAlumno($alumno, $correo) {
+			$sql = "UPDATE alumnos SET correo = '".$correo."' WHERE matricula = ".$alumno.";";
+			return $this->bd->executeSQL($sql);
+		}
+
 		function getInfoAlumno($user) {
 			$sql = "SELECT * FROM alumnos WHERE matricula = $user;";
 			$this->bd->selectSQL($sql);

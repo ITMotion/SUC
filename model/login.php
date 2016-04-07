@@ -17,6 +17,10 @@
 			$_SESSION['permisos']=2;
 			header("Location: ../views/Profesor/index.php");
 		}
+		elseif ($sesion[0]->tipo == 3) {
+			$_SESSION['permisos'] = 3;
+			header("Location: ../views/Alumno/index.php");
+		}
 	}
 	else {
 		header("Location: ../index.php?errorCredenciales");

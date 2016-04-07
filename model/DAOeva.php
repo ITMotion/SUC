@@ -28,6 +28,7 @@
 			}
 		}
 
+		/* Obtiene todos los registros de asistencia, sin importar si es positiva o negativa*/
 		function getAsistenciaTotal($matricula, $unidad, $asignatura) 
 		{
 			$sql = "SELECT COUNT(A.asistencia) AS TOTAL
@@ -44,6 +45,7 @@
 			}
 		}
 
+		/*Obtiene las asistencias positivas del alumno */
 		function getAsistencia($matricula, $unidad, $materia)
 		{
 			$sql = "SELECT COUNT(A.asistencia) AS parcial

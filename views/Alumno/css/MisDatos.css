@@ -1,0 +1,19 @@
+h2 {
+	text-align: center;
+}
+
+#contraseñaAnterior {
+	display: none;
+}
+
+#divAlertas {
+	display: none;
+}
+
+#btnGuardar {
+	display: none;
+}
+
+#btnCancelar {
+	display: none;
+}

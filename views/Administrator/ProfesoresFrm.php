@@ -21,7 +21,7 @@
 		<form action="../../model/prfAgregar.php" method="POST">
 			<div class="form-group">
 				<label for="matricula">Matricula:</label>
-				<input type="number" name="matricula" id="matricula" placeholder="Ingrese los 8 caracteres de la matrícula" class="form-control" required="true" max="19999999" min="10000000">
+				<input type="number" name="matricula" id="matricula" placeholder="Ingrese la matrícula" class="form-control" required="true" >
 			</div>
 
 			<div class="form-group">
